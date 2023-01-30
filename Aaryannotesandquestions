@@ -1,2 +1,3 @@
 If LOAD_TOP_BYTE is (memory's last address - (register value + immediate offset)), then shouldn't LOAD_BYTE be (memory's last address + (register value + immediate offset))
 Shouldn't BEQ and B be PC + 1 + Offset rather than PC + 4 + Offset because we can treat 9 bits (the length of 1 instruction). Also, wouldn't that mean that offset would need to be specified in multiples of (9 bits)
+In the Supported_Commands.md, shouldn't BEQ +5 be represented as [BEQ Opcode] 01 01 instead of [BEQ Opcode] -101
