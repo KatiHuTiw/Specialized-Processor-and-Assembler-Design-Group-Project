@@ -126,7 +126,7 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 
     BEQ +5
 
-    [BEQ Opcode] -101
+    [BEQ Opcode] 0101
 
 ### SLT
     Set less than. If the first register has value less than the second one, set the first register to 1, otherwise 0.
