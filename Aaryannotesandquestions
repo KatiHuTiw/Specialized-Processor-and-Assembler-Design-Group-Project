@@ -1,1 +1,1 @@
-
+If LOAD_TOP_BYTE is (memory's last address - (register value + immediate offset)), then shouldn't LOAD_BYTE be (memory's last address + (register value + immediate offset))
