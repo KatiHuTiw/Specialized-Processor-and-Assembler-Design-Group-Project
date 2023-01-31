@@ -64,6 +64,13 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 
     [SHIFT_RIGHT Opcode] 11 00
 
+### SHIFT_RIGHT_I (Might not need)
+    Shift register to the right by a register value.
+
+    SHIFT_RIGHT R3 2 //Incremented by 1 automatically, R3 = R3 >> 3
+
+    [SHIFT_RIGHT Opcode] 11 00
+
 ## Logic (Results are stored in the first register on default)
 
 ### AND
