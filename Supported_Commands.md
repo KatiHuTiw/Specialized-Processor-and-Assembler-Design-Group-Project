@@ -69,14 +69,14 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 ### AND
     Bitwise AND between two registers.
 
-    AND R2 R1
+    AND R2 R1 //R2 = R2 & R1
 
     [AND Opcode] 10 01
 
 ### OR
     Bitwise OR between two registers.
 
-    OR R2 R1
+    OR R2 R1 //R2 = R2 | R1
 
     [OR Opcode] 10 01
 
