@@ -36,6 +36,8 @@ MOV R1 3 //R1 = 0 0 0 0 0 0 1 1
 SHIFT_LEFT_I R1 2 //R1 = 0 0 0 1 1 0 0 0
 ADDI R1 2 //R1 = 0 0 0 1 1 0 1 1
 SHIFT_LEFT_I R1 2 //R1 = 1 1 0 1 1 0 0 0
+AND R1 R0 //R0 remains the same, R1 changes to D11 D10 0 0 D7 D6 0 0
+XOR_REG R1 R1 //R1 = 0 0 0 0 0 0 0 (D6 ^ D7 ^ D10 ^ D11)
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
