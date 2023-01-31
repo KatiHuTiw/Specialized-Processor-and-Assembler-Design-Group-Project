@@ -10,6 +10,8 @@ MOVI R1 0 //R1 = 0
 STORE_TOP_BYTE R1 0 //mem[top] = R0 = 60
 NOP
 NOP //The place where loop starts, relative jumps will be used to get here
+NOP //Code executed inside loop starts below this NOP
+NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
 MOV R1 R3 //R1 = R3
