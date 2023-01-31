@@ -24,6 +24,7 @@ MOV R1 R2 //R0 = D11 D10 D9 D8 D7 D6 D5 P8
 SHIFT_RIGHT_I R1 3 //R1 = R1 >> 4
 MOV R0 0 //R0 is set to 0 because its last bit will be set to xor of something in next few lines of code
 XOR_REG R1 R0 //R0's least significant bit = D8 ^ D9 ^ D10 ^ D11
+LOAD_BYTE R3 0 //R0 = mem[R3] = D4 D3 D2 P4 D1 P2 P1 P0
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
