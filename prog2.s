@@ -47,7 +47,8 @@ ADDI R2 0 //R2 = 0 0 0 1 1 0 0 1
 SHIFT_LEFT_I R2 2 //R2 = 1 1 0 0 1 0 0 0
 AND R2 R0 //R0 remains the same, R2 changes to D4 D3 0 0 D1 0 0 0
 XOR_REG R2 R2 //R2 = 0 0 0 0 0 0 0 (D1 ^ D3 ^ D4)
-XOR_REG 
+//Continue from here
+
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
