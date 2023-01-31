@@ -136,7 +136,7 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
     [SLT Opcode] 11 10
 
 ### B
-    Unconditional branch to PC+4+Offset(Signed)
+    Unconditional branch to PC+1+Offset(Signed)
 
     B -4
 
