@@ -126,6 +126,13 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 
     [STORE_TOP_BYTE Opcode] 10 11
 
+### STORE_TOP_BYTE_I
+    Store content in R0 to the top of the memomry. The address is memory's last address - (immediate Offset). This value is in bytes.
+
+    STORE_TOP_BYTE 12 // mem[-12] = R0
+
+    [STORE_TOP_BYTE Opcode] 11 00  (unsigned immediate only)
+
 ## Branching
 
 ### BEQ
