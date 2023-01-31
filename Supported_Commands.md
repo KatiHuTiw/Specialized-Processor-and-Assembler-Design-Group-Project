@@ -32,7 +32,7 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 ### MOV
     Assign values stored in a register to another register.
 
-    MOV R3 R2
+    MOV R3 R2 //R3 = R2
 
     [MOV Opcode] 11 10
 
