@@ -16,4 +16,4 @@ NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
 MOV R1 R3 //R1 = R3
-BEQ (Exact number will be decided soon, can go as far as 1000 which is -16, if required more than 1 branch will be used)
+!Error: BEQ (Exact number will be decided soon, can go as far as 1000 which is -16, if required more than 1 branch will be used)
