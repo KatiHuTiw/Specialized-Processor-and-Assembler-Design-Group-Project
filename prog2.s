@@ -10,3 +10,7 @@ MOVI R1 0 //R1 = 0
 STORE_TOP_BYTE R1 0 //mem[top] = R0 = 60
 NOP
 NOP //The place where loop starts, relative jumps will be used to get here
+MOV R1 0 //R1 = 0
+LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
+MOV R1 R3 //R1 = R3
+BEQ (Exact number will be decided soon, can go as far as 1000 which is -16, if required more than 1 branch will be used)
