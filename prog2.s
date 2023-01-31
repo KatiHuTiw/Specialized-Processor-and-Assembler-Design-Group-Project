@@ -47,8 +47,11 @@ ADDI R2 0 //R2 = 0 0 0 1 1 0 0 1
 SHIFT_LEFT_I R2 2 //R2 = 1 1 0 0 1 0 0 0
 AND R2 R0 //R0 remains the same, R2 changes to D4 D3 0 0 D1 0 0 0
 XOR_REG R2 R2 //R2 = 0 0 0 0 0 0 0 (D1 ^ D3 ^ D4)
-//Continue from here
-
+SHIFT_LEFT_I R1 0 //R1 = 0 0 0 0 0 0 (D6 ^ D7 ^ D10 ^ D11) 0
+ADD R1 R1 //R1 = 0 0 0 0 0 0 (D6 ^ D7 ^ D10 ^ D11) (D1 ^ D3 ^ D4)
+XOR_REG R1 R0 //R0 = 0 0 0 0 0 0 0 (D1 ^ D3 ^ D4 ^ D6 ^ D7 ^ D10 ^ D11) = 0 0 0 0 0 0 0 Q2
+MOV R1 3 //R1 = 3
+STORE_TOP_BYTE R1 1 //mem[top - 4] = R0 = 0 0 0 0 0 0 0 Q2
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
