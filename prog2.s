@@ -12,9 +12,11 @@ STORE_TOP_BYTE R1 0 //mem[top] = R0 = 60
 NOP
 NOP //The place where loop starts, relative jumps will be used to get here, loop uses R3 as index R3 goes from 30 to 58 in jumps of 2
 NOP //Code executed inside loop starts below this NOP
-LOAD_BYTE R3 0 //R0 = mem[R3]
-MOV R1 R0 //R1 = R0
-LOAD_BYTE R3 1 //R0 = mem[R3 + 1]
+LOAD_BYTE R3 1 //R0 = mem[R3 + 1], now R0 is D11 D10 D9 D8 D7 D6 D5 P8
+MOV R2 R0 //R2 = R0, now R2 is D11 D10 D9 D8 D7 D6 D5 P8
+SHIFT_RIGHT_I R2 0 //R2 = R2 >> 1, R2 is 0 D11 D10 D9 D8 D7 D6 D5
+SHIFT_LEFT_I R2 0 //R2 is D11 D10 D9 D8 D7 D6 D5 0
+XOR_REG R2 R1 //R1's least significant bit = D5 ^ D6 ^ D7 ^ D8 ^ D9 ^ D10 ^ D11
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
