@@ -106,14 +106,14 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
     [STORE_BYTE Opcode] 11 10
 
 ### LOAD_TOP_BYTE
-    Load content to R0 from the top of the memomry. The address is memory's last address - (register value + immediate Offset).
+    Load content to R0 from the top of the memomry. The address is memory's last address - (register value + immediate Offset). Value in bytes
 
     LOAD_TOP_BYTE R2 3 // R0 = mem[-R2 - 3]
 
     [LOAD_TOP_BYTE Opcode] 10 11
 
 ### STORE_TOP_BYTE
-    Store content in R0 to the top of the memomry. The address is memory's last address - (register value + immediate Offset).
+    Store content in R0 to the top of the memomry. The address is memory's last address - (register value + immediate Offset). This value is in bytes.
 
     STORE_TOP_BYTE R2 3 // mem[-R2 - 3] = R0
 
