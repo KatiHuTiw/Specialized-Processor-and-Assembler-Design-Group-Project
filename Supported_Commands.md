@@ -37,7 +37,7 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
     [MOV Opcode] 11 10
 
 ### MOVI
-    Assign immediate values to the register.
+    Assign immediate unsigned values to the register.
 
     MOV R3 2
 
@@ -55,7 +55,7 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 
     SHIFT_LEFT_I R0 2
 
-    [SHIFT_LEFT_I Opcode] 00 10
+    [SHIFT_LEFT_I Opcode] 00 01
 
 ### SHIFT_RIGHT (Might not need)
     Shift register to the right by a register value.
@@ -64,7 +64,7 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 
     [SHIFT_RIGHT Opcode] 11 00
 
-## Logic
+## Logic (Results are stored in the first register on default)
 
 ### AND
     Bitwise AND between two registers.
@@ -122,7 +122,7 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 ## Branching
 
 ### BEQ
-    Branch to PC+4+Offset(Signed), Offset is specified in the immediate value, if R0 and R1 have the same value.
+    Branch to PC+1+Offset(Signed), Offset is specified in the immediate value, if R0 and R1 have the same value.
 
     BEQ +5
 
