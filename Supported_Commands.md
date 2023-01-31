@@ -53,7 +53,7 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 ### SHIFT_LEFT_I
     Shift register to the left by an immediate value.
 
-    SHIFT_LEFT_I R0 2 //The value in immediate is incremented by 1 automatically, cause why would we need to shift left by 0
+    SHIFT_LEFT_I R0 2 //The value in immediate is incremented by 1 automatically, cause why would we need to shift left by 0, R0 << 3
 
     [SHIFT_LEFT_I Opcode] 00 01
 
