@@ -8,3 +8,5 @@ MOV R0 R3
 SHIFT_LEFT R0 1 //Now, R0 = 60
 MOVI R1 0 //R1 = 0
 STORE_TOP_BYTE R1 0 //mem[top] = R0 = 60
+NOP
+NOP //The place where loop starts, relative jumps will be used to get here
