@@ -29,15 +29,25 @@ LOAD_BYTE R3 0 //R0 = mem[R3] = D4 D3 D2 P4 D1 P2 P1 P0
 SHIFT_RIGHT_I R0 3 //R0 = R0 >> 4
 SHIFT_RIGHT_I R0 0 //R0 = R0 >> 1
 XOR_REG R0 R0 //R0 = 0 0 0 0 0 0 0 (D2 ^ D3 ^ D4)
-XOR_REG R1 R0 //R1 remains same, R0 = 0 0 0 0 0 0 0 Q4
+SHIFT_LEFT_I R0 0 //R0 = 0 0 0 0 0 0 (D2 ^ D3 ^ D4) 0
+ADD R0 R1 //R0 = 0 0 0 0 0 0 (D2 ^ D3 ^ D4) (D8 ^ D9 ^ D10 ^ D11)
+XOR_REG R0 R0 //0 0 0 0 0 0 0 (D2 ^ D3 ^ D4 ^ D8 ^ D9 ^ D10 ^ D11) = 0 0 0 0 0 0 0 Q4
 STORE_TOP_BYTE_I 3 //mem[top - 3] = 0 0 0 0 0 0 0 Q4
-LOAD_BYTE R3 1 //R0 = mem[R3] = D11 D10 D9 D8 D7 D6 D5 P8
+LOAD_BYTE R3 1 //R0 = mem[R3 + 1] = D11 D10 D9 D8 D7 D6 D5 P8
 MOV R1 3 //R1 = 0 0 0 0 0 0 1 1
 SHIFT_LEFT_I R1 2 //R1 = 0 0 0 1 1 0 0 0
 ADDI R1 2 //R1 = 0 0 0 1 1 0 1 1
 SHIFT_LEFT_I R1 2 //R1 = 1 1 0 1 1 0 0 0
 AND R1 R0 //R0 remains the same, R1 changes to D11 D10 0 0 D7 D6 0 0
 XOR_REG R1 R1 //R1 = 0 0 0 0 0 0 0 (D6 ^ D7 ^ D10 ^ D11)
+LOAD_BYTE R3 0 //R0 = mem[R3] = D4 D3 D2 P4 D1 P2 P1 P0
+MOV R2 3 //R2 = 0 0 0 0 0 0 1 1
+SHIFT_LEFT_I R2 2 //R2 = 0 0 0 1 1 0 0 0
+ADDI R2 0 //R2 = 0 0 0 1 1 0 0 1
+SHIFT_LEFT_I R2 2 //R2 = 1 1 0 0 1 0 0 0
+AND R2 R0 //R0 remains the same, R2 changes to D4 D3 0 0 D1 0 0 0
+XOR_REG R2 R2 //R2 = 0 0 0 0 0 0 0 (D1 ^ D3 ^ D4)
+XOR_REG 
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
