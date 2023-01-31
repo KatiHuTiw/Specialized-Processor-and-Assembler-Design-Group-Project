@@ -15,10 +15,15 @@ LOAD_BYTE R3 1 //R0 = mem[R3 + 1], now R0 is D11 D10 D9 D8 D7 D6 D5 P8
 MOV R2 R0 //R2 = R0, now R2 is D11 D10 D9 D8 D7 D6 D5 P8
 SHIFT_RIGHT_I R2 0 //R2 = R2 >> 1, R2 is 0 D11 D10 D9 D8 D7 D6 D5
 SHIFT_LEFT_I R2 0 //R2 is D11 D10 D9 D8 D7 D6 D5 0
+MOV R1 0 //R1 = 0 because in next command, its least significant bit will be set to xor of something
 XOR_REG R2 R1 //R1's least significant bit = D5 ^ D6 ^ D7 ^ D8 ^ D9 ^ D10 ^ D11
 MOV R2 R0 //R2 is D11 D10 D9 D8 D7 D6 D5 P8
 MOV R0 R1 //R0 = 0 0 0 0 0 0 0 Q8
 STORE_TOP_BYTE_I 2 //mem[top - 2] = 0 0 0 0 0 0 0 Q8
+MOV R1 R2 //R0 = D11 D10 D9 D8 D7 D6 D5 P8
+SHIFT_RIGHT_I R1 3 //R1 = R1 >> 4
+MOV R0 0 //R0 is set to 0 because its last bit will be set to xor of something in next few lines of code
+XOR_REG R1 R0 //R0's least significant bit = D8 ^ D9 ^ D10 ^ D11
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
