@@ -169,7 +169,11 @@ AND R0 R1 //R0 = 0 0 0 0 D1 0 0 0
 SHIFT_RIGHT_I R0 2 //R0 = 0 0 0 0 0 0 0 D1
 SHIFT_RIGHT_I R1 3 //R1 = 0 0 0 0 D4 D3 D2 0
 ADD R1 R0 //R1 = 0 0 0 0 D4 D3 D2 D1
-//Continue From Here:
+LOAD_BYTE R3 1 //R0 = D11 D10 D9 D8 D7 D6 D5 P8
+SHIFT_RIGHT_I R0 0 //R0 = 0 D11 D10 D9 D8 D7 D6 D5
+SHIFT_LEFT_I R0 3 //R0 = D8 D7 D6 D5 0 0 0 0 
+ADD R0 R1 //R0 = D8 D7 D6 D5 D4 D3 D2 D1
+Continue From here:
 
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
