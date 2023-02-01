@@ -104,6 +104,24 @@ Error: BEQ (some place (not decided yet) where S0 and S1 and S2 and S4 and S8 wi
 //To be implemented
 Error: B (unconditional branch to skip over code execution that occurs when P0 and Q0 are equal)
 // The above BEQ leads here - Code to execute if P0 and Q0 are the same
+LOAD_BYTE R3 0 //R0 = mem[R3]
+MOV R1 2 //R1 = 0 0 0 0 0 0 1 0
+AND R1 R0 //R1 = 0 0 0 0 0 0 P1 0
+MOV R2 2 //R2 = 2
+LOAD_TOP_BYTE R2 3 //R0 = mem[top - 5] = 0 0 0 0 0 0 0 Q1
+ADD R1 R2 //R1 = 0 0 0 0 0 0 P1 Q1
+XOR_REG R1 R2 //R2 = 0 0 0 0 0 0 0 (P1 ^ Q1) = 0 0 0 0 0 0 0 0 S1
+LOAD_BYTE R3 0 //R0 = mem[R3]
+MOV R1 2 //R1 = 0 0 0 0 0 0 1 0
+SHIFT_LEFT_I R1 0 //R1 = 0 0 0 0 0 1 0 0
+AND R1 R0 //R1 = 0 0 0 0 0 P2 0 0 
+MOV R0 1 //R0 = 1
+LOAD_TOP_BYTE R0 3 //R0 = mem[top - 4] = 0 0 0 0 0 0 0 Q2
+ADD R1 R0 //R1 = 0 0 0 0 0 P2 0 Q2
+XOR_REG R1 R1 //R1 = 0 0 0 0 0 0 0 (P2 ^ Q2) = 0 0 0 0 0 0 0 S2
+OR R2 R1 //R2 = 0 0 0 0 0 0 0 (S1 ^ S2)
+//Continue From Here
+
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
