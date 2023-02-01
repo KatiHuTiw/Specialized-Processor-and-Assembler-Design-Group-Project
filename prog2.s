@@ -52,6 +52,32 @@ ADD R1 R1 //R1 = 0 0 0 0 0 0 (D6 ^ D7 ^ D10 ^ D11) (D1 ^ D3 ^ D4)
 XOR_REG R1 R0 //R0 = 0 0 0 0 0 0 0 (D1 ^ D3 ^ D4 ^ D6 ^ D7 ^ D10 ^ D11) = 0 0 0 0 0 0 0 Q2
 MOV R1 3 //R1 = 3
 STORE_TOP_BYTE R1 1 //mem[top - 4] = R0 = 0 0 0 0 0 0 0 Q2
+MOV R1 2 //R1 = 0 0 0 0 0 0 1 0
+SHIFT_LEFT_I R1 1 //R1 = 0 0 0 0 1 0 0 0
+ADD R1 1 //R1 = 0 0 0 0 1 0 1 0
+SHIFT_LEFT_I R1 0 //R1 = 0 0 0 1 0 1 0 0  
+ADDI R1 0 //R1 = 0 0 0 1 0 1 0 1
+SHIFT_LEFT_I R1 2//R1 = 1 0 1 0 1 0 0 0
+LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0
+AND R1 R0 //R1 = D4 0 D2 0 D1 0 0 0
+XOR_REG R1 R1 //R1 = 0 0 0 0 0 0 0 (D1 ^ D2 ^ D4)
+LOAD_BYTE R3 1 //R0 = D11 D10 D9 D8 D7 D6 D5 P8
+MOV R2 2 //R2 = 0 0 0 0 0 0 1 0
+SHIFT_LEFT_I R2 1 //R2 = 0 0 0 0 1 0 0 0
+ADDI R2 1 //R2 = 0 0 0 0 1 0 1 0
+SHIFT_LEFT_I R2 1 //R2 = 0 0 1 0 1 0 0 0
+ADDI R2 1 //R2 = 0 0 1 0 1 0 1 0 
+SHIFT_LEFT_I R2 1 //R2 = 1 0 1 0 1 0 0 0
+ADDI R2 1 //R2 = 1 0 1 0 1 0 1 0
+AND R2 R0 //R2 = D11 0 D9 0 D7 0 D5 0
+SHIFT_LEFT_I R1 0 //R1 = 0 0 0 0 0 0 (D1 ^ D2 ^ D4) 0
+XOR_REG R2 R2 //R2 = 0 0 0 0 0 0 0 (D5 ^ D7 ^ D9 ^ D11)
+ADD R1 R2 //R1 = 0 0 0 0 0 0 (D1 ^ D2 ^ D4) (D5 ^ D7 ^ D9 ^ D11)
+XOR_REG R1 R0 //R0 = 0 0 0 0 0 0 0 (D1 ^ D2 ^ D4 ^ D5 ^ D7 ^ D9 ^ D11) = 0 0 0 0 0 0 0 Q1
+MOV R1 3 //R1 = 3
+STORE_TOP_BYTE R1 2 //mem[top - 5] = R0 = 0 0 0 0 0 0 0 Q1
+//Continue from here
+
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
