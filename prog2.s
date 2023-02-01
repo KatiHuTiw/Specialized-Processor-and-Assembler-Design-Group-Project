@@ -148,9 +148,11 @@ SHIFT_LEFT_I R2 1 //R2 = 1 0 0 0 0 0 0 0 = F1 F0 0 0 0 0 0 0 (when there are 2 e
 //End of part where F1 is set to 1 and F0 to 0 for 2 errors
 Error: B (This branch skips the part where F1 is set to 0 and F0 is set to 0)
 //Start of part where F1 and F0 are set to 0 for 0 errors
-MOV R2 0
+MOV R2 0 //R2 = 0 0 0 0 0 0 0 0 = F1 F0 0 0 0 0 0 0 (when there are 2 errors)
 //End of part where F1 and F0 are set to 0 for 0 errors
-NOP //This is where the BEQ instruction immmediately before AND the B instruction immediately before returns, 
+NOP //This is where the BEQ instruction immmediately before AND the B instruction immediately before returns
+//IMP: Beyond this stage (still inside the giant super loop), the output bits (mem[0:29]) will be set and R2 holds F1 F0 0 0 0 0 0 0 for all 3 scenarios
+//IMP: Beyond this, all 3 scenarios will process the following instructions 
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
