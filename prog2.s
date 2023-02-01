@@ -120,6 +120,24 @@ LOAD_TOP_BYTE R0 3 //R0 = mem[top - 4] = 0 0 0 0 0 0 0 Q2
 ADD R1 R0 //R1 = 0 0 0 0 0 P2 0 Q2
 XOR_REG R1 R1 //R1 = 0 0 0 0 0 0 0 (P2 ^ Q2) = 0 0 0 0 0 0 0 S2
 OR R2 R1 //R2 = 0 0 0 0 0 0 0 (S1 ^ S2)
+LOAD_BYTE R3 0 //R0 = mem[R3]
+MOV R1 2 //R1 = 0 0 0 0 0 0 1 0
+SHIFT_LEFT_I R1 2 //R1 = 0 0 0 1 0 0 0 0
+AND R1 R0 //R1 = 0 0 0 P4 0 0 0 0 
+MOV R0 1 //R0 = 1
+LOAD_TOP_BYTE R0 2 //R0 = mem[top - 3] = 0 0 0 0 0 0 0 Q4
+ADD R1 R0 //R1 = 0 0 0 P4 0 0 0 Q4
+XOR_REG R1 R1 //R1 = 0 0 0 0 0 0 0 (P4 ^ Q4) = 0 0 0 0 0 0 0 S4
+OR R2 R1 //R2 = 0 0 0 0 0 0 0 (S1 ^ S2 ^ S4)
+LOAD_BYTE R3 1 //R0 = mem[R3 + 1]
+MOV R1 1 //R1 = 0 0 0 0 0 0 0 1
+AND R1 R0 //R1 = 0 0 0 0 0 0 0 P8 
+MOV R0 1 //R0 = 1
+LOAD_TOP_BYTE R0 1 //R0 = mem[top - 2] = 0 0 0 0 0 0 0 Q8
+SHIFT_LEFT_I R0 0 //R0 = 0 0 0 0 0 0 Q8 0 
+ADD R1 R0 //R1 = 0 0 0 0 0 0 Q8 P8
+XOR_REG R1 R1 //R1 = 0 0 0 0 0 0 0 (P8 ^ Q8) = 0 0 0 0 0 0 0 S8
+OR R2 R1 //R2 = 0 0 0 0 0 0 0 (S1 ^ S2 ^ S4 ^ S8)
 //Continue From Here
 
 NOP //Code executed inside loop ends above this NOP
