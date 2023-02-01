@@ -93,8 +93,20 @@ ADD R1 R2 //R1 = 0 0 0 0 0 0 (P1 ^ P2 ^ P4 ^ D1 ^ D2 ^ D3 ^ D4) (D11 ^ D10 ^ D9 
 XOR_REG R1 R0 //R0 = 0 0 0 0 0 0 0 Q0
 MOV R1 3 //R1 = 3
 STORE_TOP_BYTE R1 3 //mem[top - 6] = R0 = 0 0 0 0 0 0 0 Q0
-//Continue from here
-
+//Now, the next xtep is to compare P0 and Q0
+LOAD_BYTE R3 0 //R0 = mem[R3] = D4 D3 D2 P4 D1 P2 P1 P0
+MOV R1 1 //R1 = 0 0 0 0 0 0 0 0
+AND R1 R0 //R1 = 0 0 0 0 0 0 0 P0
+MOV R2 3
+LOAD_TOP_BYTE R2 3 //R0 = mem[top - 6] = 0 0 0 0 0 0 0 Q0
+Error: BEQ (some place (not decided yet) where S0 and S1 and S2 and S4 and S8 will be computed and checked)
+/*
+ * Code to execute if P0 and Q0 are not the same, so the case in which there is a 1-bit error
+ */
+Error: B (unconditional branch to skip over code execution that occurs when P0 and Q0 are equal)
+/*
+ * The above BEQ leads here - Code to execute if P0 and Q0 are the same
+ */
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
