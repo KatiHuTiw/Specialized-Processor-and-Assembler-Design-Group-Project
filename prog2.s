@@ -139,8 +139,17 @@ ADDI R0 1 //R0 = 4
 Error: BEQ (Branch ahead of flipping procedure)
 ADDI R0 3 //R0 = 8
 Error: BEQ (Branch ahead of flipping procedure)
-NOP //Flipping procedure starts here 
+NOP //Flipping procedure starts here
+MOV R2 R1 //R2 = 0 0 0 0 S8 S4 S2 S1
+MOVI R0 3 //R0 = 3
+ADDI R0 0 //R0 = 4
+SLT R1 R0 //If S8 S4 S2 S1 < 4, then R1 = 1
+MOV R0 1
+Error: BEQ (to a place where D1 is flipped)
 
+NOP //Place where D1 flipping begins
+NOP //Place where D1 flipping ends
+Error: B (Unconditional Branch to end of flipping procedure)
 NOP //Flipping procedure ends here 
 NOP //The previous 4 BEQs branch here (nothing needs to be flipped if there are parity errors instead of data errors)
 // End of code to execute if P0 and Q0 are not the same, so the case in which there is a 1-bit error
