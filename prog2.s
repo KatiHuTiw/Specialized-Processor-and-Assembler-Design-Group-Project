@@ -108,11 +108,29 @@ MOVI R2 2 //R2 = 2
 LOAD_TOP_BYTE R2 0 //R0 = mem[top - 2] = 0 0 0 0 0 0 0 Q8
 AND R1 R0 //R1 = 0 0 0 0 0 0 0 S8
 LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0 
-MOV R2 1 //R2 = 0 0 0 0 0 0 0 1
+MOVI R2 1 //R2 = 0 0 0 0 0 0 0 1
 SHIFT_LEFT_I R2 3 //R2 = 0 0 0 1 0 0 0 0 
 AND R2 R0 //R2 = 0 0 0 P4 0 0 0 0 
 SHIFT_RIGHT R2 1 //R2 = 0 0 0 0 0 P4 0 0
 SHIFT_LEFT_2 R1 2 //0 0 0 0 S8 0 0 0
+MOVI R0 3 //R0 = 3
+LOAD_TOP_BYTE R0 0 //R0 = mem[top - 3] = 0 0 0 0 0 0 0 Q4
+SHIFT_LEFT_I R0 1 //R0 = 0 0 0 0 0 Q4 0 0
+AND R2 R0 //R2 = 0 0 0 0 0 S4 0 0 
+ADD R1 R2 //R1 = 0 0 0 0 S8 S4 0 0
+LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0
+MOVI R2 3 //R2 = 0 0 0 0 0 0 1 1
+SHIFT_LEFT_I R2 0 //R2 = 0 0 0 0 0 1 1 0
+AND R2 R0 //R2 = 0 0 0 0 0 P2 P1 0
+MOVI R0 3 //R0 = 3
+LOAD_TOP_BYTE R0 1 //R0 = mem[top - 4] = 0 0 0 0 0 0 0 Q2
+SHIFT_LEFT_I R0 1 //R0 = 0 0 0 0 0 Q2 0 0
+AND R2 R0 //R2 = 0 0 0 0 0 S2 P1 0
+MOVI R0 3 //R0 = 3
+LOAD_TOP_BYTE R0 2 //R0 = mem[top - 5] = 0 0 0 0 0 0 0 Q1
+SHIFT_RIGHT_I R2 0 //R2 = 0 0 0 0 0 0 S2 P1
+AND R2 R0 //R2 = 0 0 0 0 0 0 S2 S1
+ADD R1 R2 //R1 = 0 0 0 0 S8 S4 S2 S1
 Continue From Here:
 
 // End of code to execute if P0 and Q0 are not the same, so the case in which there is a 1-bit error
