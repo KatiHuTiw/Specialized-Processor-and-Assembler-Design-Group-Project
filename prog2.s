@@ -131,10 +131,20 @@ LOAD_TOP_BYTE R0 2 //R0 = mem[top - 5] = 0 0 0 0 0 0 0 Q1
 SHIFT_RIGHT_I R2 0 //R2 = 0 0 0 0 0 0 S2 P1
 AND R2 R0 //R2 = 0 0 0 0 0 0 S2 S1
 ADD R1 R2 //R1 = 0 0 0 0 S8 S4 S2 S1
-Continue From Here:
+MOVI R0 1 //R0 = 1
+Error: BEQ (Branch ahead of flipping procedure)
+ADDI R0 0 //R0 = 2
+Error: BEQ (Branch ahead of flipping procedure)
+ADDI R0 1 //R0 = 4
+Error: BEQ (Branch ahead of flipping procedure)
+ADDI R0 3 //R0 = 8
+Error: BEQ (Branch ahead of flipping procedure)
+NOP //Flipping procedure starts here 
 
+NOP //Flipping procedure ends here 
+NOP //The previous 4 BEQs branch here (nothing needs to be flipped if there are parity errors instead of data errors)
 // End of code to execute if P0 and Q0 are not the same, so the case in which there is a 1-bit error
-Error: B (unconditional branch to skip over code execution that occurs when P0 and Q0 are equal)
+Error: B (unconditional branch to skip over code execution that occurs when P0 and Q0 are equal and to the place where R2 is set to 0 1 0 0 0 0 0 0)
 // The above BEQ leads here - Code to execute if P0 and Q0 are the same
 LOAD_BYTE R3 0 //R0 = mem[R3]
 MOVI R1 2 //R1 = 0 0 0 0 0 0 1 0
@@ -182,7 +192,13 @@ Error: B (This branch skips the part where F1 is set to 0 and F0 is set to 0)
 //Start of part where F1 and F0 are set to 0 for 0 errors
 MOVI R2 0 //R2 = 0 0 0 0 0 0 0 0 = F1 F0 0 0 0 0 0 0 (when there are 2 errors)
 //End of part where F1 and F0 are set to 0 for 0 errors
-NOP //This is where the BEQ instruction immmediately before AND the B instruction immediately before returns
+Error: B (This branch skips over the part where F1 is set to 0 and F1 is set to 1 for 1 error
+NOP //Start of part where R2 is set to 0 1 0 0 0 0 0 0 for 1 error
+MOVI R2 2 //R2 = 0 0 0 0 0 0 1 0
+SHIFT_LEFT_I R2 3 //R2 = 0 0 1 0 0 0 0 0 
+SHIFT_LEFT_I R2 0 //R2 = 0 1 0 0 0 0 0 0
+NOP //End of part where R2 is set to 0 1 0 0 0 0 0 0 for 1 error
+NOP //This is where the BEQ instruction immmediately before AND the B instructions immediately before returns
 //IMP: Beyond this stage (still inside the giant super loop), the output bits (mem[0:29]) will be set and R2 holds F1 F0 0 0 0 0 0 0 for all 3 scenarios
 //IMP: Beyond this, all 3 scenarios will process the following instructions
 //IMP: Beyond this, both R3 AND R2 cannot be used (as opposed to just R3 before)
