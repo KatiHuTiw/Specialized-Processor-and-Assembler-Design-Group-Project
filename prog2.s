@@ -149,7 +149,22 @@ Error: BEQ (to a place where D1 is flipped)
 
 NOP //Place where D1 flipping begins
 LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0
-
+MOV R1 2 //R1 = 0 0 0 0 0 0 1 0
+SHIFT_LEFT_I R1 1 //R1 = 0 0 0 0 1 0 0 0
+AND R1 R0 //R1 = 0 0 0 0 D1 0 0 0
+ADD R1 0 //R1 = 0 0 0 0 D1 0 0 1
+XOR_REG R1 R1 //R1 = 0 0 0 0 0 0 0 (D1 ^ 1) = 0 0 0 0 0 0 0 ~D1
+SHIFT_LEFT_I R1 2 //R1 = 0 0 0 0 ~D1 0 0 0
+SHIFT_RIGHT_I R0 3 //R0 = 0 0 0 0 D4 D3 D2 P4
+SHIFT_LEFT_I R0 3 //R0 = D4 D3 D2 P4 0 0 0 0 
+ADD R1 R0 //R1 = D4 D3 D2 P4 ~D1 0 0 0 
+LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0
+SHIFT_LEFT_I R0 3 //R0 = D1 P2 P1 P0 0 0 0 0 
+SHIFT_LEFT_I R0 0 //R0 = P2 P1 P0 0 0 0 0 0 
+SHIFT_RIGHT_I R0 3 //R0 = 0 0 0 0 P2 P1 P0 0
+SHIFT_RIGHT_I R0 0 //R0 = 0 0 0 0 0 P2 P1 P0
+ADD R0 R1 //D4 D3 D2 P4 ~D1 P2 P1 P0
+STORE_BYTE R3 0 //mem[R3] = R0 = D4 D3 D2 P4 ~D1 P2 P1 P0
 NOP //Place where D1 flipping ends
 Error: B (Unconditional Branch to end of flipping procedure)
 NOP //Flipping procedure ends here 
