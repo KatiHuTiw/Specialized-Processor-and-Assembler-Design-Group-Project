@@ -173,11 +173,12 @@ LOAD_BYTE R3 1 //R0 = D11 D10 D9 D8 D7 D6 D5 P8
 SHIFT_RIGHT_I R0 0 //R0 = 0 D11 D10 D9 D8 D7 D6 D5
 SHIFT_LEFT_I R0 3 //R0 = D8 D7 D6 D5 0 0 0 0 
 ADD R0 R1 //R0 = D8 D7 D6 D5 D4 D3 D2 D1
-MOV R1 3 //R1 = 3
-SHIFT_LEFT_I R1 2 //R1 = 24
-ADDI R1 3 //R1 = 27
-ADDI R1 3 //R1 = 30
-Contunue from here:
+MOV R1 3 //R1 = 0 0 0 0 0 0 1 1
+ADD R1 3 //R1 = 0 0 0 0 0 1 1 1
+SHIFT_LEFT_I R1 3 //R1 = 0 1 1 1 0 0 0 0 
+ADD R1 0 //R1 = 0 1 1 1 0 0 0 1
+SHIFT_LEFT_I R1 0 //R1 = 1 1 1 0 0 0 1 0, This is -30 in 8-bit signed
+ADD R1 R3 //R1 = R1 + R3 = R3 - 30
 
 NOP //Code executed inside loop ends above this NOP
 MOV R1 0 //R1 = 0
