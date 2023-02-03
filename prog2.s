@@ -148,6 +148,8 @@ MOV R0 1
 Error: BEQ (to a place where D1 is flipped)
 
 NOP //Place where D1 flipping begins
+LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0
+
 NOP //Place where D1 flipping ends
 Error: B (Unconditional Branch to end of flipping procedure)
 NOP //Flipping procedure ends here 
