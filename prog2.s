@@ -145,7 +145,8 @@ MOVI R0 3 //R0 = 3
 ADDI R0 0 //R0 = 4
 SLT R1 R0 //If S8 S4 S2 S1 < 4, then R1 = 1
 MOV R0 1
-Error: BEQ (to a place where D1 is flipped)
+Error: BEQ (to a place where D1 flipping begins)
+//Continue From Here: 
 
 NOP //Place where D1 flipping begins
 LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0
