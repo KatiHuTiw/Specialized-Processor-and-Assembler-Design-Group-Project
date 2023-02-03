@@ -101,7 +101,20 @@ MOVI R2 3
 LOAD_TOP_BYTE R2 3 //R0 = mem[top - 6] = 0 0 0 0 0 0 0 Q0
 Error: BEQ (some place (not decided yet) where S0 and S1 and S2 and S4 and S8 will be computed and checked)
 // Start of Code to execute if P0 and Q0 are not the same, so the case in which there is a 1-bit error
-//To be implemented
+LOAD_BYTE R3 1 //R0 = D11 D10 D9 D8 D7 D6 D5 P8
+MOV R1 1 //R1 = 0 0 0 0 0 0 0 1
+AND R1 R0 //R1 = 0 0 0 0 0 0 0 P8
+MOVI R2 2 //R2 = 2
+LOAD_TOP_BYTE R2 0 //R0 = mem[top - 2] = 0 0 0 0 0 0 0 Q8
+AND R1 R0 //R1 = 0 0 0 0 0 0 0 S8
+LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0 
+MOV R2 1 //R2 = 0 0 0 0 0 0 0 1
+SHIFT_LEFT_I R2 3 //R2 = 0 0 0 1 0 0 0 0 
+AND R2 R0 //R2 = 0 0 0 P4 0 0 0 0 
+SHIFT_RIGHT R2 1 //R2 = 0 0 0 0 0 P4 0 0
+SHIFT_LEFT_2 R1 2 //0 0 0 0 S8 0 0 0
+Continue From Here:
+
 // End of code to execute if P0 and Q0 are not the same, so the case in which there is a 1-bit error
 Error: B (unconditional branch to skip over code execution that occurs when P0 and Q0 are equal)
 // The above BEQ leads here - Code to execute if P0 and Q0 are the same
@@ -163,7 +176,7 @@ SHIFT_LEFT_I R1 1 //R1 = 0 0 0 1 1 1 0 0
 ADDI R1 0 //R1 = 0 0 0 1 1 1 0 1
 SHIFT_LEFT_I R1 2 //R1 = 1 1 1 0 1 0 0 0
 AND R1 R0 //R1 = D4 D3 D2 0 D1 0 0 0 
-MOV R0 2 //R0 = 0 0 0 0 0 0 1 0
+MOVI R0 2 //R0 = 0 0 0 0 0 0 1 0
 SHIFT_LEFT_I R0 1 //R0 = 0 0 0 0 1 0 0 0
 AND R0 R1 //R0 = 0 0 0 0 D1 0 0 0 
 SHIFT_RIGHT_I R0 2 //R0 = 0 0 0 0 0 0 0 D1
@@ -173,7 +186,7 @@ LOAD_BYTE R3 1 //R0 = D11 D10 D9 D8 D7 D6 D5 P8
 SHIFT_RIGHT_I R0 0 //R0 = 0 D11 D10 D9 D8 D7 D6 D5
 SHIFT_LEFT_I R0 3 //R0 = D8 D7 D6 D5 0 0 0 0 
 ADD R0 R1 //R0 = D8 D7 D6 D5 D4 D3 D2 D1
-MOV R1 3 //R1 = 0 0 0 0 0 0 1 1
+MOVI R1 3 //R1 = 0 0 0 0 0 0 1 1
 ADDI R1 3 //R1 = 0 0 0 0 0 1 1 1
 SHIFT_LEFT_I R1 3 //R1 = 0 1 1 1 0 0 0 0 
 ADDI R1 0 //R1 = 0 1 1 1 0 0 0 1
@@ -181,7 +194,7 @@ SHIFT_LEFT_I R1 0 //R1 = 1 1 1 0 0 0 1 0, This is -30 in 8-bit signed
 ADD R1 R3 //R1 = R1 + R3 = R3 - 30
 STORE_BYTE R1 0 //mem[R3 - 30] = R0 = D8 D7 D6 D5 D4 D3 D2 D1
 LOAD_BYTE R3 1 //R0 = mem[R3 + 1] = D11 D10 D9 D8 D7 D6 D5 P8
-MOV R1 3 //R1 = 0 0 0 0 0 0 1 1
+MOVI R1 3 //R1 = 0 0 0 0 0 0 1 1
 SHIFT_LEFT_I R1 0 //R1 = 0 0 0 0 0 1 1 0
 ADDI R1 0 //R1 = 0 0 0 0 0 1 1 1 
 SHIFT_LEFT_I R1 3 //R1 = 0 1 1 1 0 0 0 0
@@ -190,7 +203,7 @@ AND R0 R1 //R0 = D11 D10 D9 0 0 0 0 0
 SHIFT_RIGHT_I R0 3 //R0 = 0 0 0 0 D11 D10 D9 0 
 SHIFT_RIGHT_I R0 0 //R0 = 0 0 0 0 0 D11 D10 D9
 ADD R0 R2 //R0 = F1 F0 0 0 0 D11 D10 D9
-MOV R1 3 //R1 = 0 0 0 0 0 0 1 1
+MOVI R1 3 //R1 = 0 0 0 0 0 0 1 1
 ADDI R1 3 //R1 = 0 0 0 0 0 1 1 1
 SHIFT_LEFT_I R1 3 //R1 = 0 1 1 1 0 0 0 0 
 ADDI R1 0 //R1 = 0 1 1 1 0 0 0 1
@@ -199,7 +212,7 @@ ADD R1 R3 //R1 = R1 + R3 = R3 - 30
 STORE_BYTE R1 1 //mem[R3 - 29] = R0 = F1 F0 0 0 0 D11 D10 D9
 //At this stage mem[R3 - 29] and mem[R3 - 30] has been filled with the desired byte values (for all 3 stages)
 NOP //Code executed inside loop ends above this NOP
-MOV R1 0 //R1 = 0
+MOVI R1 0 //R1 = 0
 LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
 MOV R1 R3 //R1 = R3
 Error: BEQ (Exact number will be decided soon, can go as far as 1000 which is -16, if required more than 1 branch will be used)
