@@ -151,28 +151,28 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 
     [XOR_REG Opcode] 01 00
 
-### XOR_R0R1_BIT
-    Reduction XOR of the selected bits in the lower 4 bits in the first register and the second register. The result is stored in R3's least significant bit
+### XOR_R0R1_BIT (Removed)
+    Reduction XOR of the selected bits in the lower 4 bits in the first register and the second register. The result is stored in R3's least significant bit ~~
 
     XOR_R0R1_BIT 3 2 // R3[0] = R0[3]^R1[2]
 
     [XOR_R0R1_BIT Opcode] 11 10
 
-### XOR_R0R0_LOWER_BIT
+### XOR_R0R0_LOWER_BIT (Removed)
     Reduction XOR of the selected bits in the lower 4 bits in R0. The result is stored in R3's least significant bit
 
     XOR_R0R1_BIT 3 2 // R3[0] = R0[3]^R0[2]
 
     [XOR_R0R0_LOWER_BIT Opcode] 11 10
 
-### XOR_R0R0_UPPER_BIT
+### XOR_R0R0_UPPER_BIT (Removed)
     Reduction XOR of the selected bits in the upper 4 bits in R0. The result is stored in R3's least significant bit
 
     XOR_R0R0_UPPER_BIT 5 7 // R3[0] = R0[5]^R0[7]
 
     [XOR_R0R0_UPPER_BIT Opcode] 01 11
 
-### XOR_R0R0_UPPER_LOWER_BIT
+### XOR_R0R0_UPPER_LOWER_BIT (Removed)
     Reduction XOR of the selected bit in the upper 4 bits in R0 and the selected bit in the lower 4 bits in R0. The result is stored in R3's least significant bit
 
     XOR_R0R0_UPPER_BIT 6 2 // R3[0] = R0[6]^R0[2]
