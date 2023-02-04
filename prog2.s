@@ -157,7 +157,30 @@ MOVI R1 3 //R1 = 3
 ADDI R1 3 //R1 = 7
 STORE_TOP_BYTE R1 0 //mem[top - 7] = R0 = 0 0 0 0 S8 S4 S2 S1
 MOV R1 1 //R1 = 0 0 0 0 0 0 0 1
+MOV R2 0 //R2 = 0 is going to be used as the index for the loop to bitshift R1 for bit extraction
+//Loop to bitshift R1 for bit extraction starts here
+MOV R1 R2 //Because R1 was temporarily stored in R2 at end of last iteration
 Continue From Here:
+
+MOVI R0 2 //R0 = 2
+SHIFT_LEFT_I R0 1 //R0 = 8
+LOAD_TOP_BYTE R0 0 //R0 = mem[top - 8] = IndexOfLoop
+MOV R2 R0 //R2 = IndexOfLoop
+//Loop to bitshift R1 for bit extraction ends here
+ADDI R2 0 //R2 = R2 + 1
+MOV R0 R2 //R0 = R2 = nextPossibleIndexOfLoop
+MOVI R2 3 //R2 = 3
+ADDI R2 3 //R2 = 7
+STORE_TOP_BYTE R2 1 //mem[top - 8] = R0 = nextPossibleIndexOfLoop
+LOAD_TOP_BYTE R2 0 //R0 = mem[top - 7] = 0 0 0 0 S8 S4 S2 S1
+MOV R2 R0 //R2 = 0 0 0 0 S8 S4 S2 S1
+MOVI R0 3 //R0 = 3
+ADDI R0 3 //R0 = 7
+LOAD_TOP_BYTE R0 1 //R0 = nextPossibleIndexOfLoop
+SLT R0 R2 //If nextPossibleIndex < S8 S4 S2 S1, then R0 = 1
+MOV R2 R1 //R1 is temporarily stored in R2
+MOVI R1 1 //For the purpose of comparing with R0 to loop back or not
+Error: BEQ (Back to start of this loop)
 
 NOP //Place where D2 or D3 or D4 flipping begins
 // First, I need to figure out whether it is D2 or D3 or D4
