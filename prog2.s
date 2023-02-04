@@ -158,10 +158,13 @@ ADDI R1 3 //R1 = 7
 STORE_TOP_BYTE R1 0 //mem[top - 7] = R0 = 0 0 0 0 S8 S4 S2 S1
 MOV R1 1 //R1 = 0 0 0 0 0 0 0 1
 MOV R2 0 //R2 = 0 is going to be used as the index for the loop to bitshift R1 for bit extraction
+MOV R0 R2 //R2 is stored in R0 temporarily
+MOVI R2 2 //R2 = 2
+SHIFT_LEFT_I R2 1 //R2 = 8
+LOAD_TOP_BYTE R2 0 //mem[top - 8] = R0 = startIndexOfLoop = 0
+MOV R2 R1 //R2 temporarily stores R1 before start of loop because R1 will be set to R2 inside the loop in the beginning
 //Loop to bitshift R1 for bit extraction starts here
 MOV R1 R2 //Because R1 was temporarily stored in R2 at end of last iteration
-Continue From Here:
-
 MOVI R0 2 //R0 = 2
 SHIFT_LEFT_I R0 1 //R0 = 8
 LOAD_TOP_BYTE R0 0 //R0 = mem[top - 8] = IndexOfLoop
