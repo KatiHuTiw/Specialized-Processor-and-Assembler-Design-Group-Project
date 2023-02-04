@@ -166,7 +166,27 @@ Error: BEQ (to a place where D4 flipping starts)
 NOP
 NOP
 NOP //Place where D4 flipping starts
-//Continue From Here:
+LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0
+MOV R1 2 //R1 = 0 0 0 0 0 0 1 0
+SHIFT_LEFT_I R1 3 //R1 = 0 0 1 0 0 0 0 0
+SHIFT_LEFT_I R1 0 //R1 = 0 1 0 0 0 0 0 0 
+AND R1 R0 //R1 = 0 D3 0 0 0 0 0 0
+ADD R1 0 //R1 = 0 D3 0 0 0 0 0 1
+XOR_REG R1 R1 //R1 = 0 0 0 0 0 0 0 (D3 ^ 1) = 0 0 0 0 0 0 0 ~D3
+SHIFT_LEFT_I R1 3 //R1 = 0 0 0 ~D2 0 0 0 0
+SHIFT_LEFT_I R1 1 //R1 = 0 ~D3 0 0 0 0 0 0
+SHIFT_LEFT_I R0 1 //R0 = D2 P4 D1 P2 P1 P0 0 0
+SHIFT_RIGHT_I R0 2 //R0 = 0 0 D2 P4 D1 P2 P1 P0 
+ADD R1 R0 //R1 =  0 ~D3 D2 P4 D1 P2 P1 P0
+LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0
+SHIFT_RIGHT_I R0 3 //R0 = 0 0 0 0 D4 D3 D2 P4
+SHIFT_RIGHT_I R0 2 //R0 = 0 0 0 0 0 0 0 D4
+SHIFT_LEFT_I R0 3 //R0 = 0 0 0 D4 0 0 0 0  
+SHIFT_LEFT_I R0 2 //R0 = D4 0 0 0 0 0 0 0 
+ADD R0 R1 //R0 = D4 ~D3 D2 P4 D1 P2 P1 P0
+STORE_BYTE R3 0 //mem[R3] = R0 = D4 ~D3 D2 P4 D1 P2 P1 P0
+NOP //Place where D4 flipping ends
+Error: B (to a place which skips over flipping everything other than D4)
 
 NOP //Place where D3 flipping starts
 LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0
