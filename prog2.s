@@ -144,18 +144,27 @@ MOV R2 R1 //R2 = 0 0 0 0 S8 S4 S2 S1
 MOVI R0 3 //R0 = 3
 ADDI R0 0 //R0 = 4
 SLT R1 R0 //If S8 S4 S2 S1 < 4, then R1 = 1
-MOV R0 1
+MOVI R0 1
 Error: BEQ (to a place where D1 flipping begins) 
 MOVI R0 2 //R0 = 2
 SHIFT_LEFT_I R0 1 //R0 = 8
 MOV R1 R2 //R1 = 0 0 0 0 S8 S4 S2 S1
 SLT R1 R0 //If S8 S4 S2 S1 < 8, then R1 = 1
+MOVI R0 1
 Error: BEQ (to a place where either D2 or D3 or D4 flipping begins)
 
 NOP //Place where D2 or D3 or D4 flipping begins
 // First, I need to figure out whether it is D2 or D3 or D4
+MOVI R1 R2 //R1 = 0 0 0 0 S8 S4 S2 S1
+MOVI R0 3 //R0 = 3
+ADDI R0 2 //R0 = 5
+Error: BEQ (to a place where D2 flipping starts)
+
+NOP //Place where D2 flipping starts
 //Continue From Here:
 
+NOP //Place where D2 flipping ends
+Error: B (to a place which skips over flipping everything other than D2)
 NOP //Place where D2 or D3 or D4 flipping ends
 NOP //Place where D1 flipping begins
 LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0
