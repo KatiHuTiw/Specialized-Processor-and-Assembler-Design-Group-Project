@@ -197,7 +197,54 @@ Error: BEQ (Back to start of this loop)
 MOV R2 R1 //Because R2 was temporarily storing R1
 //At this point, R1 is the appropriate bitmask to extract the bit to be flipped from mem[R3 + 1]
 LOAD_BYTE R3 1 //R0 = mem[R3] = D11 D10 D9 D8 D7 D6 D5 P8
-CONTINUE
+AND R0 R1 //R0 contains just the bit to be flipped
+ADDI R0 0 //R0 contains bit to be flipped and a 1 to be used for xor_reg
+XOR_REG R0 R0 //R0 = 0 0 0 0 0 0 0 ~D 
+MOV R1 R0 //R1 = 0 0 0 0 0 0 0 ~D
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Inside-> Comments may not be true as it was copied from above
+//Basically, this procedure performs shifts on 0 0 0 0 0 0 0 ~D in R1 instead of 0 0 0 0 0 0 0 1 in R1
+MOV R2 0 //R2 = 0 is going to be used as the index for the loop to bitshift R1 for bit extraction
+MOV R0 R2 //R2 is stored in R0 temporarily
+MOVI R2 2 //R2 = 2
+SHIFT_LEFT_I R2 1 //R2 = 8
+LOAD_TOP_BYTE R2 0 //mem[top - 8] = R0 = startIndexOfLoop = 0
+MOV R2 R1 //R2 temporarily stores R1 before start of loop because R1 will be set to R2 inside the loop in the beginning
+//Loop to bitshift R1 for bit extraction starts here
+MOV R1 R2 //Because R1 was temporarily stored in R2 at end of last iteration
+SHIFT_LEFT_I R1 0 //R1 = R1 << 1
+MOVI R0 2 //R0 = 2
+SHIFT_LEFT_I R0 1 //R0 = 8
+LOAD_TOP_BYTE R0 0 //R0 = mem[top - 8] = IndexOfLoop
+MOV R2 R0 //R2 = IndexOfLoop
+//Loop to bitshift R1 for bit extraction ends here
+ADDI R2 0 //R2 = R2 + 1
+MOV R0 R2 //R0 = R2 = nextPossibleIndexOfLoop
+MOVI R2 3 //R2 = 3
+ADDI R2 3 //R2 = 7
+STORE_TOP_BYTE R2 1 //mem[top - 8] = R0 = nextPossibleIndexOfLoop
+LOAD_TOP_BYTE R2 0 //R0 = mem[top - 7] = 0 0 0 0 S8 S4 S2 S1
+MOV R2 R0 //R2 = 0 0 0 0 S8 S4 S2 S1
+MOVI R0 3 //R0 = 0 0 0 0 0 0 1 1
+SHIFT_LEFT_I R0 1 //R0 = 0 0 0 0 1 1 0 0 
+ADDI R0 2 //R0 = 0 0 0 0 1 1 1 1 
+SHIFT_LEFT_I R0 1 //R0 = 0 0 1 1 1 1 0 0 
+ADDI R0 1 //R0 = 0 0 1 1 1 1 1 0 
+SHIFT_LEFT_I R0 1 //R0 = 1 1 1 1 1 0 0 0
+ADDI R0 0 //R0 = 1 1 1 1 1 0 0 1 = -7
+ADD R2 R0 //R2 = S8 S4 S2 S1 - 7
+MOVI R0 3 //R0 = 3
+ADDI R0 3 //R0 = 7
+LOAD_TOP_BYTE R0 1 //R0 = nextPossibleIndexOfLoop
+SLT R0 R2 //If nextPossibleIndex < S8 S4 S2 S1, then R0 = 1
+MOV R2 R1 //R1 is temporarily stored in R2
+MOVI R1 1 //For the purpose of comparing with R0 to loop back or not
+Error: BEQ (Back to start of this loop)
+MOV R2 R1 //Because R2 was temporarily storing R1
+//At this point, R1 is the appropriate bitmask to extract the bit to be flipped from mem[R3 + 1]
+//Inside-> Comments may not be true as it was copied from above 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Continue From Here:
 
 //Place where D5 or D6 or D7 or D8 or D9 or D10 or D11 flipping ends
 Error: B (to a place beyond where output storage (mem[R3 - 29, R3 - 30] starts)
