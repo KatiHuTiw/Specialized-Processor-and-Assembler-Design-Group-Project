@@ -211,8 +211,6 @@ NOP //Place where D6 flipping begins
 NOP //Place where D6 flipping ends
 Error: B (To a place that skips over everything except D6)
 NOP //Place where D5 flipping begins
-//Continue From Here:
-
 NOP //Place where D5 flipping ends
 Error: B (To a place that skips over everything except D5)
 NOP //Place where D2 or D3 or D4 flipping begins
@@ -243,7 +241,6 @@ ADD R0 R1 //R0 =  ~D4 D3 D2 P4 D1 P2 P1 P0
 STORE_BYTE R3 0 //mem[R3] = R0 = ~D4 D3 D2 P4 D1 P2 P1 P0
 NOP //Place where D4 flipping ends
 Error: B (to a place which skips over flipping everything other than D4)
-
 NOP //Place where D3 flipping starts
 LOAD_BYTE R3 0 //R0 = D4 D3 D2 P4 D1 P2 P1 P0
 MOV R1 2 //R1 = 0 0 0 0 0 0 1 0
