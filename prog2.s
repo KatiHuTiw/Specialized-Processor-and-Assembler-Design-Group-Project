@@ -152,67 +152,12 @@ MOV R1 R2 //R1 = 0 0 0 0 S8 S4 S2 S1
 SLT R1 R0 //If S8 S4 S2 S1 < 8, then R1 = 1
 MOVI R0 1
 Error: BEQ (to a place where either D2 or D3 or D4 flipping begins)
-MOVI R1 R2 //R1 = S8 S4 S2 S1
-MOVI R0 3 //R0 = 3
-ADDI R0 3 //R0 = 7
-ADDI R0 1 //R0 = 9
-Error: BEQ (To a place where D5 flipping begins)
-MOVI R1 R2 //R1 = S8 S4 S2 S1
-MOVI R0 3 //R0 = 3
-ADDI R0 3 //R0 = 7
-ADDI R0 2 //R0 = 10
-Error: BEQ (To a place where D6 flipping begins)
-MOVI R1 R2 //R1 = S8 S4 S2 S1
-MOVI R0 3 //R0 = 3
-ADDI R0 3 //R0 = 7
-ADDI R0 3 //R0 = 11
-Error: BEQ (To a place where D7 flipping begins)
-MOVI R1 R2 //R1 = S8 S4 S2 S1
-MOVI R0 3 //R0 = 3
-ADDI R0 3 //R0 = 7
-ADDI R0 3 //R0 = 11
-ADDI R0 0 //R0 = 12
-Error: BEQ (To a place where D8 flipping begins)
-MOVI R1 R2 //R1 = S8 S4 S2 S1
-MOVI R0 3 //R0 = 3
-ADDI R0 3 //R0 = 7
-ADDI R0 3 //R0 = 11
-ADDI R0 1 //R0 = 13
-Error: BEQ (To a place where D9 flipping begins)
-MOVI R1 R2 //R1 = S8 S4 S2 S1
-MOVI R0 3 //R0 = 3
-ADDI R0 3 //R0 = 7
-ADDI R0 3 //R0 = 11
-ADDI R0 2 //R0 = 14
-Error: BEQ (To a place where D10 flipping begins)
-MOVI R1 R2 //R1 = S8 S4 S2 S1
-MOVI R0 3 //R0 = 3
-ADDI R0 3 //R0 = 7
-ADDI R0 3 //R0 = 11
-ADDI R0 3 //R0 = 15
-Error: BEQ (To a place where D11 flipping begins)
+MOV R0 R2 //R0 = 0 0 0 0 S8 S4 S2 S1
+MOVI R1 3 //R1 = 3
+ADDI R1 3 //R1 = 7
+STORE_TOP_BYTE R1 0 //mem[top - 7] = R0 = 0 0 0 0 S8 S4 S2 S1
+MOV R1 1 //R1 = 0 0 0 0 0 0 0 1
 
-NOP //Place where D11 flipping begins
-NOP //Place where D11 flipping ends
-Error: B (To a place that skips over everything except D11)
-NOP //Place where D10 flipping begins
-NOP //Place where D10 flipping ends
-Error: B (To a place that skips over everything except D10)
-NOP //Place where D9 flipping begins
-NOP //Place where D9 flipping ends
-Error: B (To a place that skips over everything except D9)
-NOP //Place where D8 flipping begins
-NOP //Place where D8 flipping ends
-Error: B (To a place that skips over everything except D8)
-NOP //Place where D7 flipping begins
-NOP //Place where D7 flipping ends
-Error: B (To a place that skips over everything except D7)
-NOP //Place where D6 flipping begins
-NOP //Place where D6 flipping ends
-Error: B (To a place that skips over everything except D6)
-NOP //Place where D5 flipping begins
-NOP //Place where D5 flipping ends
-Error: B (To a place that skips over everything except D5)
 NOP //Place where D2 or D3 or D4 flipping begins
 // First, I need to figure out whether it is D2 or D3 or D4
 MOVI R1 R2 //R1 = 0 0 0 0 S8 S4 S2 S1
