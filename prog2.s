@@ -152,6 +152,7 @@ MOV R1 R2 //R1 = 0 0 0 0 S8 S4 S2 S1
 SLT R1 R0 //If S8 S4 S2 S1 < 8, then R1 = 1
 MOVI R0 1
 Error: BEQ (to a place where either D2 or D3 or D4 flipping begins)
+//Place where D5 or D6 or D7 or D8 or D9 or D10 or D11 flipping begins
 MOV R0 R2 //R0 = 0 0 0 0 S8 S4 S2 S1
 MOVI R1 3 //R1 = 3
 ADDI R1 3 //R1 = 7
@@ -187,8 +188,9 @@ MOVI R1 1 //For the purpose of comparing with R0 to loop back or not
 Error: BEQ (Back to start of this loop)
 MOV R2 R1 //Because R2 was temporarily storing R1
 //At this point, R1 is the appropriate bitmask to extract the bit to be flipped from mem[R3 + 1]
-Continue from here:
 
+//Place where D5 or D6 or D7 or D8 or D9 or D10 or D11 flipping ends
+Error: B (to a place beyond where output storage (mem[R3 - 29, R3 - 30] starts)
 NOP //Place where D2 or D3 or D4 flipping begins
 // First, I need to figure out whether it is D2 or D3 or D4
 MOVI R1 R2 //R1 = 0 0 0 0 S8 S4 S2 S1
