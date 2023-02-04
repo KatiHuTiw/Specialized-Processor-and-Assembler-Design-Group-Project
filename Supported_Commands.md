@@ -143,6 +143,14 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
     [B Opcode] 1100
 
 ## Additional (Specialize for the programs)
+## BIT_MASK: generates a bit mask at register R0
+
+0000: 1111 0000 (used for p4 in program 2 and p8 in program 1)
+0001: 10001110 (p4 in program 1)
+0010: 01101101 (p2 in program 1)
+0011: 01011011 (p2 in program 1)
+0100: 0000110 (p2 msb in program 1)
+0101: 0000101 (p1 msb in program 1)
 
 ### XOR_REG
     Reduction XOR of all bits in the first register, result gets stored in least significant bit of second register.
