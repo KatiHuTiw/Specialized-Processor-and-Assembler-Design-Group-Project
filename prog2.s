@@ -179,6 +179,14 @@ ADDI R2 3 //R2 = 7
 STORE_TOP_BYTE R2 1 //mem[top - 8] = R0 = nextPossibleIndexOfLoop
 LOAD_TOP_BYTE R2 0 //R0 = mem[top - 7] = 0 0 0 0 S8 S4 S2 S1
 MOV R2 R0 //R2 = 0 0 0 0 S8 S4 S2 S1
+MOVI R0 3 //R0 = 0 0 0 0 0 0 1 1
+SHIFT_LEFT_I R0 1 //R0 = 0 0 0 0 1 1 0 0 
+ADDI R0 2 //R0 = 0 0 0 0 1 1 1 1 
+SHIFT_LEFT_I R0 1 //R0 = 0 0 1 1 1 1 0 0 
+ADDI R0 1 //R0 = 0 0 1 1 1 1 1 0 
+SHIFT_LEFT_I R0 1 //R0 = 1 1 1 1 1 0 0 0
+ADDI R0 0 //R0 = 1 1 1 1 1 0 0 1 = -7
+ADD R2 R0 //R2 = S8 S4 S2 S1 - 7
 MOVI R0 3 //R0 = 3
 ADDI R0 3 //R0 = 7
 LOAD_TOP_BYTE R0 1 //R0 = nextPossibleIndexOfLoop
