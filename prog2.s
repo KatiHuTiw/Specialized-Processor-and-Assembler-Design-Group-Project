@@ -157,6 +157,7 @@ MOVI R1 3 //R1 = 3
 ADDI R1 3 //R1 = 7
 STORE_TOP_BYTE R1 0 //mem[top - 7] = R0 = 0 0 0 0 S8 S4 S2 S1
 MOV R1 1 //R1 = 0 0 0 0 0 0 0 1
+Continue From Here:
 
 NOP //Place where D2 or D3 or D4 flipping begins
 // First, I need to figure out whether it is D2 or D3 or D4
