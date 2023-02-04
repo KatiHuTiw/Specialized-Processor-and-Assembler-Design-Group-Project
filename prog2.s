@@ -165,6 +165,7 @@ LOAD_TOP_BYTE R2 0 //mem[top - 8] = R0 = startIndexOfLoop = 0
 MOV R2 R1 //R2 temporarily stores R1 before start of loop because R1 will be set to R2 inside the loop in the beginning
 //Loop to bitshift R1 for bit extraction starts here
 MOV R1 R2 //Because R1 was temporarily stored in R2 at end of last iteration
+SHIFT_LEFT_I R1 0 //R1 = R1 << 1
 MOVI R0 2 //R0 = 2
 SHIFT_LEFT_I R0 1 //R0 = 8
 LOAD_TOP_BYTE R0 0 //R0 = mem[top - 8] = IndexOfLoop
@@ -184,6 +185,9 @@ SLT R0 R2 //If nextPossibleIndex < S8 S4 S2 S1, then R0 = 1
 MOV R2 R1 //R1 is temporarily stored in R2
 MOVI R1 1 //For the purpose of comparing with R0 to loop back or not
 Error: BEQ (Back to start of this loop)
+MOV R2 R1 //Because R2 was temporarily storing R1
+//At this point, R1 is the appropriate bitmask to extract the bit to be flipped from mem[R3 + 1]
+Continue from here:
 
 NOP //Place where D2 or D3 or D4 flipping begins
 // First, I need to figure out whether it is D2 or D3 or D4
