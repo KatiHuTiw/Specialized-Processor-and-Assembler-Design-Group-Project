@@ -241,10 +241,11 @@ MOV R2 R1 //R1 is temporarily stored in R2
 MOVI R1 1 //For the purpose of comparing with R0 to loop back or not
 Error: BEQ (Back to start of this loop)
 MOV R2 R1 //Because R2 was temporarily storing R1
-//At this point, R1 is the appropriate bitmask to extract the bit to be flipped from mem[R3 + 1]
+//At this point, R1 contains the bit to be flipped in its flipped version at the right position but all other bits are zeroes (This comment is right)
 //Inside-> Comments may not be true as it was copied from above 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Continue From Here:
+LOAD_BYTE R3 1 //R0 = mem[R3 + 1] = D11 D10 D9 D8 D7 D6 D5 P8 and R1 contains the bit to be flipped in its flipped version at the right position but all other bits are zeroes (This comment is right) 
+Continue From here:
 
 //Place where D5 or D6 or D7 or D8 or D9 or D10 or D11 flipping ends
 Error: B (to a place beyond where output storage (mem[R3 - 29, R3 - 30] starts)
