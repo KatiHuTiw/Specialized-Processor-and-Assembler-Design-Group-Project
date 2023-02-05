@@ -66,7 +66,7 @@ AND                         R0 R2 // R0 = 0 0 0 0 0 b11 b10 0
 XOR_ADD_REG                 R0 R1 // R1 = 0 0 0 0 p8 p4 ^(b7,b6,b4,b3,b1) ^(b11,b10)
 MOVI                        R0 3 // R0 = 0 0 0 0 0 0 1 1
 AND                         R0 R2 // R0 = ^(b7,b6,b4,b3,b1) ^(b11,b10)
-RIGHT_SHIFT_I               R1 1 // R1 = 0 0 0 0 0 0 p8 p4 
+SHIFT_RIGHT_I               R1 1 // R1 = 0 0 0 0 0 0 p8 p4 
 SHIFT_LEFT_I                R1 0 // R1 = 0 0 0 0 0 p8 p4 0
 XOR_ADD_REG                 R0 R1 // R1 = 0 0 0 0 0 p8 p4 p2
 SHIFT_LEFT_I                R1 0 // R1 = 0 0 0 0 p8 p4 p2 0
@@ -81,7 +81,7 @@ AND                         R0 R2 // R0 = 0 0 0 0 0 b11 0 b9
 XOR_ADD_REG                 R0 R1 // R1 = 0 0 0 p8 p4 p2 ^(b7,b5,b4,b2,b1) ^(b11,b9)
 MOVI                        R0 3 // R0 = 0 0 0 0 0 0 1 1
 AND                         R0 R2 // R0 = 0 0 0 0 0 0 ^(b7,b5,b4,b2,b1) ^(b11,b9)
-RIGHT_SHIFT_I               R1 2 // R1 = 0 0 0 0 0 0 p8 p4 p2 
+SHIFT_RIGHT_I               R1 2 // R1 = 0 0 0 0 0 0 p8 p4 p2 
 SHIFT_LEFT_I                R1 0 // R1 = 0 0 0 0 p8 p4 p2 0
 XOR_ADD_REG                 R0 R1 // R1 = 0 0 0 0 p8 p4 p2 p1
 
@@ -96,7 +96,7 @@ SHIFT_LEFT_I                R1 0
 XOR_ADD_REG                 R3 R1 // R1 =  0 p8 p4 p2 p1 ^(p8,p4,p2,p1) ^(b11:b9) ^(b8:b1)
 SHIFT_LEFT_I                R1 0
 XOR_ADD_REG                 R1 R0 // R0 = 0 0 0 0 0 0 0 p0
-RIGHT_SHIFT_I               R1 2 // R1 = 0 0 0 0 p8 p4 p2 p1 
+SHIFT_RIGHT_I               R1 2 // R1 = 0 0 0 0 p8 p4 p2 p1 
 SHIFT_LEFT_I                R1 0
 ADD                         R1 R0 // R1 = 0 0 0 p8 p4 p2 p1 p0
 
@@ -126,14 +126,14 @@ SWAP                        R0 R2
 MOVI                        R0 1 
 SHIFT_LEFT_I                R0 3 // R0 = 0 0 0 0 1 0 0 0
 AND                         R0 R1 //R0 = 0 0 0 0 p4 0 0 0
-RIGHT_SHIFT_I               R0 2 //R0 = 0 0 0 0 0 0 0 p4 
+SHIFT_RIGHT_I               R0 2 //R0 = 0 0 0 0 0 0 0 p4 
 ADD                         R2 R0 // R2 = 0 0 0 0 b4 b3 b2 p4
 MOVI                        R0 1 // R0 = 0 0 0 0 0 0 0 1
 AND                         R0 R3 // R0 = 0 0 0 0 0 0 0 b1
 SHIFT_LEFT_I                R2 0 // R2 = 0 0 0 b4 b3 b2 p4 0
 ADD                         R2 R0 // R2 = 0 0 0 b4 b3 b2 p4 b1
 BIT_MASK                    0110 // loads 00001110 into register 0
-RIGHT_SHIFT_I               R0 0 // R0 = 0 0 0 0 0 1 1 1
+SHIFT_RIGHT_I               R0 0 // R0 = 0 0 0 0 0 1 1 1
 AND                         R0 R1 // R0 = 0 0 0 0 0 b4 b3 b2 p4 b1
 SHIFT_LEFT_I                R2 2 // R2 = b4 b3 b2 p4 b1 0 0 0
 ADD                         R2 R0 // R2 = b4 b3 b2 p4 b1 b4 b3 b2 p4 b1
