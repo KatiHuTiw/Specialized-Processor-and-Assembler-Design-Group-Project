@@ -64,6 +64,13 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 
     [SHIFT_RIGHT Opcode] 11 00
 
+### SHIFT_RIGHT_I (Might not need)
+    Shift register to the right by a register value.
+
+    SHIFT_RIGHT R3 2 //Incremented by 1 automatically, R3 = R3 >> 3
+
+    [SHIFT_RIGHT Opcode] 11 00
+
 ## Logic (Results are stored in the first register on default)
 
 ### AND
@@ -118,7 +125,14 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
     STORE_TOP_BYTE R2 3 // mem[-R2 - 3] = R0
 
     [STORE_TOP_BYTE Opcode] 10 11
+    
+### STORE_TOP_BYTE_I
+    Store content in R0 to the top of the memomry. The address is memory's last address - (immediate Offset). This value is in bytes.
 
+    STORE_TOP_BYTE 12 // mem[-12] = R0
+
+    [STORE_TOP_BYTE Opcode] 11 00  (unsigned immediate only)
+    
 ## Branching
 
 ### BEQ
@@ -141,16 +155,29 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
     B -4
 
     [B Opcode] 1100
-
+    
+### B_LOOKUP:
+    Branches to a particular instruction using a look up table
+    
+    B_LOOKUP 0000 // adds an offset to the pc specified by the immediate
+    
 ## Additional (Specialize for the programs)
-## BIT_MASK: generates a bit mask at register R0
-
-0000: 1111 0000 (used for p4 in program 2 and p8 in program 1)
-0001: 10001110 (p4 in program 1)
-0010: 01101101 (p2 in program 1)
-0011: 01011011 (p2 in program 1)
-0100: 0000110 (p2 msb in program 1)
-0101: 0000101 (p1 msb in program 1)
+   
+### BIT_MASK: 
+    generates a bit mask and writes it into register R0
+    0000: 1111 0000 (used for p4 in program 2 and p8 in program 1)
+    0001: 10001110 (p4 in program 1)
+    0010: 01101101 (p2 in program 1)
+    0011: 01011011 (p2 in program 1)
+    0100: 0000110 (p2 msb in program 1)
+    0101: 0000101 (p1 msb in program 1)
+    
+    BIT_MASK 0000 // loads 11110000 in R0
+    
+### XOR_ADD_REG
+    Reduction xor of all bits in the first register. Result is added to the second register.
+    
+    XOR_ADD_REG R0 R1 // R1 += ^ R0
 
 ### XOR_REG
     Reduction XOR of all bits in the first register, result gets stored in least significant bit of second register.
@@ -159,28 +186,28 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 
     [XOR_REG Opcode] 01 00
 
-### XOR_R0R1_BIT (Removed)
+### ~XOR_R0R1_BIT~ (Removed)
     Reduction XOR of the selected bits in the lower 4 bits in the first register and the second register. The result is stored in R3's least significant bit ~~
 
     XOR_R0R1_BIT 3 2 // R3[0] = R0[3]^R1[2]
 
     [XOR_R0R1_BIT Opcode] 11 10
 
-### XOR_R0R0_LOWER_BIT (Removed)
+### ~XOR_R0R0_LOWER_BIT~ (Removed)
     Reduction XOR of the selected bits in the lower 4 bits in R0. The result is stored in R3's least significant bit
 
     XOR_R0R1_BIT 3 2 // R3[0] = R0[3]^R0[2]
 
     [XOR_R0R0_LOWER_BIT Opcode] 11 10
 
-### XOR_R0R0_UPPER_BIT (Removed)
+### ~XOR_R0R0_UPPER_BIT~ (Removed)
     Reduction XOR of the selected bits in the upper 4 bits in R0. The result is stored in R3's least significant bit
 
     XOR_R0R0_UPPER_BIT 5 7 // R3[0] = R0[5]^R0[7]
 
     [XOR_R0R0_UPPER_BIT Opcode] 01 11
 
-### XOR_R0R0_UPPER_LOWER_BIT (Removed)
+### ~XOR_R0R0_UPPER_LOWER_BIT~ (Removed)
     Reduction XOR of the selected bit in the upper 4 bits in R0 and the selected bit in the lower 4 bits in R0. The result is stored in R3's least significant bit
 
     XOR_R0R0_UPPER_BIT 6 2 // R3[0] = R0[6]^R0[2]
