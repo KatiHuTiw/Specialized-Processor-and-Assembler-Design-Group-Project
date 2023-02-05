@@ -175,9 +175,9 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
     BIT_MASK 0000 // loads 11110000 in R0
     
 ### XOR_ADD_REG
-    Reduction xor of all bits in the second register. Result is added to the first register.
+    Reduction xor of all bits in the first register. Result is added to the second register.
     
-    XOR_ADD_REG R0 R1 // R0 += ^ R1
+    XOR_ADD_REG R0 R1 // R1 += ^ R0
 
 ### XOR_REG
     Reduction XOR of all bits in the first register, result gets stored in the second register.
