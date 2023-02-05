@@ -1,4 +1,4 @@
-// set up looping vaariables for the program and get addresses for reading data and writing (storing From top to bottom: addr to go, from address, to address, max iterations)
+// set up looping variables for the program and get addresses for reading data and writing (storing From top to bottom: addr to go, from address, to address, max iterations)
 BIT_MASK                    0000 //loads 1111 0000 in R0
 ROT_L                       R0 3 // R0 = 0000 1111
 SHIFT_LEFT_I                R0 0 // R0 = 0 0 0 1 1 1 1 0 (loads 30 in R0)
@@ -21,9 +21,12 @@ MOVI                        R3 0
 LOAD_TOP_BYTE               R0 1 // Get the from address
 SWAP                        R0 R1 // store it in R1
 LOAD_TOP_BYTE               R0 2 // Get the MAX address
-BEQ                         EXIT // If r0 == R1 exit the loop 
+BEQ                         +1 // If r0 == R1 skip the next instruction
+B_LOOKUP                    START_LOOP
+B_LOOKUP                    EXIT // if the next address is 16 exit the loop.
 
 // Get data
+START_LOOP:
 LOAD_BYTE                   R1 0 // load the 8 lsw bits into r0 
 SWAP                        R0 R3 // Get LSW the first block in R3
 LOAD_BYTE                   R1 1 // load the 8 msw into r0
@@ -141,6 +144,6 @@ LOAD_TOP_BYTE               R0 0 // Get the address at last memory location
 SWAP                        R0 R2 // Get ready to store
 STORE_BYTE                  R2 0 // Store R0 to the address in R2 + 0
 
-B                           MAIN_LOOP
+B_LOOKUP                    MAIN_LOOP
 
 EXIT:
