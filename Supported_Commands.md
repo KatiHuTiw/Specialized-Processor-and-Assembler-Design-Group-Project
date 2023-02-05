@@ -180,7 +180,7 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
     XOR_ADD_REG R0 R1 // R1 += ^ R0
 
 ### XOR_REG
-    Reduction XOR of all bits in the first register, result gets stored in least significant bit of second register.
+    Reduction XOR of all bits in the first register, result gets stored in the second register.
 
     XOR_REG R1 R0 // R0 = ^R1
 
