@@ -40,7 +40,7 @@ STORE_TOP_BYTE              R1 1 // Store next address to top of memory - 1
 BIT_MASK                    0000 // loads 1111 0000 in R0
 AND                         R0 R3 // R0 = b8 b7 b6 b5 0 0 0 0
 OR                          R0 R2 // R0 = b8 b7 b6 b5 0 b11 b10 b9
-XOR_ADD_REG                 R1 R0 // R1[0] = p8
+XOR_ADD_REG                 R0 R1 // R1[0] = p8
 
 //Prepare for next calculation
 SHIFT_LEFT_I                R1 0 // Shift left by 1
@@ -49,8 +49,8 @@ SHIFT_LEFT_I                R1 0 // Shift left by 1
 //Calculate p4 
 BIT_MASK                    0001 //loads 10001110 in R0
 AND                         R0 R3// R0 = b8 0 0 0 b4 b3 b2 0
-XOR_ADD_REG                 R0 R2  // R0[0] = ^(b11:b9)
-XOR_ADD_REG                 R1 R0  // R1[0] = p4
+XOR_ADD_REG                 R2 R0 // R0[0] = ^(b11:b9)
+XOR_ADD_REG                 R0 R1 // R1[0] = p4
 
 //Prepare for next calculation
 SHIFT_LEFT_I                R1 0 // Shift left by 1
@@ -59,31 +59,31 @@ SHIFT_LEFT_I                R1 0 // Shift left by 1
 //Calculate p2
 BIT_MASK                    0010 //loads 01101101 in R0
 AND                         R0 R3 // R0 = 0 b7 b6 0 b4 b3 0 b1 
-XOR_ADD_REG                 R1 R0// R1[0] = ^(b7,b6,b4,b3,b1)
+XOR_ADD_REG                 R0 R1 // R1[0] = ^(b7,b6,b4,b3,b1)
 SHIFT_LEFT_I                R1 0 // R1 = 0 0 0 0 p8 p4 ^(b7,b6,b4,b3,b1) 0
 BIT_MASK                    0100 // loads 00000110 in R0
 AND                         R0 R2 // R0 = 0 0 0 0 0 b11 b10 0
-XOR_ADD_REG                 R1 R0 // R1 = 0 0 0 0 p8 p4 ^(b7,b6,b4,b3,b1) ^(b11,b10)
+XOR_ADD_REG                 R0 R1 // R1 = 0 0 0 0 p8 p4 ^(b7,b6,b4,b3,b1) ^(b11,b10)
 MOVI                        R0 3 // R0 = 0 0 0 0 0 0 1 1
 AND                         R0 R2 // R0 = ^(b7,b6,b4,b3,b1) ^(b11,b10)
 RIGHT_SHIFT_I               R1 1 // R1 = 0 0 0 0 0 0 p8 p4 
 SHIFT_LEFT_I                R1 0 // R1 = 0 0 0 0 0 p8 p4 0
-XOR_ADD_REG                 R1 R0 // R1 = 0 0 0 0 0 p8 p4 p2
+XOR_ADD_REG                 R0 R1 // R1 = 0 0 0 0 0 p8 p4 p2
 SHIFT_LEFT_I                R1 0 // R1 = 0 0 0 0 p8 p4 p2 0
 
 // Calculate p1
 BIT_MASK                    0011 //loads 01011011 in R0
 AND                         R0 R3 // R0 = 0 b7 0 b5 b4 0 b2 b1 
-XOR_ADD_REG                 R1 R0 // R1[0] = ^(b7,b5,b4,b2,b1)
+XOR_ADD_REG                 R0 R1 // R1[0] = ^(b7,b5,b4,b2,b1)
 SHIFT_LEFT_I                R1 0 // R1 = 0 0 0 p8 p4 p2 ^(b7,b5,b4,b2,b1) 0
 BIT_MASK                    0101 // loads 00000101 in R0
 AND                         R0 R2 // R0 = 0 0 0 0 0 b11 0 b9
-XOR_ADD_REG                 R1 R0 // R1 = 0 0 0 p8 p4 p2 ^(b7,b5,b4,b2,b1) ^(b11,b9)
+XOR_ADD_REG                 R0 R1 // R1 = 0 0 0 p8 p4 p2 ^(b7,b5,b4,b2,b1) ^(b11,b9)
 MOVI                        R0 3 // R0 = 0 0 0 0 0 0 1 1
 AND                         R0 R2 // R0 = 0 0 0 0 0 0 ^(b7,b5,b4,b2,b1) ^(b11,b9)
 RIGHT_SHIFT_I               R1 2 // R1 = 0 0 0 0 0 0 p8 p4 p2 
 SHIFT_LEFT_I                R1 0 // R1 = 0 0 0 0 p8 p4 p2 0
-XOR_ADD_REG                 R1 R0 // R1 = 0 0 0 0 p8 p4 p2 p1
+XOR_ADD_REG                 R0 R1 // R1 = 0 0 0 0 p8 p4 p2 p1
 
 // R0 = 0 0 0 0 0 0 ^(b7,b5,b4,b2,b1) ^(b11,b9), R1 = 0 0 0 0 p8 p4 p2 p1, R2 = 0 0 0 0 0 b11 b10 b9, R3 = b8 b7 b6 b5 b4 b3 b2 b1
 
@@ -91,11 +91,11 @@ MOVI                        R0 0
 SHIFT_LEFT_I                R1 0
 XOR_ADD_REG                 R1 R1 // R1 = 0 0 0 p8 p4 p2 p1 ^(p8,p4,p2,p1)
 SHIFT_LEFT_I                R1 0
-XOR_ADD_REG                 R1 R2 // R1 =  0 0 p8 p4 p2 p1 ^(p8,p4,p2,p1) ^(b11:b9)
+XOR_ADD_REG                 R2 R1 // R1 =  0 0 p8 p4 p2 p1 ^(p8,p4,p2,p1) ^(b11:b9)
 SHIFT_LEFT_I                R1 0
-XOR_ADD_REG                 R1 R3 // R1 =  0 p8 p4 p2 p1 ^(p8,p4,p2,p1) ^(b11:b9) ^(b8:b1)
+XOR_ADD_REG                 R3 R1 // R1 =  0 p8 p4 p2 p1 ^(p8,p4,p2,p1) ^(b11:b9) ^(b8:b1)
 SHIFT_LEFT_I                R1 0
-XOR_ADD_REG                 R0 R1 // R0 = 0 0 0 0 0 0 0 p0
+XOR_ADD_REG                 R1 R0 // R0 = 0 0 0 0 0 0 0 p0
 RIGHT_SHIFT_I               R1 2 // R1 = 0 0 0 0 p8 p4 p2 p1 
 SHIFT_LEFT_I                R1 0
 ADD                         R1 R0 // R1 = 0 0 0 p8 p4 p2 p1 p0
