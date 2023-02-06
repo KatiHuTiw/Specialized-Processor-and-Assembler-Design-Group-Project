@@ -57,6 +57,7 @@ immLUT immediate_ctrl (
 // Register wires
 logic doSWAP, RegWrite, regfile_dat_ctr;
 logic [7:0] regfile_dat, dat1, dat2;
+logic [1:0] register_wr_addr;
 
 reg_file #(.pw(3)) rf1(
     .dat_in(regfile_dat),	   // loads, most ops
@@ -64,22 +65,36 @@ reg_file #(.pw(3)) rf1(
     .wr_en   (RegWrite),
     .rd_addrA(operand1),
     .rd_addrB(operand2),
-    .wr_addr (operand1),      // in place operation
+    .wr_addr (register_wr_addr),      // in place operation
     .doSWAP(doSWAP),          // SWAP instruction signal
     .datA_out(dat1),
     .datB_out(dat2)
 );
 
+mux_2x1 reg_dat_mux (
+    .in1(ALU_rslt),
+    .in2(dat_out),
+    .selector(regfile_dat_ctr),
+    .out(regfile_dat)
+);
+
 // ALU wires
 logic alu_branch, ALU_in2_ctr;
-logic [7:0] ALU_in1, ALU_in2, ALU_rslt;
+logic [7:0] ALU_in2, ALU_rslt;
 
 alu alu1 (
     .alu_cmd(opcode), // More than half if the instructions have to do with ALU
-    .inA(ALU_in1),
+    .inA(dat1),
     .inB(ALU_in2),
     .rslt(ALU_rslt),
     .doBranch(alu_branch) // ALU controls if jump is enabled
+);
+
+mux_2x1 alu_in2_mux (
+    .in1(dat2),
+    .in2(imm_output),
+    .selector(ALU_in2_ctr),
+    .out(ALU_in2)
 );
 
 // Data mem wires
