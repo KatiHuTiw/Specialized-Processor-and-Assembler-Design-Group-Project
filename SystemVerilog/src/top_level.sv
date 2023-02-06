@@ -21,7 +21,7 @@ PC #(.D(D)) pc1 (
 // Instantiate Program Counter lookuptable
 PC_Controller #(.D(D)) pc1_ctrl (
     .immOrLUT(immOrLUT),
-    .input({operand1, operand2}),
+    .pc_ctrl_input({operand1, operand2}),
     .target (jump_dist)
 );
 
@@ -47,9 +47,9 @@ logic [1:0] imm_ctr;
 logic numBits;
 logic [7:0] imm_output;
 
-immLUT immediate_ctrl (
+immediate_ctrl immediate_ctrl1 (
     .ctrl(imm_ctr),
-    .numBits(numBits)
+    .numBits(numBits),
     .immediateInput({operand1, operand2}),
     .immediateValue(imm_output)
 );

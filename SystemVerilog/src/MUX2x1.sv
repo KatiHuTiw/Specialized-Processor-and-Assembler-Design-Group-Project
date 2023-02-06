@@ -3,7 +3,7 @@ module mux_2x1(
   input logic selector,
   output logic [7:0] out
 );
-  always @(selector or in)
+  always_comb
   begin
       // student to add code here
       if (selector == 0) out = in1;

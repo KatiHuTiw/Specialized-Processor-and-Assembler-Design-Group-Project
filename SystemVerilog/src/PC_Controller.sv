@@ -1,6 +1,6 @@
 module PC_Controller #(parameter D=12)(
 	input       [1:0] immOrLUT,   // Decide to use immediate or LUT value
-	input       [ 3:0] input,	   // 4 bits = 16 different LUT value
+	input       [ 3:0] pc_ctrl_input,	   // 4 bits = 16 different LUT value
 	output logic[D-1:0] target
 );
 
