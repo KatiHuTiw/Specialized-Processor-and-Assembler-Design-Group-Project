@@ -108,12 +108,27 @@ mux_2x1 alu_in2_mux (
 logic [7:0] dat_out;
 logic MemWrite;
 
-dat_mem dm1(
+dat_mem dm1 (
     .dat_in(regfile_dat)  ,  // from reg_file
     .clk(clk),
     .wr_en  (MemWrite), // stores
     .addr   (ALU_rslt),
     .dat_out(dat_out)
+);
+
+Control ctrl1 (
+    .opcode(opcode),
+    .alu_branch(alu_branch),
+    .immOrLUT(immOrLUT),
+    .imm_ctr(imm_ctr),
+    .jump_en(jump_en),
+    .numBits(numBits), 
+    .doSWAP(doSWAP), 
+    .RegWrite(RegWrite), 
+    .MemWrite(MemWrite), 
+    .ALU_in2_ctr(ALU_in2_ctr), 
+    .regfile_dat_ctr(regfile_dat_ctr),
+    .regfile_wr_ctr(regfile_wr_ctr)
 );
 
 endmodule
