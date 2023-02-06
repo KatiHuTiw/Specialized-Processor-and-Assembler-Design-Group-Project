@@ -55,7 +55,7 @@ immLUT immediate_ctrl (
 );
 
 // Register wires
-logic doSWAP, RegWrite, regfile_dat_ctr;
+logic doSWAP, RegWrite, regfile_dat_ctr, regfile_wr_ctr;
 logic [7:0] regfile_dat, dat1, dat2;
 logic [1:0] register_wr_addr;
 
@@ -76,6 +76,13 @@ mux_2x1 reg_dat_mux (
     .in2(dat_out),
     .selector(regfile_dat_ctr),
     .out(regfile_dat)
+);
+
+mux_2x1 reg_wr_mux (
+    .in1(operand1),
+    .in2(2'b0),
+    .selector(regfile_wr_ctr),
+    .out(register_wr_addr)
 );
 
 // ALU wires
