@@ -89,6 +89,7 @@ LOAD_LOWER_H_BYTE = 'b11010, LOAD_UPPER_H_BYTE = 'b11011, NOP = 'b00000;
 			BIT_MASK:begin
 				RegWrite = '1;
 				ALU_in2_ctr = '1;
+				regfile_wr_ctr = '1; // write result to register R0
 				numBits = '1;// 4 bits
 				imm_ctr = 2'b10;// immediate is unsigned
 			end
