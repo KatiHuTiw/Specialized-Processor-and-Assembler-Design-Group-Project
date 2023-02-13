@@ -2,7 +2,6 @@ module Register_Mapper(
   input [1:0] reg1, reg2;
   input clk, reset, doSWAP;
   output [1:0] reg1_mapped, reg2_mapped;
-  input clk;
 );
 
 logic register_mappings_reg[1:0][1:0];
