@@ -23,6 +23,8 @@ module reg_file #(parameter pw=4)(
   always_ff @(posedge clk) begin
     if(wr_en)				   // anything but stores or no ops
       core[wr_addr] <= dat_in;
+		
+	end
 endmodule
 /*
 	  xxxx_xxxx
