@@ -16,9 +16,10 @@ alwasy_ff @(clk) begin
     end
     else begin
         // Initially all regitsers point to themselves
-        for (int i = 0; i < 4; i++) begin
-            register_mappings_reg[0] <= i;
-        end
+        register_mappings_reg[0] <= 2'b00;
+        register_mappings_reg[1] <= 2'b01;
+        register_mappings_reg[2] <= 2'b10;
+        register_mappings_reg[3] <= 2'b11;
     end
 end
 always_comb begin
