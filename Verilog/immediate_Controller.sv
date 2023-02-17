@@ -5,7 +5,7 @@ module immediate_ctrl #(parameter width = 4)(
     output[7:0] immediateValue // Final imm value
 );
 
-	assign immediateValue = (numBits)? {6'b0, immediateInput1} : {4'b0, immediateInput0, immediateInput1};
+	assign immediateValue = (numBits)? {4'b0, immediateInput0, immediateInput1} : {6'b0, immediateInput1};
 	
 
 endmodule
