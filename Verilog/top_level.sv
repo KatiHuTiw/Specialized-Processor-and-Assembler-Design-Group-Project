@@ -9,7 +9,44 @@ logic immOrLUT;
 logic jump_en;
 logic [D-1:0] prog_ctr;
 
+// Instruction ROM and Decoder wires
+logic [8:0] currentInstruction;
+logic [4:0] opcode;
+logic [1:0] operand1, operand2;
+
+// Immediate wires
+logic numBits;
+logic [7:0] imm_output;
+
+// Register wires
+logic doSWAP, RegWrite, regfile_dat_ctr, regfile_wr_ctr;
+logic [7:0] regfile_dat, dat1, dat2;
+logic [1:0] register_wr_addr;
+logic [1:0] XOR_not_selected;
+logic [7:0] store_data;
+
+// wires to connect branchreg select mux with reg
+logic[1:0] op1, op1_mapped;
+logic[1:0] op2, op2_mapped;
 // Instantiate Program Counter
+
+// wire for XOR specific register selection
+logic RXOR;
+// wire for BEQ control signal
+logic BEQSig;
+
+// ALU wires
+logic alu_branch, ALU_in2_ctr;
+logic [7:0] ALU_in2, ALU_rslt;
+
+// Data mem wires
+logic [7:0] dat_out;
+logic MemWrite;
+
+// Wires for half byte
+logic[7:0] processed_data;
+logic[1:0] select_bytes;
+
 PC #(.D(D)) pc1 (
     .reset(reset),
     .clk(clk),
@@ -25,10 +62,6 @@ PC_Controller #(.D(D)) pc1_ctrl (
     .target (jump_dist)
 );
 
-// Instruction ROM and Decoder wires
-logic [8:0] currentInstruction;
-logic [4:0] opcode;
-logic [1:0] operand1, operand2;
 
 instr_ROM #(.D(D)) instructions (
     .prog_ctr(prog_ctr),
@@ -42,23 +75,12 @@ decoderModule dec1 (
     .operand2(operand2)
 );
 
-// Immediate wires
-logic numBits;
-logic [7:0] imm_output;
-
 immediate_ctrl immediate_ctrl1 (
     .numBits(numBits),
     .immediateInput0(operand1),
 	 .immediateInput1(operand2),
     .immediateValue(imm_output)
 );
-
-// Register wires
-logic doSWAP, RegWrite, regfile_dat_ctr, regfile_wr_ctr;
-logic [7:0] regfile_dat, dat1, dat2;
-logic [1:0] register_wr_addr;
-logic [1:0] XOR_not_selected;
-logic [7:0] store_data;
 
 reg_file #(.pw(3)) rf1(
     .dat_in(regfile_dat),	   // loads, most ops
@@ -78,9 +100,7 @@ mux_2x1 reg_dat_mux (
     .selector(regfile_dat_ctr),
     .out(regfile_dat)
 );
-// wires to connect branchreg select mux with reg
-logic[1:0] op1, op1_mapped;
-logic[1:0] op2, op2_mapped;
+
 
 mux_2x1 op1_branch_mux (
     .in1(operand1),
@@ -121,9 +141,6 @@ mux_2x1 xor_operand_select_mux (
     .out(register_wr_addr)
 );
 
-// ALU wires
-logic alu_branch, ALU_in2_ctr;
-logic [7:0] ALU_in2, ALU_rslt;
 
 alu alu1 (
     .alu_cmd(opcode), // More than half if the instructions have to do with ALU
@@ -140,10 +157,6 @@ mux_2x1 alu_in2_mux (
     .out(ALU_in2)
 );
 
-// Data mem wires
-logic [7:0] dat_out;
-logic MemWrite;
-
 dat_mem dm1 (
     .dat_in(store_data)  ,  // from reg_file
     .clk(clk),
@@ -151,9 +164,7 @@ dat_mem dm1 (
     .addr   (ALU_rslt),
     .dat_out(dat_out)
 );
-// Wires for half byte
-logic[7:0] processed_data;
-logic[1:0] select_bytes;
+
 
 half_byte_parser hbparser (
     .load_state(select_bytes),   
@@ -161,11 +172,6 @@ half_byte_parser hbparser (
    .rslt(processed_data)
 );
 
-
-// wire for XOR specific register selection
-logic RXOR;
-// wire for BEQ control signal
-logic BEQSig;
 Control ctrl1 (
     .opcode(opcode),
     .alu_branch(alu_branch),
