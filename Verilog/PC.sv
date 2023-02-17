@@ -15,6 +15,6 @@ module PC #(parameter D=12)(
 	else if(jump_en)
 	  prog_ctr <= prog_ctr + target;
 	else
-	  prog_ctr <= prog_ctr + '1;
+	  prog_ctr <= prog_ctr + 12'b1;
 
 endmodule
