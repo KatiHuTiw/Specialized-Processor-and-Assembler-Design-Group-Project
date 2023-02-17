@@ -82,7 +82,7 @@ immediate_ctrl immediate_ctrl1 (
     .immediateValue(imm_output)
 );
 
-reg_file #(.pw(3)) rf1(
+reg_file rf1(
     .dat_in(regfile_dat),	   // loads, most ops
     .clk(clk)         ,
     .wr_en   (RegWrite),
@@ -102,16 +102,16 @@ mux_2x1 reg_dat_mux (
 );
 
 
-mux_2x1 op1_branch_mux (
+mux_2x1 #(.len(2)) op1_branch_mux  (
     .in1(operand1),
-    .in2('b0000),
+    .in2(2'b00),
     .selector(BEQSig),
     .out(op1)
 );
 
-mux_2x1 op2_branch_mux (
+mux_2x1 #(.len(2)) op2_branch_mux  (
     .in1(operand2),
-    .in2('b0001),
+    .in2(2'b01),
     .selector(BEQSig),
     .out(op2)
 );
@@ -127,14 +127,14 @@ Register_Mapper reg_mapper (
     .reg2_mapped(op2_mapped)
 );
 
-mux_2x1 reg_wr_mux (
+mux_2x1 #(.len(2)) reg_wr_mux  (
     .in1(operand1),
-    .in2(2'b0),
+    .in2(2'b00),
     .selector(regfile_wr_ctr),
     .out(XOR_not_selected)
 );
 
-mux_2x1 xor_operand_select_mux (
+mux_2x1 #(.len(2)) xor_operand_select_mux (
     .in1(XOR_not_selected),
     .in2(operand2),
     .selector(RXOR),
