@@ -14,7 +14,7 @@ B_LOOKUP = 'b00001, BIT_MASK = 'b00111, XOR_ADD_REG = 'b01110, XOR_REG = 'b01111
 LOAD_LOWER_H_BYTE = 'b11010, LOAD_UPPER_H_BYTE = 'b11011, NOP = 'b00000;
 
 parameter FULL = 2'b00, LOWER = 2'b01, UPPER = 2'b10;
-	assign jump_en = (alu_branch)? 'b1:'b0;
+	assign jump_en = (alu_branch)? 1'b1:1'b0;
 	always_comb begin
 		// Default cases
 		immOrLUT = '0;
