@@ -1,7 +1,7 @@
-module mux_2x1(
-  input logic [7:0] in1, in2,
+module mux_2x1  #(parameter len=8)(
+  input logic [len-1:0] in1, in2,
   input logic selector,
-  output logic [7:0] out
+  output logic [len-1:0] out
 );
   always_comb
   begin
