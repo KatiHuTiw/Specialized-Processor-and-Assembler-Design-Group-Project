@@ -11,10 +11,10 @@ assign target = offset;
 	if(immOrLUT) begin
 		case(pc_ctrl_input)
 			// Send signed bits. ALL VALUES IN THE LUT ARE SIGNED!!!!
-				'b0000: offset = 'b111111111011;   // go back 5 spaces
-				'b0001: offset = 'b000000010100;   // go ahead 20 spaces
-				'b0010: offset = 'b111111111111;   // go back 1 space   1111_1111_1111
-				default: offset = 'b0;  // hold PC  
+				4'b0000: offset = 12'b111111111011;   // go back 5 spaces
+				4'b0001: offset = 12'b000000010100;   // go ahead 20 spaces
+				4'b0010: offset = 12'b111111111111;   // go back 1 space   1111_1111_1111
+				default: offset = 12'b0;  // hold PC  
 		endcase
 	end
 	else begin
