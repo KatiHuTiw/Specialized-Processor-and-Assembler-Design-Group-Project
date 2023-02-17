@@ -1,7 +1,7 @@
 module Register_Mapper(
   input [1:0] reg1, reg2,
   input clk, reset, doSWAP,
-  output [1:0] reg1_mapped, reg2_mapped
+  output logic [1:0] reg1_mapped, reg2_mapped
 );
 
 logic [1:0] register_mappings_reg[4];
@@ -34,7 +34,7 @@ always_comb begin
     end
     // Output the mapper values of the registers
     reg1_mapped = register_mappings_reg[reg1];
-    reg1_mapped = register_mappings_reg[reg2];
+    reg2_mapped = register_mappings_reg[reg2];
 end
 
 endmodule
