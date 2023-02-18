@@ -47,6 +47,9 @@ logic MemWrite;
 logic[7:0] processed_data;
 logic[1:0] select_bytes;
 
+// Wire for connecting unmapped register write address to the mapper
+logic[1:0] write_reg_unmapped;
+
 PC #(.D(D)) pc1 (
     .reset(reset),
     .clk(clk),
@@ -116,15 +119,18 @@ mux_2x1 #(.len(2)) op2_branch_mux  (
     .out(op2)
 );
 
+
 // Implement Register Mapper to realize SWAP functionality
 Register_Mapper reg_mapper (
     .reg1(op1),
     .reg2(op2),
+	 .reg_write(write_reg_unmapped),
     .clk(clk),
     .reset(reset),
     .doSWAP(doSWAP),
     .reg1_mapped(op1_mapped),
-    .reg2_mapped(op2_mapped)
+    .reg2_mapped(op2_mapped),
+	 .reg_write_mapped(register_wr_addr)
 );
 
 mux_2x1 #(.len(2)) reg_wr_mux  (
@@ -138,7 +144,7 @@ mux_2x1 #(.len(2)) xor_operand_select_mux (
     .in1(XOR_not_selected),
     .in2(operand2),
     .selector(RXOR),
-    .out(register_wr_addr)
+    .out(write_reg_unmapped)
 );
 
 
