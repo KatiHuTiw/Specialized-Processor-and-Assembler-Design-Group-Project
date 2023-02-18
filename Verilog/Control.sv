@@ -4,14 +4,14 @@ module Control (
   input alu_branch,
   output logic [1:0] half_byte,
   output logic jump_en, numBits, doSWAP, RegWrite, MemWrite, ALU_in2_ctr, regfile_dat_ctr,
-  regfile_wr_ctr, RXOR, BEQBranch, immOrLUT
+  regfile_wr_ctr, RXOR, BEQBranch, immOrLUT, stall, done
 );	   // for up to 8 ALU operations
 parameter ADD = 'b01000, ADDI = 'b11000, SUB = 'b01001, MOV = 'b00100, MOVI = 'b11001,
 SHIFT_LEFT = 'b01100, SHIFT_LEFT_I = 'b11100, SHIFT_RIGHT = 'b01101, SHIFT_RIGHT_I = 'b11101, AND = 'b01010,
 OR = 'b01011, ROT_L = 'b11110, LOAD_BYTE = 'b10000, STORE_BYTE = 'b10001, LOAD_TOP_BYTE = 'b10110,
 STORE_TOP_BYTE = 'b10111, STORE_TOP_BYTE_I = 'b00110, BEQ = 'b00011, SLT = 'b00101, B = 'b00010,
 B_LOOKUP = 'b00001, BIT_MASK = 'b00111, XOR_ADD_REG = 'b01110, XOR_REG = 'b01111, SWAP = 'b11111, 
-LOAD_LOWER_H_BYTE = 'b11010, LOAD_UPPER_H_BYTE = 'b11011, NOP = 'b00000;
+LOAD_LOWER_H_BYTE = 'b11010, LOAD_UPPER_H_BYTE = 'b11011, NOP = 'b00000, DONE = 'b10010;
 
 parameter FULL = 2'b00, LOWER = 2'b01, UPPER = 2'b10;
 	assign jump_en = (alu_branch)? 1'b1:1'b0;
@@ -28,7 +28,8 @@ parameter FULL = 2'b00, LOWER = 2'b01, UPPER = 2'b10;
 		RXOR = '0;
 		half_byte = FULL;
 		BEQBranch = '0;
-		
+		done = '0;
+		stall = '0;
 		case(opcode)
 			ADD, SUB, MOV, SHIFT_LEFT, SHIFT_RIGHT, AND, OR, SLT:begin
 				RegWrite = '1;
@@ -104,6 +105,11 @@ parameter FULL = 2'b00, LOWER = 2'b01, UPPER = 2'b10;
 			
 			NOP: begin
 			
+			end
+			
+			DONE: begin
+				done = '1;
+				stall = '1;
 			end
 			
 			default:begin
