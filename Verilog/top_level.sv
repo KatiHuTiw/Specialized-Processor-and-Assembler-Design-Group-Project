@@ -1,6 +1,6 @@
 // sample top level design
 module top_level #(parameter D=12)(
-    input        clk, reset, req, 
+    input        clk, reset,
     output logic done);
 
 // PC and PC Controller wires
@@ -49,10 +49,14 @@ logic[1:0] select_bytes;
 
 // Wire for connecting unmapped register write address to the mapper
 logic[1:0] write_reg_unmapped;
+// Stall pc 
+logic pc_stall;
+
 
 PC #(.D(D)) pc1 (
     .reset(reset),
     .clk(clk),
+	 .stall(pc_stall),
     .jump_en (jump_en),
     .target(jump_dist),
     .prog_ctr(prog_ctr)
@@ -192,7 +196,9 @@ Control ctrl1 (
     .regfile_wr_ctr(regfile_wr_ctr),
 	 .RXOR(RXOR),
 	 .half_byte(select_bytes),
-	 .BEQBranch(BEQSig)
+	 .BEQBranch(BEQSig),
+	 .stall(pc_stall),
+	 .done(done)
 );
 
 endmodule
