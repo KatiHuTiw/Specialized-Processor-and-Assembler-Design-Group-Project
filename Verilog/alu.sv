@@ -55,7 +55,14 @@ always_comb begin
 	
 	ROT_L: begin
 		// (n << d)|(n >> (8 - d)) to rotate left in 8 bits
-		rslt = (inA << (inB + 1)) | (inA >> (7 - inB + 1));
+		//rslt = (inA << (inB + 1)) | (inA >> (8 - inB + 1)); Does not work I dont know why (Maybe updated value of inA used in scond part)
+		case(inB)
+			'b0000: rslt = {inA[6:0],inA[7]};
+			'b0001: rslt = {inA[5:0],inA[7:6]};
+			'b0010: rslt = {inA[4:0],inA[7:5]};
+			'b0011: rslt = {inA[3:0],inA[7:4]};
+			default: rslt = 'b0;
+		endcase
 	end
 	
 	XOR_REG: begin
@@ -79,11 +86,11 @@ always_comb begin
 	end
 	
 	LOAD_TOP_BYTE, STORE_TOP_BYTE: begin
-		rslt = 255 - (inA + inB);
+		rslt = 8'b11111111 - (inA + inB);
 	end
 	
 	STORE_TOP_BYTE_I: begin
-		rslt = 255 - inB;
+		rslt = 8'b11111111 - inB;
 	end
 	
 	NOP, SWAP: begin
