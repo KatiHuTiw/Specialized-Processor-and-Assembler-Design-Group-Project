@@ -239,3 +239,6 @@ There are 5 bits of opcode in total, so there can be at max 32 different types o
 
 ### NOP
     No operation for the clock cycle
+    
+### DONE
+    Stops PC increment and genereates a high done signal
