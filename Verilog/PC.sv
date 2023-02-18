@@ -4,6 +4,7 @@
 module PC #(parameter D=12)(
   input reset,					// synchronous reset
         clk,
+		  stall,
 		  jump_en,             // jump enable (only relative)
   input       [D-1:0] target,	// how far/where to jump
   output logic[D-1:0] prog_ctr
@@ -14,6 +15,8 @@ module PC #(parameter D=12)(
 	  prog_ctr <= '0;
 	else if(jump_en)
 	  prog_ctr <= prog_ctr + 12'b1 + target;
+	else if(stall)
+	  prog_ctr <= prog_ctr + '0;
 	else
 	  prog_ctr <= prog_ctr + 12'b1;
 
