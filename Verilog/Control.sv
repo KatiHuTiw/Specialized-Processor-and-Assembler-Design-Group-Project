@@ -2,8 +2,8 @@
 module Control (
   input [4:0] opcode,    // subset of machine code (any width you need)
   input alu_branch,
-  output [1:0] half_byte,
-  output jump_en, numBits, doSWAP, RegWrite, MemWrite, ALU_in2_ctr, regfile_dat_ctr,
+  output logic [1:0] half_byte,
+  output logic jump_en, numBits, doSWAP, RegWrite, MemWrite, ALU_in2_ctr, regfile_dat_ctr,
   regfile_wr_ctr, RXOR, BEQBranch, immOrLUT
 );	   // for up to 8 ALU operations
 parameter ADD = 'b01000, ADDI = 'b11000, SUB = 'b01001, MOV = 'b00100, MOVI = 'b11001,
@@ -90,7 +90,7 @@ parameter FULL = 2'b00, LOWER = 2'b01, UPPER = 2'b10;
 			end
 			
 			BEQ: begin
-				BEQBranch = '0;
+				BEQBranch = '1;
 				immOrLUT = '0;
 			end
 			
