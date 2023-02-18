@@ -8,7 +8,7 @@ module half_byte_parser(
 		case(load_state)
 			FULL: rslt = in;
 			LOWER: rslt = {4'b0, in[3:0]};
-			UPPER: rslt = {in[3:0], 4'b0};
+			UPPER: rslt = {in[7:4], 4'b0};
 			default: rslt = in;
 		endcase
 	end
