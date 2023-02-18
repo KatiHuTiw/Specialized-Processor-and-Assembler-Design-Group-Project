@@ -13,7 +13,7 @@ module PC #(parameter D=12)(
     if(reset)
 	  prog_ctr <= '0;
 	else if(jump_en)
-	  prog_ctr <= prog_ctr + target;
+	  prog_ctr <= prog_ctr + 12'b1 + target;
 	else
 	  prog_ctr <= prog_ctr + 12'b1;
 
