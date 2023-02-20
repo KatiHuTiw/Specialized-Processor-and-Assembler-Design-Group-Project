@@ -1,0 +1,380 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+!s11f vlog 2022.1 2022.01, Jan 29 2022
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/Quartus/simulation/modelsim
+T_opt
+!s110 1676876341
+VndU^1N=`j9gZIM8@XMkZJ1
+04 23 4 work milestone2_quicktest_tb fast 0
+=1-8cb87e197846-63f31a35-ef-59d0
+R0
+!s124 OEM10U19 
+o-quiet -auto_acc_if_foreign -work work +acc
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2022.1;75
+valu
+Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z4 !s110 1676876134
+!i10b 1
+!s100 bEK6nBTTQJd0YWgJQePVJ0
+IlIf;6]OmoCB4Ef7`KGMRY3
+S1
+R1
+Z5 w1676758277
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/alu.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/alu.sv
+!i122 11
+L0 3 122
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2022.1;75
+r1
+!s85 0
+31
+Z8 !s108 1676876134.000000
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/alu.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/alu.sv|
+!i113 0
+Z9 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z10 !s92 -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vControl
+R3
+R4
+!i10b 1
+!s100 =>94JQSJOY=oV1RT]6SLR2
+I4oIXFR`<U[h7Qdc?g7HC12
+S1
+R1
+R5
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/Control.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/Control.sv
+!i122 10
+L0 2 120
+R6
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/Control.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/Control.sv|
+!i113 0
+R9
+R10
+R2
+n@control
+vdat_mem
+R3
+R4
+!i10b 1
+!s100 6=@:I[0zVKdofFED05Fnf1
+IbSDQM__J6UIHG4hQ]mMC52
+S1
+R1
+R5
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv
+!i122 9
+L0 2 18
+R6
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv|
+!i113 0
+R9
+R10
+R2
+vdecoderModule
+R3
+R4
+!i10b 1
+!s100 1i<mK]U=61KheXWQ8?Y220
+Iz`Ulg0zoTcDMnYi_J>5C43
+S1
+R1
+R5
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/decoder.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/decoder.sv
+!i122 8
+L0 1 12
+R6
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/decoder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/decoder.sv|
+!i113 0
+R9
+R10
+R2
+ndecoder@module
+vhalf_byte_parser
+R3
+R4
+!i10b 1
+!s100 :c7aok`>5LD:O2KFb2P];0
+I;zKY7e9i4OK2UfXgj00Sj0
+S1
+R1
+R5
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/half_byte_parser.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/half_byte_parser.sv
+!i122 7
+L0 1 17
+R6
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/half_byte_parser.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/half_byte_parser.sv|
+!i113 0
+R9
+R10
+R2
+vimmediate_ctrl
+R3
+R4
+!i10b 1
+!s100 K3@`4lQN`zeBTYl]l^kQM2
+I0g6g09SGUYXA^>z@97aa_3
+S1
+R1
+R5
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv
+!i122 6
+L0 1 11
+R6
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv|
+!i113 0
+R9
+R10
+R2
+vinstr_ROM
+R3
+!s110 1676876135
+!i10b 1
+!s100 ]mhVHjh6kONG5nNVTzYAQ3
+Ijka16X[63S5_nfEb5nADB0
+S1
+R1
+w1676758813
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/instr_ROM.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/instr_ROM.sv
+!i122 12
+L0 4 13
+R6
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/instr_ROM.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/instr_ROM.sv|
+!i113 0
+R9
+R10
+R2
+ninstr_@r@o@m
+vmilestone2_quicktest_tb
+R3
+!s110 1676876230
+!i10b 1
+!s100 J@SH?k`1n:geg_f?oSX7K2
+Ia4kdXb=_V_GXK@gfcARI[0
+S1
+R1
+w1676875498
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv
+!i122 13
+L0 1 44
+R6
+R7
+r1
+!s85 0
+31
+!s108 1676876230.000000
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv|
+!s90 -reportprogress|300|-work|work|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv|
+!i113 0
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vmux_2x1
+R3
+R4
+!i10b 1
+!s100 ;2ZDLI9LoSeRX8i90eRPO2
+IMCT5goz6P6DgePHP3EHj11
+S1
+R1
+R5
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/MUX2x1.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/MUX2x1.sv
+!i122 5
+L0 1 13
+R6
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/MUX2x1.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/MUX2x1.sv|
+!i113 0
+R9
+R10
+R2
+vPC
+R3
+R4
+!i10b 1
+!s100 ]=^VDZ9]9Dan@mg<;]iOP1
+IbKcIiB_@FFa3=P@I:LnBR2
+S1
+R1
+R5
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC.sv
+!i122 4
+L0 4 20
+R6
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC.sv|
+!i113 0
+R9
+R10
+R2
+n@p@c
+vPC_Controller
+R3
+R4
+!i10b 1
+!s100 3K4kgNL1Ic][BanTgi>Qi0
+IY3z2I40leN:f2gz;_<cT21
+S1
+R1
+R5
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC_Controller.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC_Controller.sv
+!i122 3
+L0 1 26
+R6
+R7
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC_Controller.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC_Controller.sv|
+!i113 0
+R9
+R10
+R2
+n@p@c_@controller
+vreg_file
+R3
+R4
+!i10b 1
+!s100 c_`QH`9_1jbR19odS6io<3
+IE]Kb70EVL@e:8M7[0Z8=;3
+S1
+R1
+R5
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/reg_file.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/reg_file.sv
+!i122 2
+L0 3 26
+R6
+R7
+r1
+!s85 0
+31
+Z11 !s108 1676876133.000000
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/reg_file.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/reg_file.sv|
+!i113 0
+R9
+R10
+R2
+vRegister_Mapper
+R3
+Z12 !s110 1676876133
+!i10b 1
+!s100 `Q24`SYzicWi=lT1K8hC12
+IccNOz]YFB=XOiUhGCPz3A1
+S1
+R1
+R5
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/register_mapper.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/register_mapper.sv
+!i122 1
+L0 1 41
+R6
+R7
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/register_mapper.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/register_mapper.sv|
+!i113 0
+R9
+R10
+R2
+n@register_@mapper
+vtop_level
+R3
+R12
+!i10b 1
+!s100 `]UAdfS8Mz>EDcTYfN;990
+Ifz2R255zn^GP4Idc@RN]90
+S1
+R1
+R5
+8C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/top_level.sv
+FC:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/top_level.sv
+!i122 0
+L0 2 203
+R6
+R7
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/top_level.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog|C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/top_level.sv|
+!i113 0
+R9
+R10
+R2

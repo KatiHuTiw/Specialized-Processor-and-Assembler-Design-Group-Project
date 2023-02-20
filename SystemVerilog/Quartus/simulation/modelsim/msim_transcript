@@ -1,0 +1,240 @@
+# Reading pref.tcl
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2022.1 win64 Jan 29 2022
+# //
+# //  Copyright 1991-2022 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do top_level_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Questa Intel Starter FPGA Edition-64 vmap 2022.1 Lib Mapping Utility 2022.01 Jan 29 2022
+# vmap work rtl_work 
+# Copying C:/intelFPGA_pro/22.2/questa_fse/win64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/top_level.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:33 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/top_level.sv 
+# -- Compiling module top_level
+# 
+# Top level modules:
+# 	top_level
+# End time: 22:55:33 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/register_mapper.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:33 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/register_mapper.sv 
+# -- Compiling module Register_Mapper
+# 
+# Top level modules:
+# 	Register_Mapper
+# End time: 22:55:33 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/reg_file.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:33 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/reg_file.sv 
+# -- Compiling module reg_file
+# 
+# Top level modules:
+# 	reg_file
+# End time: 22:55:34 on Feb 19,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC_Controller.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:34 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC_Controller.sv 
+# -- Compiling module PC_Controller
+# 
+# Top level modules:
+# 	PC_Controller
+# End time: 22:55:34 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:34 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/PC.sv 
+# -- Compiling module PC
+# 
+# Top level modules:
+# 	PC
+# End time: 22:55:34 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/MUX2x1.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:34 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/MUX2x1.sv 
+# -- Compiling module mux_2x1
+# 
+# Top level modules:
+# 	mux_2x1
+# End time: 22:55:34 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:34 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv 
+# -- Compiling module immediate_ctrl
+# 
+# Top level modules:
+# 	immediate_ctrl
+# End time: 22:55:34 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/half_byte_parser.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:34 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/half_byte_parser.sv 
+# -- Compiling module half_byte_parser
+# 
+# Top level modules:
+# 	half_byte_parser
+# End time: 22:55:34 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/decoder.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:34 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/decoder.sv 
+# -- Compiling module decoderModule
+# 
+# Top level modules:
+# 	decoderModule
+# End time: 22:55:34 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:34 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv 
+# -- Compiling module dat_mem
+# 
+# Top level modules:
+# 	dat_mem
+# End time: 22:55:34 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/Control.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:34 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/Control.sv 
+# -- Compiling module Control
+# 
+# Top level modules:
+# 	Control
+# End time: 22:55:34 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/alu.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:34 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/alu.sv 
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 22:55:34 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog {C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/instr_ROM.sv}
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:55:34 on Feb 19,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog" C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/instr_ROM.sv 
+# -- Compiling module instr_ROM
+# 
+# Top level modules:
+# 	instr_ROM
+# End time: 22:55:35 on Feb 19,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+vlog -reportprogress 300 -work work C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv
+# Questa Intel Starter FPGA Edition-64 vlog 2022.1 Compiler 2022.01 Jan 29 2022
+# Start time: 22:57:10 on Feb 19,2023
+# vlog -reportprogress 300 -work work C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv 
+# -- Compiling module milestone2_quicktest_tb
+# 
+# Top level modules:
+# 	milestone2_quicktest_tb
+# End time: 22:57:10 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.milestone2_quicktest_tb
+# vsim work.milestone2_quicktest_tb 
+# Start time: 22:57:50 on Feb 19,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv(19): (vopt-7061) Variable 'core[0]' driven in an always_ff block, may not be driven by any other process. See C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv(17).
+# ** Error (suppressible): C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv(20): (vopt-7061) Variable 'core[1]' driven in an always_ff block, may not be driven by any other process. See C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv(17).
+# ** Error (suppressible): C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv(21): (vopt-7061) Variable 'core[3]' driven in an always_ff block, may not be driven by any other process. See C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv(17).
+# ** Error (suppressible): C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv(22): (vopt-7061) Variable 'core[4]' driven in an always_ff block, may not be driven by any other process. See C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv(17).
+# Optimization failed
+# ** Error: (vopt-2064) Compiler back-end code generation process terminated with code 12.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=5, Warnings=0.
+# Error loading design
+# End time: 22:57:54 on Feb 19,2023, Elapsed time: 0:00:04
+# Errors: 5, Warnings: 0
+# A time value could not be extracted from the current line
+# A time value could not be extracted from the current line
+# A time value could not be extracted from the current line
+vsim work.milestone2_quicktest_tb
+# vsim work.milestone2_quicktest_tb 
+# Start time: 22:58:57 on Feb 19,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv(19): (vopt-7061) Variable 'core[0]' driven in an always_ff block, may not be driven by any other process. See C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv(17).
+# ** Error (suppressible): C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv(20): (vopt-7061) Variable 'core[1]' driven in an always_ff block, may not be driven by any other process. See C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv(17).
+# ** Error (suppressible): C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv(21): (vopt-7061) Variable 'core[3]' driven in an always_ff block, may not be driven by any other process. See C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv(17).
+# ** Error (suppressible): C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv(22): (vopt-7061) Variable 'core[4]' driven in an always_ff block, may not be driven by any other process. See C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/dat_mem.sv(17).
+# Optimization failed
+# ** Error: (vopt-2064) Compiler back-end code generation process terminated with code 12.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=5, Warnings=0.
+# Error loading design
+# End time: 22:58:57 on Feb 19,2023, Elapsed time: 0:00:00
+# Errors: 5, Warnings: 0
+vsim -voptargs=+acc work.milestone2_quicktest_tb
+# vsim -voptargs="+acc" work.milestone2_quicktest_tb 
+# Start time: 22:59:01 on Feb 19,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.milestone2_quicktest_tb(fast)
+# Loading work.top_level(fast)
+# Loading work.PC(fast)
+# Loading work.PC_Controller(fast)
+# Loading work.instr_ROM(fast)
+# Loading work.decoderModule(fast)
+# Loading work.immediate_ctrl(fast)
+# Loading work.reg_file(fast)
+# Loading work.mux_2x1(fast)
+# Loading work.mux_2x1(fast__1)
+# Loading work.Register_Mapper(fast)
+# Loading work.alu(fast)
+# Loading work.dat_mem(fast)
+# Loading work.half_byte_parser(fast)
+# Loading work.Control(fast)
+add wave -position insertpoint  \
+sim:/milestone2_quicktest_tb/dut/pc1/D \
+sim:/milestone2_quicktest_tb/dut/pc1/reset \
+sim:/milestone2_quicktest_tb/dut/pc1/clk \
+sim:/milestone2_quicktest_tb/dut/pc1/stall \
+sim:/milestone2_quicktest_tb/dut/pc1/jump_en \
+sim:/milestone2_quicktest_tb/dut/pc1/target \
+sim:/milestone2_quicktest_tb/dut/pc1/prog_ctr
+add wave -position insertpoint  \
+sim:/milestone2_quicktest_tb/dut/instructions/mach_code
+run -all
+# ** Warning: (vsim-7) Failed to open readmem file "machine_code.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/instr_ROM.sv(12)
+#    Time: 0 ns  Iteration: 0  Instance: /milestone2_quicktest_tb/dut/instructions
+# x  x
+# ** Note: $stop    : C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv(41)
+#    Time: 135 ns  Iteration: 0  Instance: /milestone2_quicktest_tb
+# Break in Module milestone2_quicktest_tb at C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/milestone2_quicktest_tb.sv line 41
+# End time: 23:01:55 on Feb 19,2023, Elapsed time: 0:02:54
+# Errors: 0, Warnings: 2

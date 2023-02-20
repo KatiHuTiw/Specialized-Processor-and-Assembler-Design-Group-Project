@@ -18,7 +18,7 @@ end
 initial begin
   dut.dm1.core[0] = 8'b11110000;
   dut.dm1.core[1] = 8'b11001100;
-  dut.dm1.core[3] =	8'b11000011;
+  dut.dm1.core[3] = 8'b11000011;
   dut.dm1.core[4] = 8'b01010101;
   // Show an increase in the PC's register
   dut.instructions.core[0] = 9'b000000000;
