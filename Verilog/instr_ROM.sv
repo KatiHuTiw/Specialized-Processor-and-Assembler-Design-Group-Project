@@ -9,7 +9,7 @@ module instr_ROM #(parameter D=12)(
   initial							    // load the program
     // Please put the global path for the machine code (C:/....) quartus needs the machine code with the other verilog files and 
     // the simulator checks the simulation/modelsim(quest) folder for the machine code. Specifying global path works on both instances.
-    //$readmemb("machine_code.txt",core);
+    $readmemb("machine_code.txt",core);
 
   always_comb  mach_code = core[prog_ctr];
 
