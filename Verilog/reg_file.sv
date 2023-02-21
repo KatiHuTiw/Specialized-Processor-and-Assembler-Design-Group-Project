@@ -8,8 +8,8 @@ module reg_file (
               rd_addrA,		  // read address pointers
 			  rd_addrB,
   output logic[7:0] datA_out, // read data
-                    datB_out,
-						  dat0_out);
+                    datB_out
+                    );
 
   logic[7:0] core[4];    // 2-dim array  8 wide  16 deep
 
