@@ -23,11 +23,11 @@ logic doSWAP, RegWrite, regfile_dat_ctr, regfile_wr_ctr;
 logic [7:0] regfile_dat, dat1, dat2;
 logic [1:0] register_wr_addr;
 logic [1:0] XOR_not_selected;
-logic [7:0] store_data;
 
 // wires to connect branchreg select mux with reg
 logic[1:0] op1, op1_mapped;
-logic[1:0] op2, op2_mapped;
+logic[1:0] op2, op2_mapped, op2_MemWrite_checked;
+logic[1:0] reg0_mapped;
 // Instantiate Program Counter
 
 // wire for XOR specific register selection
@@ -98,7 +98,6 @@ reg_file rf1(
     .wr_addr (register_wr_addr),      // in place operation
     .datA_out(dat1),
     .datB_out(dat2),
-	 .dat0_out(store_data)
 );
 
 mux_2x1 reg_dat_mux (
@@ -123,18 +122,25 @@ mux_2x1 #(.len(2)) op2_branch_mux  (
     .out(op2)
 );
 
+mux_2x1 #(.len(2)) op2_branch_mux  (
+    .in1(op2),
+    .in2(2'b00),
+    .selector(MemWrite),
+    .out(op2_MemWrite_checked)
+);
 
 // Implement Register Mapper to realize SWAP functionality
 Register_Mapper reg_mapper (
     .reg1(op1),
-    .reg2(op2),
-	 .reg_write(write_reg_unmapped),
+    .reg2(op2_MemWrite_checked),
+	.reg_write(write_reg_unmapped),
     .clk(clk),
     .reset(reset),
     .doSWAP(doSWAP),
     .reg1_mapped(op1_mapped),
     .reg2_mapped(op2_mapped),
-	 .reg_write_mapped(register_wr_addr)
+    .reg0_mapped(reg0_mapped),
+	.reg_write_mapped(register_wr_addr)
 );
 
 mux_2x1 #(.len(2)) reg_wr_mux  (
@@ -168,7 +174,7 @@ mux_2x1 alu_in2_mux (
 );
 
 dat_mem dm1 (
-    .dat_in(store_data)  ,  // from reg_file
+    .dat_in(dat2)  ,  // from reg_file, the second operand should be set to R0
     .clk(clk),
     .wr_en  (MemWrite), // stores
     .addr   (ALU_rslt),
