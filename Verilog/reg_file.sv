@@ -17,7 +17,6 @@ module reg_file (
   assign datA_out = core[rd_addrA];
   assign datB_out = core[rd_addrB];
   
-  assign dat0_out = core[0];
 // writes are sequential (clocked)
 // Added sequential swap.
   always_ff @(posedge clk) begin
