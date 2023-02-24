@@ -97,7 +97,7 @@ reg_file rf1(
     .rd_addrB(op2_mapped),
     .wr_addr (register_wr_addr),      // in place operation
     .datA_out(dat1),
-    .datB_out(dat2),
+    .datB_out(dat2)
 );
 
 mux_2x1 reg_dat_mux (
@@ -122,7 +122,7 @@ mux_2x1 #(.len(2)) op2_branch_mux  (
     .out(op2)
 );
 
-mux_2x1 #(.len(2)) op2_branch_mux  (
+mux_2x1 #(.len(2)) op2_address_mux  (
     .in1(op2),
     .in2(2'b00),
     .selector(MemWrite),
