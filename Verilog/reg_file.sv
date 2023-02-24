@@ -19,7 +19,7 @@ module reg_file (
   
 // writes are sequential (clocked)
 // Added sequential swap.
-  always_ff @(posedge clk) begin
+	always_ff @(negedge clk) begin
     if(wr_en)				   // anything but stores or no ops
       core[wr_addr] <= dat_in;
 		
