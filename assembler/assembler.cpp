@@ -12,6 +12,8 @@ map<string,string> commands_map;
 
 map<string,string> register_map;
 
+map<string,string> branch_map;
+
 void init_maps(){
     // Read all commands from file and initialise maps.
     ifstream file_to_read("commands.txt");
@@ -29,6 +31,15 @@ void init_maps(){
     register_map["R1"] = "01";
     register_map["R2"] = "10";
     register_map["R3"] = "10";
+
+    ifstream file_to_read1("branch_resolve.txt");
+     while (getline (file_to_read1, line)) {
+        istringstream ss(line);
+        ss >> word;
+        ss >> word1;
+        branch_map.insert(pair<string,string>(word,word1));
+    }
+    file_to_read1.close();
 }
 
 string parse_signed(int number, int size){
@@ -103,7 +114,7 @@ int main(){
             line = line.substr(0,ind);
         }
         // Remove empty lines
-        if(line == ""){
+        if(!line.compare("") || !line.compare("\r")){
             continue;
         }
         // stream to split line into words seperated by spaces.
@@ -148,7 +159,7 @@ int main(){
                 }
                 catch(const std::exception& e)
                 {
-                    cout<< "ERROR: stoi failed to convert " << words[2] << endl;
+                    cout<< "ERROR: stoi failed to convert " << words[2] << " at line "<< line_number << endl;
                     file_to_write << endl;
                     continue;
                 }
@@ -168,7 +179,7 @@ int main(){
             bool num = true;
             for(int i = 0; i< len; i++ ){
                 if(!isdigit(cur_word[i])){
-                   num = false;
+                    num = false;
                    break;
                 }
             }
@@ -176,13 +187,23 @@ int main(){
                 file_to_write << cur_word << endl;
             }
             else {
+                map<string,string>::iterator itr_branch;
+                itr_branch = branch_map.find(words.at(1));
+                if(itr_branch != branch_map.end()){
+                    cur_word = itr_branch->second;
+                    // If mapped value is a 4 bit number,
+                    if(cur_word.size() == 4){
+                        file_to_write << cur_word << endl;
+                        continue;
+                    }
+                }
                 try
                 {
                     number = stoi(cur_word);
                 }
                 catch(const std::exception& e)
                 {
-                    cout<< "ERROR: stoi failed to convert " << cur_word << endl;
+                    cout<< "ERROR: stoi failed to convert " << cur_word << words[2] << " at line "<< line_number << endl;
                     file_to_write << endl;
                     continue;
                 }
