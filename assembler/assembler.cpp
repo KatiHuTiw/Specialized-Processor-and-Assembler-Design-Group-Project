@@ -91,16 +91,16 @@ string parse_signed(int number, int size){
 int main(){
 
     init_maps();
-    
+    int pc = 0;
     // open file to read
-    ifstream file_to_read("Program1.S"); 
+    ifstream file_to_read("Program2.S"); 
     // open file to write
-    ofstream file_to_write("../Verilog/Program1_machine_code.txt");
+    ofstream file_to_write("Program2_machine_code.txt");
 
     string line;
     string word;
-    string comments;
-    bool com_after = false;
+    
+   
 
     int line_number = 0;
 
@@ -109,6 +109,14 @@ int main(){
         vector <string> words;
         // line number for debugging
         line_number++;
+
+        bool com_after = false;
+        string comments = "";
+
+        if(line_number == 12){
+            cout << "debug time \n";
+        }
+
         int line_len = line.size();
         // Remove comments from line
         int ind  = line.find("//");
@@ -118,7 +126,9 @@ int main(){
         }
         // Write comments and remove empty lines
         if(!line.compare("") || !line.compare("\r")){
-            file_to_write << comments <<endl;
+            if(comments.compare("")){
+                file_to_write << comments <<endl;
+            }
             continue;
         }
         else{
@@ -134,7 +144,8 @@ int main(){
         map<string,string>::iterator it;
         it = commands_map.find(words.at(0));
         if (it == commands_map.end()){
-            cout << "ERROR: Unknown command found at line "<<line_number<< ". Skipped the line"<< endl;
+            cout << "ERROR: Unknown command found at line "<<line_number<< ". Skipped the line and put line as comment"<< endl;
+            file_to_write << "// " << words[0] << endl;;
             continue;
         }
         string op_code = it->second;
@@ -217,11 +228,18 @@ int main(){
         }
         
         if(com_after){
-            file_to_write << ", " << comments.substr(2,comments.size()) << endl;
+            if(comments.size() >= 3){
+                file_to_write << ", " << comments.substr(2,comments.size()) << ", PC: " << pc <<endl;
+            }
+            else{
+                file_to_write << ", PC: " << pc <<endl;
+            }
+            
         }
         else {
-            file_to_write << endl;
+            file_to_write << ", PC: " << pc <<endl;
         }
+        pc++;
     }
 
     file_to_write.close();
