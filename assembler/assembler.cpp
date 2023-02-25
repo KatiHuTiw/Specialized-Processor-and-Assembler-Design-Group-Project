@@ -95,7 +95,7 @@ int main(){
     // open file to read
     ifstream file_to_read("Program1.S"); 
     // open file to write
-    ofstream file_to_write("Program1_machine_code.txt");
+    ofstream file_to_write("../Verilog/Program1_machine_code.txt");
 
     string line;
     string word;
@@ -152,6 +152,7 @@ int main(){
             // first register
             if(itr0 == register_map.end()){
                 cout<< "ERROR: Unknown first register found at line "<<line_number<< endl;
+                file_to_write << endl;
                 continue;
             }
             string first_reg = itr0->second;
@@ -169,7 +170,6 @@ int main(){
                 {
                     cout<< "ERROR: stoi failed to convert " << words[2] << " at line "<< line_number << endl;
                     file_to_write << " // "<< words[0] << " " << words[1] << " " << words[3];
-                    continue;
                 }
                 string binary = parse_signed(number, 2);
                 file_to_write << binary << " // "<< words[0] << " " << words[1] << " " << words[2];
@@ -188,7 +188,7 @@ int main(){
             for(int i = 0; i< len; i++ ){
                 if(!isdigit(cur_word[i])){
                     num = false;
-                   break;
+                    break;
                 }
             }
             if(len == 4 && num){
@@ -199,10 +199,6 @@ int main(){
                 itr_branch = branch_map.find(words.at(1));
                 if(itr_branch != branch_map.end()){
                     cur_word = itr_branch->second;
-                    // If mapped value is a 4 bit number,
-                    if(cur_word.size() == 4){
-                        file_to_write << cur_word << " // "<< words[0] << " " << words[1];
-                    }
                 }
                 try
                 {
