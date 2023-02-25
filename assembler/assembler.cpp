@@ -99,7 +99,9 @@ int main(){
 
     string line;
     string word;
-    
+    string comments;
+    bool com_after = false;
+
     int line_number = 0;
 
     while (getline (file_to_read, line)) {
@@ -107,16 +109,22 @@ int main(){
         vector <string> words;
         // line number for debugging
         line_number++;
-
+        int line_len = line.size();
         // Remove comments from line
         int ind  = line.find("//");
         if(ind >=0){
+            comments = line.substr(ind,line_len);
             line = line.substr(0,ind);
         }
-        // Remove empty lines
+        // Write comments and remove empty lines
         if(!line.compare("") || !line.compare("\r")){
+            file_to_write << comments <<endl;
             continue;
         }
+        else{
+            com_after = true;
+        }
+
         // stream to split line into words seperated by spaces.
         istringstream ss(line);
 
@@ -160,16 +168,16 @@ int main(){
                 catch(const std::exception& e)
                 {
                     cout<< "ERROR: stoi failed to convert " << words[2] << " at line "<< line_number << endl;
-                    file_to_write << endl;
+                    file_to_write << " // "<< words[0] << " " << words[1] << " " << words[3];
                     continue;
                 }
                 string binary = parse_signed(number, 2);
-                file_to_write << binary << endl;
+                file_to_write << binary << " // "<< words[0] << " " << words[1] << " " << words[2];
             }
             else {
                 // register
                 string second_reg = itr1->second;
-                file_to_write << second_reg << endl;
+                file_to_write << second_reg << " // "<< words[0] << " " << words[1] << " " << words[2];
             }
         }
         else if(words_len == 2){
@@ -184,7 +192,7 @@ int main(){
                 }
             }
             if(len == 4 && num){
-                file_to_write << cur_word << endl;
+                file_to_write << cur_word << " // "<< words[0] << " " << words[1];
             }
             else {
                 map<string,string>::iterator itr_branch;
@@ -193,8 +201,7 @@ int main(){
                     cur_word = itr_branch->second;
                     // If mapped value is a 4 bit number,
                     if(cur_word.size() == 4){
-                        file_to_write << cur_word << endl;
-                        continue;
+                        file_to_write << cur_word << " // "<< words[0] << " " << words[1];
                     }
                 }
                 try
@@ -204,17 +211,21 @@ int main(){
                 catch(const std::exception& e)
                 {
                     cout<< "ERROR: stoi failed to convert " << cur_word << words[2] << " at line "<< line_number << endl;
-                    file_to_write << endl;
-                    continue;
                 }
                 string binary = parse_signed(number,4);
-                file_to_write << binary << endl;
+                file_to_write << binary << " // "<< words[0] << " " << words[1];
             }
         }
         else {
             cout << "ERROR: Only found op-code no operands at line "<< line_number << endl;
         }
         
+        if(com_after){
+            file_to_write << ", " << comments.substr(2,comments.size()) << endl;
+        }
+        else {
+            file_to_write << endl;
+        }
     }
 
     file_to_write.close();
