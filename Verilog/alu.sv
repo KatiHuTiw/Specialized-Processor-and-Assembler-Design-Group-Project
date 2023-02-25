@@ -19,8 +19,12 @@ always_comb begin
 	rslt = '0;
 	
 	case (alu_cmd)
-	ADD, ADDI, LOAD_BYTE, STORE_BYTE, LOAD_UPPER_H_BYTE, LOAD_LOWER_H_BYTE: begin
+	ADD, LOAD_BYTE, STORE_BYTE, LOAD_UPPER_H_BYTE, LOAD_LOWER_H_BYTE: begin
 		rslt = inA + inB;
+	end
+	
+	ADDI: begin
+		rslt = inA + inB + 'b1;
 	end
 	
 	SUB: begin
@@ -122,3 +126,4 @@ end
 
    
 endmodule
+
