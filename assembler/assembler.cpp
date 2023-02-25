@@ -93,9 +93,9 @@ int main(){
     init_maps();
     int pc = 0;
     // open file to read
-    ifstream file_to_read("Program2.S"); 
+    ifstream file_to_read("Program3.S"); 
     // open file to write
-    ofstream file_to_write("Program2_machine_code.txt");
+    ofstream file_to_write("../Verilog/Program3_machine_code.txt");
 
     string line;
     string word;
@@ -113,7 +113,7 @@ int main(){
         bool com_after = false;
         string comments = "";
 
-        if(line_number == 12){
+        if(line_number == 61){
             cout << "debug time \n";
         }
 
@@ -180,7 +180,8 @@ int main(){
                 catch(const std::exception& e)
                 {
                     cout<< "ERROR: stoi failed to convert " << words[2] << " at line "<< line_number << endl;
-                    file_to_write << " // "<< words[0] << " " << words[1] << " " << words[3];
+                    file_to_write <<  " // "<< words[0] << " " << words[1] << " " << words[2] << endl;
+                    continue;
                 }
                 string binary = parse_signed(number, 2);
                 file_to_write << binary << " // "<< words[0] << " " << words[1] << " " << words[2];
@@ -217,7 +218,9 @@ int main(){
                 }
                 catch(const std::exception& e)
                 {
-                    cout<< "ERROR: stoi failed to convert " << cur_word << words[2] << " at line "<< line_number << endl;
+                    cout<< "ERROR: stoi failed to convert " << cur_word << words[1] << " at line "<< line_number << endl;
+                    file_to_write <<  " // "<< words[0] << " " << words[1] << endl;
+                    continue;
                 }
                 string binary = parse_signed(number,4);
                 file_to_write << binary << " // "<< words[0] << " " << words[1];
