@@ -113,10 +113,6 @@ int main(){
         bool com_after = false;
         string comments = "";
 
-        if(line_number == 61){
-            cout << "debug time \n";
-        }
-
         int line_len = line.size();
         // Remove comments from line
         int ind  = line.find("//");
