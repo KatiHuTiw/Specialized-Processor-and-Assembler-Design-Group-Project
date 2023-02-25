@@ -30,7 +30,7 @@ void init_maps(){
     register_map["R0"] = "00";
     register_map["R1"] = "01";
     register_map["R2"] = "10";
-    register_map["R3"] = "10";
+    register_map["R3"] = "11";
 
     ifstream file_to_read1("branch_resolve.txt");
      while (getline (file_to_read1, line)) {
