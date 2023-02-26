@@ -141,7 +141,7 @@ MOVI R3 1
 SUB R1 R3 // Now R1 = 0b11111 = 31
 BEQ +1 // If this is the last byte, terminate the loop
 B +1
-B_LOOKUP startOfLoopP3: // Make sure R0 has read_bytes before branching back. Otherwise Loop terminated, wrapping up, check the upper 4 bits of the last byte
+B_LOOKUP startOfLoopP3 // Make sure R0 has read_bytes before branching back. Otherwise Loop terminated, wrapping up, check the upper 4 bits of the last byte
 LOAD_BYTE R1 0 // R0 now has mem[31]
 MOV R2 R0 // R2 now has mem[31] back up
 ADDI R1 1 // Let R1 = 32
@@ -225,4 +225,4 @@ LOAD_TOP_BYTE R3 0 // R0 = cross_patter_cnt
 MOVI R3 2
 SHIFT_LEFT_I R3 4 // R3 = 0b100000 = 32
 STORE_BYTE R3 3 // Store final cross_patter_cnt value into mem[35]
-DONE
+DONE 0
