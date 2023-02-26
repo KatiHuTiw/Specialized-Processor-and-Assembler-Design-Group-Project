@@ -50,9 +50,7 @@ SHIFT_LEFT_I R0 0 // left shift 'b1111 by 1 to get 30
 MOV R3 2
 STORE_TOP_BYTE R3 0 // Now wr_addr = 30
 MOVI R1 0 // Restore R0 to 0, start reading from mem 0
-
-startOfLoop:
-LOAD_BYTE R1 0 // Now R0 = mem[0], R1 should contain read_bytes                                   ---------Start checking P8, P4, P2, and P1:
+LOAD_BYTE R1 0 // startOfLoopP2Alt: Now R0 = mem[0], R1 should contain read_bytes                                   ---------Start loop by checking P8, P4, P2, and P1:
 SWAP R0 R3 // Let R3 store LSW
 LOAD_BYTE R1 1 // Now R0 = mem[0], R1 should still contain read_bytes
 SWAP R0 R2 // Let R2 store MSW
@@ -108,7 +106,7 @@ ADD R0 R1
 XOR_REG R0 R0
 MOVI R1 0
 BEQ +1 // Checked P0 above, and P0 matches, and R0 and R1 both have 0                    ---------Done checking P0 above.
-B_LOOKUP notOneError // If P0 does not match, there is one error to fix----------------------------- Fixing 1 error
+B_LOOKUP notOneError // go to notOneError: If P0 does not match, there is one error to fix----------------------------- Fixing 1 error
 LOAD_TOP_BYTE R1 1 // Retrieve bit_to_correct from memory to R0 to check
 MOVI R1 1
 SHIFT_LEFT R1 R0
@@ -122,7 +120,7 @@ MOVI R1 1
 SHIFT_LEFT R1 R0
 XOR R2 R1 //Fix upper 8 bits if error occurs there --------------------------------------------------- Done fixing 1 error
 B +5 // B_LOOKUP restoreMessage // Go to storing the decoded message
-notOneError: MOVI R1 0
+MOVI R1 0 //notOneError: starts here!!!
 LOAD_TOP_BYTE R1 1
 BEQ +2 // No need to report double error if bit_to_correct is also 0, because there is no error, just restore the message already
 MOVI R0 1
@@ -180,6 +178,7 @@ MOV R2 R0
 SHIFT_RIGHT_I R0 3
 SHIFT_RIGHT_I R0 0 // If R0 = read_bytes == 32, then R0 == 1 now
 MOV R1 1
-BEQ +1 // If R0 = read_bytes == 32, terminate the program with DONE instruction
+BEQ +2 // If R0 = read_bytes == 32, terminate the program with DONE instruction
 MOV R1 R2 // Put updated read_bytes in R1 to start the next iteration
+B_LOOKUP startOfLoopP2Alt
 DONE

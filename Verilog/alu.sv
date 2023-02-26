@@ -12,7 +12,8 @@ SHIFT_LEFT = 'b01100, SHIFT_LEFT_I = 'b11100, SHIFT_RIGHT = 'b01101, SHIFT_RIGHT
 OR = 'b01011, ROT_L = 'b11110, LOAD_BYTE = 'b10000, STORE_BYTE = 'b10001, LOAD_TOP_BYTE = 'b10110,
 STORE_TOP_BYTE = 'b10111, STORE_TOP_BYTE_I = 'b00110, BEQ = 'b00011, SLT = 'b00101, B = 'b00010,
 B_LOOKUP = 'b00001, BIT_MASK = 'b00111, XOR_ADD_REG = 'b01110, XOR_REG = 'b01111, SWAP = 'b11111, 
-LOAD_LOWER_H_BYTE = 'b11010, LOAD_UPPER_H_BYTE = 'b11011, NOP = 'b00000;
+LOAD_LOWER_H_BYTE = 'b11010, LOAD_UPPER_H_BYTE = 'b11011, NOP = 'b00000, DONE = 'b10010, 
+AND_MASK_LOOKUP = 'b10011, XOR = 'b10100;
 
 always_comb begin 
 	doBranch = '0;
@@ -68,6 +69,10 @@ always_comb begin
 			default: rslt = 'b0;
 		endcase
 	end
+
+	XOR: begin // Added new instruction; XOR
+		rslt = inA ^ inB;
+	end
 	
 	XOR_REG: begin
 		rslt = ^inA;
@@ -86,6 +91,15 @@ always_comb begin
 			'b0100: rslt = 'b00000110;
 			'b0101: rslt = 'b00000101;
 			default: rslt ='b00000000;
+		endcase
+	end
+
+	AND_MASK_LOOKUP: begin // Added command for P2 Alt Version
+		case(inB)
+			'b0000: rslt = inA & ('b00000111);
+			'b0001: rslt = inA & ('b00110011);
+			'b0010: rslt = inA & ('b01010101);
+			default: rslt =inA & ('b11100000);
 		endcase
 	end
 	

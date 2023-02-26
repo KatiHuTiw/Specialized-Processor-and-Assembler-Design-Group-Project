@@ -11,7 +11,8 @@ SHIFT_LEFT = 'b01100, SHIFT_LEFT_I = 'b11100, SHIFT_RIGHT = 'b01101, SHIFT_RIGHT
 OR = 'b01011, ROT_L = 'b11110, LOAD_BYTE = 'b10000, STORE_BYTE = 'b10001, LOAD_TOP_BYTE = 'b10110,
 STORE_TOP_BYTE = 'b10111, STORE_TOP_BYTE_I = 'b00110, BEQ = 'b00011, SLT = 'b00101, B = 'b00010,
 B_LOOKUP = 'b00001, BIT_MASK = 'b00111, XOR_ADD_REG = 'b01110, XOR_REG = 'b01111, SWAP = 'b11111, 
-LOAD_LOWER_H_BYTE = 'b11010, LOAD_UPPER_H_BYTE = 'b11011, NOP = 'b00000, DONE = 'b10010;
+LOAD_LOWER_H_BYTE = 'b11010, LOAD_UPPER_H_BYTE = 'b11011, NOP = 'b00000, DONE = 'b10010, 
+AND_MASK_LOOKUP = 'b10011, XOR = 'b10100;
 
 parameter FULL = 2'b00, LOWER = 2'b01, UPPER = 2'b10;
 	assign jump_en = (alu_branch)? 1'b1:1'b0;
@@ -31,11 +32,11 @@ parameter FULL = 2'b00, LOWER = 2'b01, UPPER = 2'b10;
 		done = '0;
 		stall = '0;
 		case(opcode)
-			ADD, SUB, MOV, SHIFT_LEFT, SHIFT_RIGHT, AND, OR, SLT:begin
+			ADD, SUB, MOV, SHIFT_LEFT, SHIFT_RIGHT, AND, OR, SLT, XOR:begin // Added new instruction: XOR
 				RegWrite = '1;
 			end
 			
-			ADDI, MOVI, SHIFT_LEFT_I, SHIFT_RIGHT_I, ROT_L:begin
+			ADDI, MOVI, SHIFT_LEFT_I, SHIFT_RIGHT_I, ROT_L, AND_MASK_LOOKUP:begin // Added new instruction: AND_MASK_LOOKUP
 				ALU_in2_ctr = '1; // load immediate
 				RegWrite = '1;
 			end
