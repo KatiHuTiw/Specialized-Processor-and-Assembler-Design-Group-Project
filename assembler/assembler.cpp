@@ -114,8 +114,13 @@ int main(){
         string comments = "";
         
         // remove carriage returns
-        // Windows users may need to remove the line below. different versions of the C++ compilers do things differently
-        //line.erase( remove(line.begin(), line.end(), '\r'), line.end() );
+        int carr_ind = line.find("\r");
+
+        while(carr_ind != -1){
+            line = line.substr(0,carr_ind) + line.substr(carr_ind+1,line.size());
+            carr_ind = line.find("\r");
+        }
+
 
         int line_len = line.size();
         // Remove comments from line
