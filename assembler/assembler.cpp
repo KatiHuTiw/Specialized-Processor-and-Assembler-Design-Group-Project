@@ -114,6 +114,7 @@ int main(){
         string comments = "";
         
         // remove carriage returns
+        // Windows users may need to remove the line below. different versions of the C++ compilers do things differently
         line.erase( remove(line.begin(), line.end(), '\r'), line.end() );
 
         int line_len = line.size();
