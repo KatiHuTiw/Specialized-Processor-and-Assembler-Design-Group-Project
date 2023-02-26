@@ -93,9 +93,9 @@ int main(){
     init_maps();
     int pc = 0;
     // open file to read
-    ifstream file_to_read("Program3.S"); 
+    ifstream file_to_read("Program1.S"); 
     // open file to write
-    ofstream file_to_write("../Verilog/Program3_machine_code.txt");
+    ofstream file_to_write("Program1_machine_code.txt");
 
     string line;
     string word;
@@ -112,6 +112,9 @@ int main(){
 
         bool com_after = false;
         string comments = "";
+        
+        // remove carriage returns
+        line.erase( remove(line.begin(), line.end(), '\r'), line.end() );
 
         int line_len = line.size();
         // Remove comments from line
@@ -121,7 +124,7 @@ int main(){
             line = line.substr(0,ind);
         }
         // Write comments and remove empty lines
-        if(!line.compare("") || !line.compare("\r")){
+        if(!line.compare("")){
             if(comments.compare("")){
                 file_to_write << comments <<endl;
             }
@@ -130,7 +133,7 @@ int main(){
         else{
             com_after = true;
         }
-
+        
         // stream to split line into words seperated by spaces.
         istringstream ss(line);
 
