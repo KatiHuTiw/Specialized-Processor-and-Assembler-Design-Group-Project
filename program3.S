@@ -305,5 +305,5 @@ LOAD_TOP_BYTE R3 0 // R0 = cross_patter_cnt
 MOVI R3 2
 SHIFT_LEFT_I R3 4 // R3 = 0b100000 = 32
 STORE_BYTE R3 3 // Store final cross_patter_cnt value into mem[35]
-
+DONE
 // Program terminates here
