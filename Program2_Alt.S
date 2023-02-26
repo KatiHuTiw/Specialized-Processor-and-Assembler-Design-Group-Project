@@ -143,4 +143,4 @@ MOV R1 1
 BEQ +2 // If R0 = read_bytes == 32, terminate the program with DONE instruction
 MOV R1 R2 // Put updated read_bytes in R1 to start the next iteration
 B_LOOKUP startOfLoopP2Alt
-DONE
+DONE 0
