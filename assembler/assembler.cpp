@@ -115,7 +115,7 @@ int main(){
         
         // remove carriage returns
         // Windows users may need to remove the line below. different versions of the C++ compilers do things differently
-        line.erase( remove(line.begin(), line.end(), '\r'), line.end() );
+        //line.erase( remove(line.begin(), line.end(), '\r'), line.end() );
 
         int line_len = line.size();
         // Remove comments from line
@@ -125,7 +125,7 @@ int main(){
             line = line.substr(0,ind);
         }
         // Write comments and remove empty lines
-        if(!line.compare("")){
+        if(!line.compare("") || !line.compare("\r")){
             if(comments.compare("")){
                 file_to_write << comments <<endl;
             }
