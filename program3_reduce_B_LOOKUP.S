@@ -26,9 +26,9 @@ LOAD_BYTE R3 0 // R0 now has mem[read_bytes]       !!!startOfLoopP3:
 MOV R2 R0 // R2 = R0 = mem[read_bytes]
 SHIFT_RIGHT_I R0 3 // R0 = R0 >> 3
 MOVI R3 1
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +8
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B +7
 ADDI R0 1
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -40,9 +40,9 @@ MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 1
 SHIFT_RIGHT_I R0 3
 MOVI R3 1
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +8
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B +7
 ADDI R0 1
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -54,9 +54,9 @@ MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 2
 SHIFT_RIGHT_I R0 3
 MOVI R3 1
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +8
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B +7
 ADDI R0 1
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -68,9 +68,9 @@ MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 3
 SHIFT_RIGHT_I R0 3
 MOVI R3 1
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +8
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B +7
 ADDI R0 1
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -151,9 +151,9 @@ SHIFT_RIGHT_I R1 3 // Push the pattern to the far right and start matching the l
 MOV R2 R0 // R2 = R0 = mem[read_bytes]
 SHIFT_RIGHT_I R0 3 // R0 = R0 >> 3
 MOVI R3 1
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +8
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B +7
 ADDI R0 1
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -165,9 +165,9 @@ MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 1
 SHIFT_RIGHT_I R0 3
 MOVI R3 1
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +8
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B +7
 ADDI R0 1
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -179,9 +179,9 @@ MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 2
 SHIFT_RIGHT_I R0 3
 MOVI R3 1
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +8
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B +7
 ADDI R0 1
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -193,9 +193,9 @@ MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 3
 SHIFT_RIGHT_I R0 3
 MOVI R3 1
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +8
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B +7
 ADDI R0 1
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
