@@ -472,3 +472,4 @@ LOAD_TOP_BYTE R1 0 //R0 = mem[top] = 60
 MOV R1 R3 //R1 = R3
 Error: 
 BEQ  0 //(Exact number will be decided soon, can go as far as 1000 which is -16, if required more than 1 branch will be used)
+DONE 0
