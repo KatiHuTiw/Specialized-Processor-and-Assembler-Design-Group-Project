@@ -1,5 +1,5 @@
 MOVI R0 0
-STORE_TOP_BYTE R0 0 // read_bytes = 0
+STORE_TOP_BYTE R0 2 // wr_addr = 0
 MOVI R0 0
 STORE_TOP_BYTE R0 1 // bit_to_correct = 0
 MOVI R0 0
@@ -9,8 +9,8 @@ MOVI R0 3
 SHIFT_LEFT_I R0 1 // left shift 'b11 by 2
 ADDI R0 3
 SHIFT_LEFT_I R0 0 // left shift 'b1111 by 1 to get 30
-MOV R3 2
-STORE_TOP_BYTE R3 0 // Now wr_addr = 30
+MOV R3 0
+STORE_TOP_BYTE R3 0 // Now read_bytes = 30
 MOVI R1 0 // Restore R0 to 0, start reading from mem 0
 LOAD_BYTE R1 0 // startOfLoopP2Alt: Now R0 = mem[0], R1 should contain read_bytes                                   ---------Start loop by checking P8, P4, P2, and P1:
 SWAP R0 R3 // Let R3 store LSW
@@ -87,7 +87,7 @@ LOAD_TOP_BYTE R1 1
 BEQ +2 // No need to report double error if bit_to_correct is also 0, because there is no error, just restore the message already
 MOVI R0 1
 STORE_TOP_BYTE R0 2 // Report double error in the local variable
-restoreMessage: MOV R0 R3 // Copy LSW to R0
+MOV R0 R3 // Copy LSW to R0 restoreMessage: 
 SHIFT_LEFT_I R0 3 // Abandon P4, D2-D4
 SHIFT_RIGHT_I R0 3
 SHIFT_RIGHT_I R0 2 // Abandon P0, P1, and P2
@@ -100,7 +100,7 @@ MOV R0 R2 // Copy MSW to R0
 SHIFT_RIGHT_I R0 0 // Squeeze out P8
 SHIFT_LEFT_I R0 3 // Retain B5-B8
 ADD R1 R0  // Now R1 has decoded B1-B8
-MOVI R0 2 // to get wr_addr
+MOVI R0 0 // to get wr_addr
 LOAD_TOP_BYTE R0 0 // Now R0 = wr_addr
 SWAP R1 R0
 STORE_BYTE R1 0 // Write decoded D1-8 to memory
@@ -123,19 +123,19 @@ SHIFT_LEFT_I R1 3
 SHIFT_LEFT_I R1 2 // Move the 1 bit left by 7 times to change F1 to 1
 ADD R3 R1 // Put F1 in the message to store
 MOV R1 0 // Store the decoded MSB, which is now in R3
-LOAD_TOP_BYTE R1 2 // Now R0 contains wr_addr
+LOAD_TOP_BYTE R1 0 // Now R0 contains wr_addr
 SWAP R0 R3
 STORE_BYTE R3 1 // Now the current message is all decoded and stored ----------------- Done decoding the current 2-word message!
 ADDI R3 2 // Increment wr_addr by 2
 MOV R0 R3
 MOV R3 0
-STORE_TOP_BYTE R3 2 // Put updated wr_addr to top of memory
+STORE_TOP_BYTE R3 0 // Put updated wr_addr to top of memory
 MOV R0 0
 STORE_TOP_BYTE R3 1 // Restore bit_to_correct to 0 for next iteration (Just in case)
 STORE_TOP_BYTE R3 3 // Restore double_error to 0 for next iteration
-LOAD_TOP_BYTE R3 0 // Let R0 = read_bytes
+LOAD_TOP_BYTE R3 2 // Let R0 = read_bytes
 ADDI R0 2 // Increment read_bytes by 2
-STORE_TOP_BYTE R3 0 // Store the updated read_bytes
+STORE_TOP_BYTE R3 2 // Store the updated read_bytes
 MOV R2 R0
 SHIFT_RIGHT_I R0 3
 SHIFT_RIGHT_I R0 0 // If R0 = read_bytes == 32, then R0 == 1 now
