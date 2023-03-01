@@ -8,7 +8,7 @@ logic [1:0] register_mappings_reg[4];
 logic [1:0] register_mappings_next[4];
 
 // Sequential logic, assigning reg mapper values
-always_ff @(posedge clk) begin
+always_ff @(negedge clk) begin
     if(!reset) begin
         for (int i = 0; i < 4; i++) begin
             register_mappings_reg[i] <= register_mappings_next[i];
