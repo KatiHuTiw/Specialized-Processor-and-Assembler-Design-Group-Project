@@ -30,7 +30,7 @@ void init_maps(){
     register_map["R0"] = "00";
     register_map["R1"] = "01";
     register_map["R2"] = "10";
-    register_map["R3"] = "10";
+    register_map["R3"] = "11";
 
     ifstream file_to_read1("branch_resolve.txt");
      while (getline (file_to_read1, line)) {
@@ -93,9 +93,9 @@ int main(){
     init_maps();
     
     // open file to read
-    ifstream file_to_read("Program2.S"); 
+    ifstream file_to_read("../Program2_Alt.S"); 
     // open file to write
-    ofstream file_to_write("Program2_machine_code.txt");
+    ofstream file_to_write("Program2_Alt_machine_code.txt");
 
     string line;
     string word;
