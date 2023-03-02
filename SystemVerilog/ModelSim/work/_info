@@ -1,0 +1,376 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/modelsim17
+valu
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1677798369
+!i10b 1
+!s100 `bRaa<LMRiecHFURm8NN[3
+I;7[L_?SU;95bmQSLWa>L`0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 alu_sv_unit
+S1
+Z3 dC:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/ModelSim
+w1677798361
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/alu.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/alu.sv
+L0 3
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1677798369.000000
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/alu.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/alu.sv|
+!i113 1
+Z6 o-work work -sv
+Z7 tCvgOpt 0
+vControl
+R0
+R1
+!i10b 1
+!s100 kQ[S:CNSOCEz<>:2^h8Ud0
+IK<8j^TB2:_lP7OkmVJ8K63
+R2
+!s105 Control_sv_unit
+S1
+R3
+Z8 w1677794470
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/Control.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/Control.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/Control.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/Control.sv|
+!i113 1
+R6
+R7
+n@control
+vdat_mem
+R0
+R1
+!i10b 1
+!s100 PS;UBUiGHS>m`1Fh3]lY[2
+IDQ=lcnKo^og2nRoW>;KeR3
+R2
+!s105 dat_mem_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/dat_mem.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/dat_mem.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/dat_mem.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/dat_mem.sv|
+!i113 1
+R6
+R7
+vdecoderModule
+R0
+R1
+!i10b 1
+!s100 AhEKM9B>YnH_dV9^Nj=A91
+IP<<kVgbJd;mM;Oj^^m]2:2
+R2
+!s105 decoder_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/decoder.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/decoder.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/decoder.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/decoder.sv|
+!i113 1
+R6
+R7
+ndecoder@module
+vhalf_byte_parser
+R0
+R1
+!i10b 1
+!s100 Sz<HG=mIYflc9_oZT00CU0
+I4<[8?R<oFIX:>0aAfMnmN1
+R2
+!s105 half_byte_parser_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/half_byte_parser.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/half_byte_parser.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/half_byte_parser.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/half_byte_parser.sv|
+!i113 1
+R6
+R7
+vimmediate_ctrl
+R0
+Z9 !s110 1677798370
+!i10b 1
+!s100 GSQ3oMFbU>L8?3<6hJ4^03
+I9diIZ^d9g4ejTae>ad1I22
+R2
+!s105 immediate_Controller_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv|
+!i113 1
+R6
+R7
+vinstr_ROM
+R0
+R9
+!i10b 1
+!s100 YEoORe[PX;nHnYodIPLDH1
+IfjheKUGm:4P0:IZH_j47n2
+R2
+!s105 instr_ROM_sv_unit
+S1
+R3
+w1677795108
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/instr_ROM.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/instr_ROM.sv
+L0 4
+R4
+r1
+!s85 0
+31
+Z10 !s108 1677798370.000000
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/instr_ROM.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/instr_ROM.sv|
+!i113 1
+R6
+R7
+ninstr_@r@o@m
+vmilestone2_quicktest_tb
+R0
+R9
+!i10b 1
+!s100 iDY56VOE[UG41m`BDI<=e2
+IK]nBgnWaDM3Mh7ECl@PJe2
+R2
+!s105 milestone2_quicktest_tb_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/milestone2_quicktest_tb.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/milestone2_quicktest_tb.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/milestone2_quicktest_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/milestone2_quicktest_tb.sv|
+!i113 1
+R6
+R7
+vmux_2x1
+R0
+R9
+!i10b 1
+!s100 QPeM4;zFa71PQL2[jM?C;2
+IcJ4SP3R:<e<zlHZ?Z]ZbO0
+R2
+!s105 MUX2x1_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/MUX2x1.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/MUX2x1.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/MUX2x1.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/MUX2x1.sv|
+!i113 1
+R6
+R7
+vPC
+R0
+R9
+!i10b 1
+!s100 dMEQGVS;[l>K=2]G5ZRcM2
+IQJ2dj]oCY=_dPSlj4bl_60
+R2
+!s105 PC_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/PC.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/PC.sv
+L0 4
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/PC.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/PC.sv|
+!i113 1
+R6
+R7
+n@p@c
+vPC_Controller
+R0
+R9
+!i10b 1
+!s100 T]Y8HVo:KE8cn=g9l8UHD2
+IiP]Slh^6P;RnaV1A?inMe2
+R2
+!s105 PC_Controller_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/PC_Controller.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/PC_Controller.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/PC_Controller.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/PC_Controller.sv|
+!i113 1
+R6
+R7
+n@p@c_@controller
+vprog2_tb
+R0
+R1
+!i10b 1
+!s100 Y1R4[mW:lh9GCZQz4f;340
+IZQ9@M?a1C<J4<d551A@?23
+R2
+!s105 prog2_tb_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/testbench/Milestone3/prog2_tb.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/testbench/Milestone3/prog2_tb.sv
+L0 10
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/testbench/Milestone3/prog2_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/testbench/Milestone3/prog2_tb.sv|
+!i113 1
+R6
+R7
+vreg_file
+R0
+R9
+!i10b 1
+!s100 <m>Jz7X0Qz`O[2>DZ0lfG2
+ICd?c7F@U]JgN]:R8;XzFX3
+R2
+!s105 reg_file_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/reg_file.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/reg_file.sv
+L0 3
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/reg_file.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/reg_file.sv|
+!i113 1
+R6
+R7
+vRegister_Mapper
+R0
+R9
+!i10b 1
+!s100 ]BNzm?nj3P5kb>Fn6kNWd0
+II?7cabTC;?FSeoC6``SYh1
+R2
+!s105 register_mapper_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/register_mapper.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/register_mapper.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/register_mapper.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/register_mapper.sv|
+!i113 1
+R6
+R7
+n@register_@mapper
+vtop_level
+R0
+R1
+!i10b 1
+!s100 5n8GVR[;S_?26baCN7jEf1
+I10YQhg:lSXThSlj2Qjm2G2
+R2
+!s105 top_level_sv_unit
+S1
+R3
+R8
+8C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/top_level.sv
+FC:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/top_level.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/top_level.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/ruhu/Desktop/CSE141LTermProject/Verilog/top_level.sv|
+!i113 1
+R6
+R7

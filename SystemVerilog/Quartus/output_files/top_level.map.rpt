@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_level
-Sun Feb  5 20:12:03 2023
+Thu Mar  2 14:02:54 2023
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -51,7 +51,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Feb  5 20:12:03 2023       ;
+; Analysis & Synthesis Status        ; Successful - Thu Mar  2 14:02:54 2023       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; top_level                                   ;
 ; Top-level Entity Name              ; top_level                                   ;
@@ -159,8 +159,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 20          ;
-; Maximum allowed            ; 14          ;
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -170,24 +170,24 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                            ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
-; ../src/machine_code.txt          ; yes             ; User File                    ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/machine_code.txt        ;         ;
-; ../src/top_level.sv              ; yes             ; User SystemVerilog HDL File  ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv            ;         ;
-; ../src/reg_file.sv               ; yes             ; User SystemVerilog HDL File  ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/reg_file.sv             ;         ;
-; ../src/PC_Controller.sv          ; yes             ; User SystemVerilog HDL File  ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/PC_Controller.sv        ;         ;
-; ../src/PC.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/PC.sv                   ;         ;
-; ../src/MUX2x1.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/MUX2x1.sv               ;         ;
-; ../src/instr_ROM.sv              ; yes             ; User SystemVerilog HDL File  ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv            ;         ;
-; ../src/immediate_Controller.sv   ; yes             ; User SystemVerilog HDL File  ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/immediate_Controller.sv ;         ;
-; ../src/decoder.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/decoder.sv              ;         ;
-; ../src/dat_mem.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/dat_mem.sv              ;         ;
-; ../src/Control.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv              ;         ;
-; ../src/alu.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/alu.sv                  ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; ../src/machine_code.txt          ; yes             ; User File                    ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/machine_code.txt        ;         ;
+; ../src/top_level.sv              ; yes             ; User SystemVerilog HDL File  ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv            ;         ;
+; ../src/reg_file.sv               ; yes             ; User SystemVerilog HDL File  ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/reg_file.sv             ;         ;
+; ../src/PC_Controller.sv          ; yes             ; User SystemVerilog HDL File  ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/PC_Controller.sv        ;         ;
+; ../src/PC.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/PC.sv                   ;         ;
+; ../src/MUX2x1.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/MUX2x1.sv               ;         ;
+; ../src/instr_ROM.sv              ; yes             ; User SystemVerilog HDL File  ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv            ;         ;
+; ../src/immediate_Controller.sv   ; yes             ; User SystemVerilog HDL File  ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/immediate_Controller.sv ;         ;
+; ../src/decoder.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/decoder.sv              ;         ;
+; ../src/dat_mem.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/dat_mem.sv              ;         ;
+; ../src/Control.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv              ;         ;
+; ../src/alu.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/alu.sv                  ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -359,83 +359,82 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Sun Feb  5 20:11:56 2023
+    Info: Processing started: Thu Mar  2 14:02:43 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_level -c top_level
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /users/hurl3/desktop/cse141ltermproject/systemverilog/src/top_level.sv
-    Info (12023): Found entity 1: top_level File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file /users/hurl3/desktop/cse141ltermproject/systemverilog/src/reg_file.sv
-    Info (12023): Found entity 1: reg_file File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/reg_file.sv Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file /users/hurl3/desktop/cse141ltermproject/systemverilog/src/pc_controller.sv
-    Info (12023): Found entity 1: PC_Controller File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/PC_Controller.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/hurl3/desktop/cse141ltermproject/systemverilog/src/pc.sv
-    Info (12023): Found entity 1: PC File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/PC.sv Line: 4
-Info (12021): Found 1 design units, including 1 entities, in source file /users/hurl3/desktop/cse141ltermproject/systemverilog/src/mux2x1.sv
-    Info (12023): Found entity 1: mux_2x1 File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/MUX2x1.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/hurl3/desktop/cse141ltermproject/systemverilog/src/instr_rom.sv
-    Info (12023): Found entity 1: instr_ROM File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv Line: 4
-Info (12021): Found 1 design units, including 1 entities, in source file /users/hurl3/desktop/cse141ltermproject/systemverilog/src/immediate_controller.sv
-    Info (12023): Found entity 1: immediate_ctrl File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/immediate_Controller.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/hurl3/desktop/cse141ltermproject/systemverilog/src/decoder.sv
-    Info (12023): Found entity 1: decoderModule File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/decoder.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/hurl3/desktop/cse141ltermproject/systemverilog/src/dat_mem.sv
-    Info (12023): Found entity 1: dat_mem File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/dat_mem.sv Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file /users/hurl3/desktop/cse141ltermproject/systemverilog/src/control.sv
-    Info (12023): Found entity 1: Control File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file /users/hurl3/desktop/cse141ltermproject/systemverilog/src/alu.sv
-    Info (12023): Found entity 1: alu File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/alu.sv Line: 3
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ruhu/desktop/cse141ltermproject/systemverilog/src/top_level.sv
+    Info (12023): Found entity 1: top_level File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ruhu/desktop/cse141ltermproject/systemverilog/src/reg_file.sv
+    Info (12023): Found entity 1: reg_file File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/reg_file.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ruhu/desktop/cse141ltermproject/systemverilog/src/pc_controller.sv
+    Info (12023): Found entity 1: PC_Controller File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/PC_Controller.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ruhu/desktop/cse141ltermproject/systemverilog/src/pc.sv
+    Info (12023): Found entity 1: PC File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/PC.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ruhu/desktop/cse141ltermproject/systemverilog/src/mux2x1.sv
+    Info (12023): Found entity 1: mux_2x1 File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/MUX2x1.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ruhu/desktop/cse141ltermproject/systemverilog/src/instr_rom.sv
+    Info (12023): Found entity 1: instr_ROM File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ruhu/desktop/cse141ltermproject/systemverilog/src/immediate_controller.sv
+    Info (12023): Found entity 1: immediate_ctrl File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/immediate_Controller.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ruhu/desktop/cse141ltermproject/systemverilog/src/decoder.sv
+    Info (12023): Found entity 1: decoderModule File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/decoder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ruhu/desktop/cse141ltermproject/systemverilog/src/dat_mem.sv
+    Info (12023): Found entity 1: dat_mem File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/dat_mem.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ruhu/desktop/cse141ltermproject/systemverilog/src/control.sv
+    Info (12023): Found entity 1: Control File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ruhu/desktop/cse141ltermproject/systemverilog/src/alu.sv
+    Info (12023): Found entity 1: alu File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/alu.sv Line: 3
 Info (12127): Elaborating entity "top_level" for the top level hierarchy
-Warning (10034): Output port "done" at top_level.sv(4) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 4
-Info (12128): Elaborating entity "PC" for hierarchy "PC:pc1" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 19
-Warning (10230): Verilog HDL assignment warning at PC.sv(18): truncated value with size 32 to match size of target (12) File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/PC.sv Line: 18
-Info (12128): Elaborating entity "PC_Controller" for hierarchy "PC_Controller:pc1_ctrl" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 26
-Warning (10034): Output port "target" at PC_Controller.sv(5) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/PC_Controller.sv Line: 5
-Info (12128): Elaborating entity "instr_ROM" for hierarchy "instr_ROM:instructions" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 36
-Warning (10850): Verilog HDL warning at instr_ROM.sv(10): number of words (0) in memory file does not match the number of elements in the address range [0:4095] File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv Line: 10
-Warning (10030): Net "core.data_a" at instr_ROM.sv(8) has no driver or initial value, using a default initial value '0' File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv Line: 8
-Warning (10030): Net "core.waddr_a" at instr_ROM.sv(8) has no driver or initial value, using a default initial value '0' File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv Line: 8
-Warning (10030): Net "core.we_a" at instr_ROM.sv(8) has no driver or initial value, using a default initial value '0' File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv Line: 8
-Info (12128): Elaborating entity "decoderModule" for hierarchy "decoderModule:dec1" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 43
-Warning (10034): Output port "opcode" at decoder.sv(3) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/decoder.sv Line: 3
-Warning (10034): Output port "operand1" at decoder.sv(4) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/decoder.sv Line: 4
-Warning (10034): Output port "operand2" at decoder.sv(6) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/decoder.sv Line: 6
-Info (12128): Elaborating entity "immediate_ctrl" for hierarchy "immediate_ctrl:immediate_ctrl1" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 55
-Warning (10034): Output port "immediateValue" at immediate_Controller.sv(6) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/immediate_Controller.sv Line: 6
-Info (12128): Elaborating entity "reg_file" for hierarchy "reg_file:rf1" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 72
-Info (12128): Elaborating entity "mux_2x1" for hierarchy "mux_2x1:reg_dat_mux" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 79
-Info (12128): Elaborating entity "alu" for hierarchy "alu:alu1" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 98
-Warning (10034): Output port "rslt" at alu.sv(6) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/alu.sv Line: 6
-Warning (10034): Output port "doBranch" at alu.sv(8) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/alu.sv Line: 8
-Info (12128): Elaborating entity "dat_mem" for hierarchy "dat_mem:dm1" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 117
-Info (12128): Elaborating entity "Control" for hierarchy "Control:ctrl1" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 132
-Warning (10034): Output port "immOrLUT" at Control.sv(5) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 5
-Warning (10034): Output port "imm_ctr" at Control.sv(5) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 5
-Warning (10034): Output port "jump_en" at Control.sv(6) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
-Warning (10034): Output port "numBits" at Control.sv(6) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
-Warning (10034): Output port "doSWAP" at Control.sv(6) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
-Warning (10034): Output port "RegWrite" at Control.sv(6) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
-Warning (10034): Output port "MemWrite" at Control.sv(6) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
-Warning (10034): Output port "ALU_in2_ctr" at Control.sv(6) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
-Warning (10034): Output port "regfile_dat_ctr" at Control.sv(6) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
-Warning (10034): Output port "regfile_wr_ctr" at Control.sv(8) has no driver File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 8
-Warning (12158): Entity "Control" contains only dangling pins File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 132
+Warning (10034): Output port "done" at top_level.sv(4) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 4
+Info (12128): Elaborating entity "PC" for hierarchy "PC:pc1" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 19
+Warning (10230): Verilog HDL assignment warning at PC.sv(18): truncated value with size 32 to match size of target (12) File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/PC.sv Line: 18
+Info (12128): Elaborating entity "PC_Controller" for hierarchy "PC_Controller:pc1_ctrl" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 26
+Warning (10034): Output port "target" at PC_Controller.sv(5) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/PC_Controller.sv Line: 5
+Info (12128): Elaborating entity "instr_ROM" for hierarchy "instr_ROM:instructions" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 36
+Warning (10850): Verilog HDL warning at instr_ROM.sv(10): number of words (0) in memory file does not match the number of elements in the address range [0:4095] File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv Line: 10
+Warning (10030): Net "core.data_a" at instr_ROM.sv(8) has no driver or initial value, using a default initial value '0' File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv Line: 8
+Warning (10030): Net "core.waddr_a" at instr_ROM.sv(8) has no driver or initial value, using a default initial value '0' File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv Line: 8
+Warning (10030): Net "core.we_a" at instr_ROM.sv(8) has no driver or initial value, using a default initial value '0' File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv Line: 8
+Info (12128): Elaborating entity "decoderModule" for hierarchy "decoderModule:dec1" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 43
+Warning (10034): Output port "opcode" at decoder.sv(3) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/decoder.sv Line: 3
+Warning (10034): Output port "operand1" at decoder.sv(4) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/decoder.sv Line: 4
+Warning (10034): Output port "operand2" at decoder.sv(6) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/decoder.sv Line: 6
+Info (12128): Elaborating entity "immediate_ctrl" for hierarchy "immediate_ctrl:immediate_ctrl1" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 55
+Warning (10034): Output port "immediateValue" at immediate_Controller.sv(6) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/immediate_Controller.sv Line: 6
+Info (12128): Elaborating entity "reg_file" for hierarchy "reg_file:rf1" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 72
+Info (12128): Elaborating entity "mux_2x1" for hierarchy "mux_2x1:reg_dat_mux" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 79
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu1" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 98
+Warning (10034): Output port "rslt" at alu.sv(6) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/alu.sv Line: 6
+Warning (10034): Output port "doBranch" at alu.sv(8) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/alu.sv Line: 8
+Info (12128): Elaborating entity "dat_mem" for hierarchy "dat_mem:dm1" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 117
+Info (12128): Elaborating entity "Control" for hierarchy "Control:ctrl1" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 132
+Warning (10034): Output port "immOrLUT" at Control.sv(5) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 5
+Warning (10034): Output port "imm_ctr" at Control.sv(5) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 5
+Warning (10034): Output port "jump_en" at Control.sv(6) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
+Warning (10034): Output port "numBits" at Control.sv(6) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
+Warning (10034): Output port "doSWAP" at Control.sv(6) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
+Warning (10034): Output port "RegWrite" at Control.sv(6) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
+Warning (10034): Output port "MemWrite" at Control.sv(6) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
+Warning (10034): Output port "ALU_in2_ctr" at Control.sv(6) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
+Warning (10034): Output port "regfile_dat_ctr" at Control.sv(6) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 6
+Warning (10034): Output port "regfile_wr_ctr" at Control.sv(8) has no driver File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv Line: 8
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "done" is stuck at GND File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 4
+    Warning (13410): Pin "done" is stuck at GND File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 4
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 3
-    Warning (15610): No output dependent on input pin "reset" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 3
-    Warning (15610): No output dependent on input pin "req" File: C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 3
+    Warning (15610): No output dependent on input pin "clk" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 3
+    Warning (15610): No output dependent on input pin "reset" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 3
+    Warning (15610): No output dependent on input pin "req" File: C:/Users/ruhu/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv Line: 3
 Info (21057): Implemented 4 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 1 output pins
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
-    Info: Peak virtual memory: 4745 megabytes
-    Info: Processing ended: Sun Feb  5 20:12:03 2023
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 4752 megabytes
+    Info: Processing ended: Thu Mar  2 14:02:54 2023
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:18
 
 
