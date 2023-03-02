@@ -22,8 +22,8 @@ SHIFT_LEFT_I R0 2 // R1 is now either 8 or 0
 MOVI R1 0
 STORE_TOP_BYTE R1 1 // R0 = bit_to_correct now. Done checking freebie P8. Store updated bit_to_correct to memory
 MOV R1 R3  // Copy LSW to R1, processing P4:
-NOP 0
-SHIFT_RIGHT_I R1 3 // Do not shift left SHIFT_LEFT_I R1 3 // Only take last 4 bit
+SHIFT_RIGHT_I R1 3
+SHIFT_LEFT_I R1 3 // Only take last 4 bit
 MOV R0 R2 // Copy MSB to R2
 SHIFT_LEFT_I R0 3 // Only take last 4 bit
 ADD R1 R0 // Now R1 can be used to check P4
