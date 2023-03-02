@@ -61,7 +61,7 @@ MOVI R1 0
 STORE_TOP_BYTE R1 1 // Done checking freebie P1s. Store updated bit_to_correct to memory ---------Done checking P8, P4, P2, and P1 above.
 MOV R0 R2  // Copy MSW to R0                                                             ---------Checking P0 below:
 MOV R1 R3  // Copy LSW to R1
-XOR_REG R0 R0  
+XOR_REG R0 R0
 XOR_REG R1 R1
 SHIFT_LEFT_I R0 0
 ADD R0 R1
@@ -95,6 +95,7 @@ MOV R1 R0 // Restored B1 and save that in LSB in R1 for now
 MOV R0 R3 // Copy LSW to R0 again
 SHIFT_RIGHT_I R0 3
 SHIFT_RIGHT_I R0 0 // Only save B2-B4
+SHIFT_LEFT_I R0 0 // Save space for B1
 ADD R1 R0 // Restored B1-B4 now
 MOV R0 R2 // Copy MSW to R0
 SHIFT_RIGHT_I R0 0 // Squeeze out P8
