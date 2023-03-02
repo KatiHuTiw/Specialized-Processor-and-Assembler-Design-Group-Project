@@ -22,8 +22,8 @@ SHIFT_LEFT_I R0 2 // R1 is now either 8 or 0
 MOVI R1 0
 STORE_TOP_BYTE R1 1 // R0 = bit_to_correct now. Done checking freebie P8. Store updated bit_to_correct to memory
 MOV R1 R3  // Copy LSW to R1, processing P4:
-SHIFT_LEFT_I R1 3 // Only take last 4 bit
-SHIFT_RIGHT_I R1 3
+NOP 0
+SHIFT_RIGHT_I R1 3 // Do not shift left SHIFT_LEFT_I R1 3 // Only take last 4 bit
 MOV R0 R2 // Copy MSB to R2
 SHIFT_LEFT_I R0 3 // Only take last 4 bit
 ADD R1 R0 // Now R1 can be used to check P4
@@ -66,7 +66,7 @@ XOR_REG R1 R1
 SHIFT_LEFT_I R0 0
 ADD R0 R1
 XOR_REG R0 R0
-MOVI R1 0
+MOVI R1 1
 BEQ +1 // Checked P0 above, and P0 matches, and R0 and R1 both have 0                    ---------Done checking P0 above.
 B_LOOKUP notOneError // go to notOneError: If P0 does not match, there is one error to fix----------------------------- Fixing 1 error
 LOAD_TOP_BYTE R1 1 // Retrieve bit_to_correct from memory to R0 to check
