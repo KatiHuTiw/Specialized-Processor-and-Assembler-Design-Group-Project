@@ -126,7 +126,7 @@ MOVI R1 0 // Store the decoded MSB, which is now in R3
 LOAD_TOP_BYTE R1 2 // Now R0 contains wr_addr
 SWAP R0 R3
 STORE_BYTE R3 1 // Now the current message is all decoded and stored ----------------- Done decoding the current 2-word message!
-ADDI R3 2 // Increment wr_addr by 2
+ADDI R3 1 // Increment wr_addr by 2
 MOV R0 R3
 MOVI R3 0
 STORE_TOP_BYTE R3 2 // Put updated wr_addr to top of memory
@@ -134,7 +134,7 @@ MOVI R0 0
 STORE_TOP_BYTE R3 1 // Restore bit_to_correct to 0 for next iteration (Just in case)
 STORE_TOP_BYTE R3 3 // Restore double_error to 0 for next iteration
 LOAD_TOP_BYTE R3 2 // Let R0 = read_bytes
-ADDI R0 2 // Increment read_bytes by 2
+ADDI R0 1 // Increment read_bytes by 2
 STORE_TOP_BYTE R3 2 // Store the updated read_bytes
 MOV R2 R0
 SHIFT_RIGHT_I R0 3
