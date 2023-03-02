@@ -35,10 +35,10 @@ ADD R0 R1
 MOVI R1 0
 STORE_TOP_BYTE R1 1 // Done checking freebie P4. Store updated bit_to_correct to memory
 MOV R1 R3  // Copy LSW to R1, processing P2:
-AND_MASK_LOOKUP R1 1 // Mask with 00110011
-SHIFT_LEFT_I R1 1 // Left shift R1 by 2
+AND_MASK_LOOKUP R1 1 // Mask with 11001100
+SHIFT_RIGHT_I R1 1 // Left shift R1 by 2
 MOV R0 R2 // Copy MSB to R2
-AND_MASK_LOOKUP R0 1 // Mask with 00110011
+AND_MASK_LOOKUP R0 1 // Mask with 11001100
 ADD R1 R0 // Now R1 can be used to check P2
 XOR_REG R1 R1
 SHIFT_LEFT_I R1 0 // R1 is now either 2 or 0
@@ -48,10 +48,10 @@ ADD R0 R1
 MOVI R1 0
 STORE_TOP_BYTE R1 1 // Done checking freebie P2. Store updated bit_to_correct to memory
 MOV R1 R3  // Copy LSW to R1, processing P1:
-AND_MASK_LOOKUP R1 2 // Mask with 01010101
-SHIFT_LEFT_I R1 0 // Left shift R1 by 1
+AND_MASK_LOOKUP R1 2 // Mask with 10101010
+SHIFT_RIGHT_I R1 0 // Left shift R1 by 1
 MOV R0 R2 // Copy MSB to R2
-AND_MASK_LOOKUP R0 2 // Mask with 01010101
+AND_MASK_LOOKUP R0 2 // Mask with 10101010
 ADD R1 R0 // Now R1 can be used to check P1
 XOR_REG R1 R1
 MOVI R0 0
