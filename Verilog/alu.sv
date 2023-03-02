@@ -97,8 +97,8 @@ always_comb begin
 	AND_MASK_LOOKUP: begin // Added command for P2 Alt Version
 		case(inB)
 			'b0000: rslt = inA & ('b00000111);
-			'b0001: rslt = inA & ('b00110011);
-			'b0010: rslt = inA & ('b01010101);
+			'b0001: rslt = inA & ('b11001100);
+			'b0010: rslt = inA & ('b10101010);
 			default: rslt =inA & ('b11100000);
 		endcase
 	end
