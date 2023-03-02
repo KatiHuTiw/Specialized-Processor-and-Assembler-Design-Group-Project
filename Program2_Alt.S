@@ -101,7 +101,7 @@ SHIFT_RIGHT_I R0 0 // Squeeze out P8
 SHIFT_LEFT_I R0 3 // Retain B5-B8
 ADD R1 R0  // Now R1 has decoded B1-B8
 MOVI R0 0 // to get wr_addr
-LOAD_TOP_BYTE R0 0 // Now R0 = wr_addr
+LOAD_TOP_BYTE R0 2 // Now R0 = wr_addr
 SWAP R1 R0
 STORE_BYTE R1 0 // Write decoded D1-8 to memory
 MOV R0 R2 // Copy MSW to R0
@@ -115,22 +115,22 @@ MOVI R1 1
 SHIFT_LEFT_I R1 3
 SHIFT_LEFT_I R1 1 // Move the 1 bit left by 6 times to change F0 to 1
 ADD R3 R1 // Put F0 in the message to store
-MOV R1 0
+MOVI R1 0
 LOAD_TOP_BYTE R1 3 // Now R0 contains double_error
 BEQ +4 //Skip changing F1 to 1 if there is no double error
 MOVI R1 1
 SHIFT_LEFT_I R1 3
 SHIFT_LEFT_I R1 2 // Move the 1 bit left by 7 times to change F1 to 1
 ADD R3 R1 // Put F1 in the message to store
-MOV R1 0 // Store the decoded MSB, which is now in R3
-LOAD_TOP_BYTE R1 0 // Now R0 contains wr_addr
+MOVI R1 0 // Store the decoded MSB, which is now in R3
+LOAD_TOP_BYTE R1 2 // Now R0 contains wr_addr
 SWAP R0 R3
 STORE_BYTE R3 1 // Now the current message is all decoded and stored ----------------- Done decoding the current 2-word message!
 ADDI R3 2 // Increment wr_addr by 2
 MOV R0 R3
-MOV R3 0
-STORE_TOP_BYTE R3 0 // Put updated wr_addr to top of memory
-MOV R0 0
+MOVI R3 0
+STORE_TOP_BYTE R3 2 // Put updated wr_addr to top of memory
+MOVI R0 0
 STORE_TOP_BYTE R3 1 // Restore bit_to_correct to 0 for next iteration (Just in case)
 STORE_TOP_BYTE R3 3 // Restore double_error to 0 for next iteration
 LOAD_TOP_BYTE R3 2 // Let R0 = read_bytes
@@ -139,7 +139,7 @@ STORE_TOP_BYTE R3 2 // Store the updated read_bytes
 MOV R2 R0
 SHIFT_RIGHT_I R0 3
 SHIFT_RIGHT_I R0 0 // If R0 = read_bytes == 32, then R0 == 1 now
-MOV R1 1
+MOVI R1 1
 BEQ +2 // If R0 = read_bytes == 32, terminate the program with DONE instruction
 MOV R1 R2 // Put updated read_bytes in R1 to start the next iteration
 B_LOOKUP startOfLoopP2Alt
