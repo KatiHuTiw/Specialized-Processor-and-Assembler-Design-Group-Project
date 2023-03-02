@@ -138,6 +138,7 @@ ADDI R0 1 // Increment read_bytes by 2
 STORE_TOP_BYTE R3 0 // Store the updated read_bytes
 MOV R2 R0
 LOAD_TOP_BYTE R3 2 // Let R0 = wr_addr
+ADDI R0 1 // Increment wr_addr by 2 to check
 SHIFT_RIGHT_I R0 3
 SHIFT_RIGHT_I R0 0 // If R0 = wr_addr == 32, then R0 == 1 now
 MOVI R1 1
