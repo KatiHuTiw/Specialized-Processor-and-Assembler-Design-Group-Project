@@ -13,9 +13,9 @@ MOVI R3 0
 STORE_TOP_BYTE R3 0 // Now read_bytes = 30
 MOV R1 R0 // Restore R0 to 0, start reading from mem 0
 LOAD_BYTE R1 0 // startOfLoopP2Alt: Now R0 = mem[0], R1 should contain read_bytes                                   ---------Start loop by checking P8, P4, P2, and P1:
-SWAP R0 R3 // Let R3 store LSW
+MOV R3 R0 // Let R3 store LSW
 LOAD_BYTE R1 1 // Now R0 = mem[0], R1 should still contain read_bytes
-SWAP R0 R2 // Let R2 store MSW
+MOV R2 R0 // Let R2 store MSW
 MOV R0 R2  // Copy MSW to R1, processing freebie P8:
 XOR_REG R0 R0
 SHIFT_LEFT_I R0 2 // R1 is now either 8 or 0
@@ -107,7 +107,7 @@ STORE_BYTE R1 0 // Write decoded D1-8 to memory
 MOV R0 R2 // Copy MSW to R0
 SHIFT_RIGHT_I R0 3
 SHIFT_RIGHT_I R0 0 // Only save B9-B11
-MOV R0 R3 // Save this value in R3, the input message is no longer needed at this point
+MOV R3 R0 // Save this value in R3, the input message is no longer needed at this point
 MOVI R1 0 // Retrieve bit_to_correct from memory to R0 to check---------------------------- Dealing with 2 errors or no error below:
 LOAD_TOP_BYTE R1 1
 BEQ +4 // No need to report single error
