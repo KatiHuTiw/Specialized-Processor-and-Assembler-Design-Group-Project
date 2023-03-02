@@ -133,9 +133,9 @@ STORE_TOP_BYTE R3 2 // Put updated wr_addr to top of memory
 MOVI R0 0
 STORE_TOP_BYTE R3 1 // Restore bit_to_correct to 0 for next iteration (Just in case)
 STORE_TOP_BYTE R3 3 // Restore double_error to 0 for next iteration
-LOAD_TOP_BYTE R3 2 // Let R0 = read_bytes
+LOAD_TOP_BYTE R3 0 // Let R0 = read_bytes
 ADDI R0 1 // Increment read_bytes by 2
-STORE_TOP_BYTE R3 2 // Store the updated read_bytes
+STORE_TOP_BYTE R3 0 // Store the updated read_bytes
 MOV R2 R0
 SHIFT_RIGHT_I R0 3
 SHIFT_RIGHT_I R0 0 // If R0 = read_bytes == 32, then R0 == 1 now
