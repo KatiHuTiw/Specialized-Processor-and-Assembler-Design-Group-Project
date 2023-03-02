@@ -9,9 +9,9 @@ MOVI R0 3
 SHIFT_LEFT_I R0 1 // left shift 'b11 by 2
 ADDI R0 3
 SHIFT_LEFT_I R0 0 // left shift 'b1111 by 1 to get 30
-MOV R3 R0
+MOVI R3 0
 STORE_TOP_BYTE R3 0 // Now read_bytes = 30
-MOVI R1 0 // Restore R0 to 0, start reading from mem 0
+MOV R1 R0 // Restore R0 to 0, start reading from mem 0
 LOAD_BYTE R1 0 // startOfLoopP2Alt: Now R0 = mem[0], R1 should contain read_bytes                                   ---------Start loop by checking P8, P4, P2, and P1:
 SWAP R0 R3 // Let R3 store LSW
 LOAD_BYTE R1 1 // Now R0 = mem[0], R1 should still contain read_bytes
