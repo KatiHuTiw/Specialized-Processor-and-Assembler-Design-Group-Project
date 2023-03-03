@@ -25,8 +25,7 @@ MOV R1 R3  // Copy LSW to R1, processing P4:
 SHIFT_RIGHT_I R1 3
 SHIFT_LEFT_I R1 3 // Only take last 4 bit
 MOV R0 R2 // Copy MSB to R2
-SHIFT_RIGHT_I R0 3
-SHIFT_LEFT_I R0 3 // Only take last 4 bit
+SHIFT_RIGHT_I R0 3 // Only take last 4 bit
 ADD R1 R0 // Now R1 can be used to check P4
 XOR_REG R1 R1
 SHIFT_LEFT_I R1 1 // R1 is now either 4 or 0
