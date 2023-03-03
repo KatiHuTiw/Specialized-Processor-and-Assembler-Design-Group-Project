@@ -49,7 +49,7 @@ initial begin
     d2_bad1[i] = d2_good[i] ^ (1'b1<<flip[i]);
 // flip second bit about 25% of the time (flip2<16)		// 00_0010     1010
 // if flip2[5:4]!=0, flip2 will have no effect, and we'll have a one-bit flip
-    flip2[i] = $random;	   // 'b0;
+    flip2[i] =$random;	   // 'b0;
 	d2_bad[i] = d2_bad1[i] ^ (1'b1<<flip2[i]);
 // if flip2[5:4]==0 && flip2[3:0]==flip, then flip2 undoes flip, so no error
 	DUT.dm1.core[31+2*i] = {d2_bad[i][15:8]};
@@ -73,7 +73,7 @@ initial begin
 	  end
 	  else
 	    $display("erroneous output");
-	  $display("expected %b, got %b",{5'b01000,d1_in[i]},{DUT.dm1.core[1+2*i],DUT.dm1.core[0+2*i]});
+	  $display("expected %b, got %b",{5'b01000,d2_in[i]},{DUT.dm1.core[1+2*i],DUT.dm1.core[0+2*i]});
 	end	 :sgl_err
 
     else if(flip2[i][3:0]==flip[i]) begin :no_err       // zero error scenario: flip2 undoes flip
@@ -84,7 +84,7 @@ initial begin
 	  end
 	  else
 	    $display("erroneous output");
-	  $display("expected %b, got %b",{5'b00000,d1_in[i]},{DUT.dm1.core[1+2*i],DUT.dm1.core[0+2*i]});
+	  $display("expected %b, got %b",{5'b00000,d2_in[i]},{DUT.dm1.core[1+2*i],DUT.dm1.core[0+2*i]});
     end	:no_err
 
 	else begin :dbl_err									// two-error scenario; time to give up and raise the white flag
