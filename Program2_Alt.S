@@ -73,6 +73,7 @@ LOAD_TOP_BYTE R1 1 // Retrieve bit_to_correct from memory to R0 to check
 MOVI R1 1
 SHIFT_LEFT R1 R0
 XOR R3 R1 //Fix lower 8 bits if error occurs there
+SHIFT_RIGHT R1 R0
 MOVI R0 0
 BEQ +1 // Bit 1 is getting pushed off, so error is not in the LSW
 B +5 // Bit 1 is not pushed off, so error is in LSW and it's fixed, go straight to store the decoded message
