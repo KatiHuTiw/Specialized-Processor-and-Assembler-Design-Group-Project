@@ -25,6 +25,7 @@ MOV R1 R3  // Copy LSW to R1, processing P4:
 SHIFT_RIGHT_I R1 3
 SHIFT_LEFT_I R1 3 // Only take last 4 bit
 MOV R0 R2 // Copy MSB to R2
+SHIFT_RIGHT_I R0 3
 SHIFT_LEFT_I R0 3 // Only take last 4 bit
 ADD R1 R0 // Now R1 can be used to check P4
 XOR_REG R1 R1
@@ -74,7 +75,7 @@ MOVI R1 1
 SHIFT_LEFT R1 R0
 XOR R3 R1 //Fix lower 8 bits if error occurs there
 SHIFT_RIGHT R1 R0
-MOVI R0 1
+MOVI R0 0
 BEQ +1 // Bit 1 is getting pushed off, so error is not in the LSW
 B +5 // Bit 1 is not pushed off, so error is in LSW and it's fixed, go straight to store the decoded message
 LOAD_TOP_BYTE R0 1 // Retrieve bit_to_correct from memory to fix MSB
