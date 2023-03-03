@@ -22,8 +22,8 @@ SHIFT_LEFT_I R0 2 // R1 is now either 8 or 0
 MOVI R1 0
 STORE_TOP_BYTE R1 1 // R0 = bit_to_correct now. Done checking freebie P8. Store updated bit_to_correct to memory
 MOV R1 R3  // Copy LSW to R1, processing P4:
-SHIFT_LEFT_I R1 3 // Only take last 4 bit
 SHIFT_RIGHT_I R1 3
+SHIFT_LEFT_I R1 3 // Only take last 4 bit
 MOV R0 R2 // Copy MSB to R2
 SHIFT_LEFT_I R0 3 // Only take last 4 bit
 ADD R1 R0 // Now R1 can be used to check P4
@@ -35,10 +35,10 @@ ADD R0 R1
 MOVI R1 0
 STORE_TOP_BYTE R1 1 // Done checking freebie P4. Store updated bit_to_correct to memory
 MOV R1 R3  // Copy LSW to R1, processing P2:
-AND_MASK_LOOKUP R1 1 // Mask with 00110011
-SHIFT_LEFT_I R1 1 // Left shift R1 by 2
+AND_MASK_LOOKUP R1 1 // Mask with 11001100
+SHIFT_RIGHT_I R1 1 // Left shift R1 by 2
 MOV R0 R2 // Copy MSB to R2
-AND_MASK_LOOKUP R0 1 // Mask with 00110011
+AND_MASK_LOOKUP R0 1 // Mask with 11001100
 ADD R1 R0 // Now R1 can be used to check P2
 XOR_REG R1 R1
 SHIFT_LEFT_I R1 0 // R1 is now either 2 or 0
@@ -48,10 +48,10 @@ ADD R0 R1
 MOVI R1 0
 STORE_TOP_BYTE R1 1 // Done checking freebie P2. Store updated bit_to_correct to memory
 MOV R1 R3  // Copy LSW to R1, processing P1:
-AND_MASK_LOOKUP R1 2 // Mask with 01010101
-SHIFT_LEFT_I R1 0 // Left shift R1 by 1
+AND_MASK_LOOKUP R1 2 // Mask with 10101010
+SHIFT_RIGHT_I R1 0 // Left shift R1 by 1
 MOV R0 R2 // Copy MSB to R2
-AND_MASK_LOOKUP R0 2 // Mask with 01010101
+AND_MASK_LOOKUP R0 2 // Mask with 10101010
 ADD R1 R0 // Now R1 can be used to check P1
 XOR_REG R1 R1
 MOVI R0 0
@@ -61,12 +61,12 @@ MOVI R1 0
 STORE_TOP_BYTE R1 1 // Done checking freebie P1s. Store updated bit_to_correct to memory ---------Done checking P8, P4, P2, and P1 above.
 MOV R0 R2  // Copy MSW to R0                                                             ---------Checking P0 below:
 MOV R1 R3  // Copy LSW to R1
-XOR_REG R0 R0  
+XOR_REG R0 R0
 XOR_REG R1 R1
 SHIFT_LEFT_I R0 0
 ADD R0 R1
 XOR_REG R0 R0
-MOVI R1 0
+MOVI R1 1
 BEQ +1 // Checked P0 above, and P0 matches, and R0 and R1 both have 0                    ---------Done checking P0 above.
 B_LOOKUP notOneError // go to notOneError: If P0 does not match, there is one error to fix----------------------------- Fixing 1 error
 LOAD_TOP_BYTE R1 1 // Retrieve bit_to_correct from memory to R0 to check
@@ -95,6 +95,7 @@ MOV R1 R0 // Restored B1 and save that in LSB in R1 for now
 MOV R0 R3 // Copy LSW to R0 again
 SHIFT_RIGHT_I R0 3
 SHIFT_RIGHT_I R0 0 // Only save B2-B4
+SHIFT_LEFT_I R0 0 // Save space for B1
 ADD R1 R0 // Restored B1-B4 now
 MOV R0 R2 // Copy MSW to R0
 SHIFT_RIGHT_I R0 0 // Squeeze out P8

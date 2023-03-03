@@ -2,7 +2,7 @@
 clk => clk.IN3
 reset => reset.IN1
 req => ~NO_FANOUT~
-done <= <GND>
+done << <GND>
 
 
 |top_level|PC:pc1
