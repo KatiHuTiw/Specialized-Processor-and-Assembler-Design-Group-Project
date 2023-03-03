@@ -16,7 +16,7 @@ LOAD_BYTE R1 0 // startOfLoopP2Alt: Now R0 = mem[0], R1 should contain read_byte
 MOV R3 R0 // Let R3 store LSW
 LOAD_BYTE R1 1 // Now R0 = mem[0], R1 should still contain read_bytes
 MOV R2 R0 // Let R2 store MSW
-MOV R0 R2  // Copy MSW to R1, processing freebie P8:
+MOV R0 R2  // Copy MSW to R0, processing freebie P8:
 XOR_REG R0 R0
 SHIFT_LEFT_I R0 2 // R1 is now either 8 or 0
 MOVI R1 0
@@ -36,7 +36,7 @@ MOVI R1 0
 STORE_TOP_BYTE R1 1 // Done checking freebie P4. Store updated bit_to_correct to memory
 MOV R1 R3  // Copy LSW to R1, processing P2:
 AND_MASK_LOOKUP R1 1 // Mask with 11001100
-SHIFT_RIGHT_I R1 1 // Left shift R1 by 2
+SHIFT_RIGHT_I R1 1 // Right shift R1 by 2
 MOV R0 R2 // Copy MSB to R2
 AND_MASK_LOOKUP R0 1 // Mask with 11001100
 ADD R1 R0 // Now R1 can be used to check P2
@@ -69,7 +69,7 @@ XOR_REG R0 R0
 MOVI R1 1
 BEQ +1 // Checked P0 above, and P0 matches, and R0 and R1 both have 0                    ---------Done checking P0 above.
 B_LOOKUP notOneError // go to notOneError: If P0 does not match, there is one error to fix----------------------------- Fixing 1 error
-LOAD_TOP_BYTE R1 1 // Retrieve bit_to_correct from memory to R0 to check
+LOAD_TOP_BYTE R1 0 // Retrieve bit_to_correct from memory to R0 to check
 MOVI R1 1
 SHIFT_LEFT R1 R0
 XOR R3 R1 //Fix lower 8 bits if error occurs there
