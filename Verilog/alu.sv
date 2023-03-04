@@ -90,6 +90,7 @@ always_comb begin
 			'b0011: rslt = 'b01011011;
 			'b0100: rslt = 'b00000110;
 			'b0101: rslt = 'b00000101;
+			'b0110: rslt = 'b00001110;
 			default: rslt ='b00000000;
 		endcase
 	end
