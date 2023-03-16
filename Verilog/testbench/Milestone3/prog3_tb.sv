@@ -17,12 +17,12 @@ logic[  7:0] mat_str[32];      // message string parsed into bytes
 
 // your device goes here
 // explicitly list ports if your names differ from test bench's
-top_level DUT(.clk, start(req),.ack(done));	               // replace "proc" with the name of your top level module
+top_level DUT(.clk, .reset(req),.done(done));	               // replace "proc" with the name of your top level module
 
 initial begin
 // program 3
 // pattern we are looking for; experiment w/ various values
-  pat = 5'b0000;//5'b10101;//$random;
+  pat = 5'b10101;//$random;   5'b0000;//
   str2 = 0;
   DUT.dm1.core[32] = pat;
   for(int i=0; i<32; i++) begin
@@ -49,7 +49,7 @@ initial begin
   end        	    
   #10ns req   = 1'b1;      // pulse request to DUT
   #10ns req   = 1'b0;
-  wait(ack);               // wait for ack from DUT
+  wait(done);               // wait for ack from DUT
   $display();
   $display("start program 3");
   $display();
