@@ -144,7 +144,7 @@ MOV R2 R0 // R2 now has mem[31] back up
 ADDI R1 0 // Let R1 = 32
 LOAD_BYTE R1 0 // R0 now has the pattern
 MOV R1 R0 // Let R1 hold the pattern
-NOP // SHIFT_RIGHT_I R1 2 // Push the pattern to the far right and start matching the last byte's upper 4 bits
+NOP 0 // SHIFT_RIGHT_I R1 2 // Push the pattern to the far right and start matching the last byte's upper 4 bits
 MOV R2 R0 // R2 = R0 = mem[read_bytes]
 SHIFT_RIGHT_I R0 2 // R0 = R0 >> 3
 BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
