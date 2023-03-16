@@ -15,7 +15,7 @@ assign target = offset;
 				4'b1101: offset = 12'b111101111001;        // Go to startOfLoopP2Alt, -130
 				4'b1100: offset = 12'b000000001001;   // Skip the increments in P3, +9
 				4'b1110: offset = 12'b000000001110;   // Go to notOneError for Program 2 Alt, +13
-				4'b1111: offset = 12'b111101111011;   // Go to startOfLoopP3 for Program 3, -120
+				4'b1111: offset = 12'b111101111011;   // Go to startOfLoopP3 for Program 3, -133
 				default: offset = 12'b0;  // hold PC  
 		endcase
 	end
