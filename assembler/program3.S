@@ -23,10 +23,10 @@ SWAP R3 R0 // Now R3 has read_bytes
 LOAD_BYTE R3 0 // R0 now has mem[read_bytes]       !!!startOfLoopP3:
 MOV R2 R0 // R2 = R0 = mem[read_bytes]
 SHIFT_RIGHT_I R0 2 // R0 = R0 >> 3
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B skipIncrementP3
 MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +7
 ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -37,10 +37,10 @@ STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
 MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 0
 SHIFT_RIGHT_I R0 2
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B skipIncrementP3
 MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +7
 ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -51,10 +51,10 @@ STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
 MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 1
 SHIFT_RIGHT_I R0 2
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B skipIncrementP3
 MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +7
 ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -65,10 +65,10 @@ STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
 MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 2
 SHIFT_RIGHT_I R0 2
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B skipIncrementP3
 MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +7
 ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -147,10 +147,10 @@ MOV R1 R0 // Let R1 hold the pattern
 SHIFT_RIGHT_I R1 2 // Push the pattern to the far right and start matching the last byte's upper 4 bits
 MOV R2 R0 // R2 = R0 = mem[read_bytes]
 SHIFT_RIGHT_I R0 2 // R0 = R0 >> 3
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B skipIncrementP3
 MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +7
 ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -161,10 +161,10 @@ STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
 MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 0
 SHIFT_RIGHT_I R0 2
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B skipIncrementP3
 MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +7
 ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -175,10 +175,10 @@ STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
 MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 1
 SHIFT_RIGHT_I R0 2
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B skipIncrementP3
 MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +7
 ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
@@ -189,10 +189,10 @@ STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
 MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 2
 SHIFT_RIGHT_I R0 2
+BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
+B skipIncrementP3
 MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
-BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
-B +7
 ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
