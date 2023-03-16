@@ -134,7 +134,6 @@ STORE_TOP_BYTE R3 1 // Set found_in_this_byte to 0 for the current byte
 MOVI R3 0
 LOAD_TOP_BYTE R3 0 // Now R0 = read_bytes
 MOVI R1 2 // R1 = 0b10
-SHIFT_LEFT_I R1 0
 SHIFT_LEFT_I R1 3 // R1 = 0b100000 = 32
 MOVI R3 1
 SUB R1 R3 // Now R1 = 0b11111 = 31
