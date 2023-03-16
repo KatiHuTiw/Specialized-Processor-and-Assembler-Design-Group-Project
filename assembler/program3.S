@@ -6,7 +6,7 @@ MOVI R0 0
 STORE_TOP_BYTE R0 2 // found_byte_cnt = 0
 MOVI R0 0
 STORE_TOP_BYTE R0 3 // cross_patter_cnt = 0
-MOVI R3 2
+MOVI R3 2 // !!! This line is the startOfLoopP3:
 SHIFT_LEFT_I R3 3 // R3 = 0b100000 = 32 // [SHIFT_LEFT Opcode] 11 11 for a total shift amount of 4
 LOAD_BYTE R3 0 // Now R0 = mem[32]
 SHIFT_RIGHT_I R0 2 // R0 = R0 >> 3
@@ -20,7 +20,7 @@ STORE_TOP_BYTE R3 1 // Set found_in_this_byte to 0 for the current byte
 MOVI R3 0
 LOAD_TOP_BYTE R3 0
 SWAP R3 R0 // Now R3 has read_bytes
-LOAD_BYTE R3 0 // R0 now has mem[read_bytes]       !!!startOfLoopP3:
+LOAD_BYTE R3 0 // R0 now has mem[read_bytes]       
 MOV R2 R0 // R2 = R0 = mem[read_bytes]
 SHIFT_RIGHT_I R0 2 // R0 = R0 >> 3
 BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
