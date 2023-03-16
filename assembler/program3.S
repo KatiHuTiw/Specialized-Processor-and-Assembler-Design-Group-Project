@@ -138,7 +138,6 @@ SHIFT_LEFT_I R1 3 // R1 = 0b100000 = 32
 MOVI R3 1
 SUB R1 R3 // Now R1 = 0b11111 = 31
 BEQ +1 // If this is the last byte, terminate the loop
-B +1
 B_LOOKUP startOfLoopP3 // Make sure R0 has read_bytes before branching back. Otherwise Loop terminated, wrapping up, check the upper 4 bits of the last byte
 LOAD_BYTE R1 0 // R0 now has mem[31]
 MOV R2 R0 // R2 now has mem[31] back up
