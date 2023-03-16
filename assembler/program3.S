@@ -9,8 +9,8 @@ STORE_TOP_BYTE R0 3 // cross_patter_cnt = 0
 MOVI R3 2 // !!! This line is the startOfLoopP3:
 SHIFT_LEFT_I R3 3 // R3 = 0b100000 = 32 // [SHIFT_LEFT Opcode] 11 11 for a total shift amount of 4
 LOAD_BYTE R3 0 // Now R0 = mem[32]
-SHIFT_RIGHT_I R0 2 // R0 = R0 >> 3
-SHIFT_LEFT_I R0 2 // R0 = R0 << 3 // Now the lower 3 bits in R0 are zeroed out
+NOP 0 //SHIFT_RIGHT_I R0 2 // R0 = R0 >> 3
+NOP 0 //SHIFT_LEFT_I R0 2 // R0 = R0 << 3 // Now the lower 3 bits in R0 are zeroed out
 STORE_BYTE R3 0 // Put the clean version back in, might not need this line
 SWAP R0 R1 // Now R1 = mem[32], the pattern to search
 SHIFT_RIGHT_I R1 2 // R1 = R1 >> 3
