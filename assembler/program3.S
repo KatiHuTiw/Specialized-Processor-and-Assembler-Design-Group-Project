@@ -27,10 +27,10 @@ MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
 BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +7
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOVI R0 1
 STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
@@ -41,10 +41,10 @@ MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
 BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +7
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOVI R0 1
 STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
@@ -55,10 +55,10 @@ MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
 BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +7
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOVI R0 1
 STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
@@ -69,16 +69,16 @@ MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
 BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +7
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOVI R0 1
 STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
 MOVI R3 0
 LOAD_TOP_BYTE R3 0
-ADDI R0 1 // Increment read_bytes
+ADDI R0 0 // Increment read_bytes
 STORE_TOP_BYTE R3 0 // Store the incremented read_bytes
 LOAD_UPPER_H_BYTE R0 0 // Now R0 has mem[read_bytes+1]
 SHIFT_RIGHT_I R0 3 // Push the 4 upper bits in mem[read_bytes+1] to the right
@@ -90,7 +90,7 @@ BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +4
 MOVI R3 1
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 0
@@ -99,7 +99,7 @@ BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +4
 MOVI R3 1
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 1
@@ -108,7 +108,7 @@ BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +4
 MOVI R3 1
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOV R0 R2 // R0 now has mem[read_bytes], stored in R2
 SHIFT_LEFT_I R0 2
@@ -117,7 +117,7 @@ BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +4
 MOVI R3 1
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOVI R1 1
 LOAD_TOP_BYTE R1 1 // Now R0 = found_byte_cnt
@@ -125,7 +125,7 @@ MOV R2 R0 // Let R2 = found_byte_cnt
 LOAD_TOP_BYTE R1 3 // Now R0 = found_in_this_byte
 BEQ +1 // Skip the next line if found_in_this_byte == 1
 B +1
-ADDI R2 1 // increment found_byte_cnt only if found_in_this_byte == 1
+ADDI R2 0 // increment found_byte_cnt only if found_in_this_byte == 1
 MOV R0 R2 // Start here if found_in_this_byte != 1
 STORE_TOP_BYTE R1 1 // Now R0 = updated found_byte_cnt
 MOVI R0 0 // Reset found_in_this_byte to 0
@@ -141,7 +141,7 @@ BEQ +1 // If this is the last byte, terminate the loop
 B_LOOKUP startOfLoopP3 // Make sure R0 has read_bytes before branching back. Otherwise Loop terminated, wrapping up, check the upper 4 bits of the last byte
 LOAD_BYTE R1 0 // R0 now has mem[31]
 MOV R2 R0 // R2 now has mem[31] back up
-ADDI R1 1 // Let R1 = 32
+ADDI R1 0 // Let R1 = 32
 LOAD_BYTE R1 0 // R0 now has the pattern
 MOV R1 R0 // Let R1 hold the pattern
 SHIFT_RIGHT_I R1 2 // Push the pattern to the far right and start matching the last byte's upper 4 bits
@@ -151,10 +151,10 @@ MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
 BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +7
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOVI R0 1
 STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
@@ -165,10 +165,10 @@ MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
 BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +7
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOVI R0 1
 STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
@@ -179,10 +179,10 @@ MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
 BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +7
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOVI R0 1
 STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
@@ -193,10 +193,10 @@ MOVI R3 1
 LOAD_TOP_BYTE R3 0 // R0 = nocross_patter_cnt
 BEQ +1 // Skip the next line if R0 = R1, meaning the pattern matches
 B +7
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 0 // Increment nocross_patter_cnt
 LOAD_TOP_BYTE R3 2 // R0 = cross_patter_cnt
-ADDI R0 1
+ADDI R0 0
 STORE_TOP_BYTE R3 2 // Increment cross_patter_cnt
 MOVI R0 1
 STORE_TOP_BYTE R3 3 // Set found_in_this_byte to 1 for the current byte
@@ -206,7 +206,7 @@ MOV R2 R0 // Let R2 = found_byte_cnt
 LOAD_TOP_BYTE R1 3 // Now R0 = found_in_this_byte
 BEQ +1 // Skip the next line if found_in_this_byte == 1
 B +1
-ADDI R2 1 // increment found_byte_cnt only if found_in_this_byte == 1
+ADDI R2 0 // increment found_byte_cnt only if found_in_this_byte == 1
 MOV R0 R2 // Start here if found_in_this_byte != 1 // Store the final results
 MOVI R3 2 // Start storing found_byte_cnt
 SHIFT_LEFT_I R3 3 // R3 = 0b100000 = 32
