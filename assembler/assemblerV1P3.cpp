@@ -93,7 +93,7 @@ int main(){
     init_maps();
     
     // open file to read
-    ifstream file_to_read("./program3.S"); 
+    ifstream file_to_read("../program3.S"); 
     // open file to write
     ofstream file_to_write("Program3_machine_code.txt");
 
