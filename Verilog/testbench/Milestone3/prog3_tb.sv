@@ -24,7 +24,7 @@ initial begin
 // pattern we are looking for; experiment w/ various values
   pat = 5'b10101; //{5'b0000,3'b000};//{5'b10101,3'b000}; {$random,3'b101}
   str2 = 0;
-  DUT.dm1.core[32] = {pat,3'b000};
+  DUT.dm1.core[32] = {pat,3'b000}; // Put the pattern in MSB
   for(int i=0; i<32; i++) begin
 // search field; experiment w/ various vales
     mat_str[i] = 8'b01010101;// $random; 8'b00000000;//
