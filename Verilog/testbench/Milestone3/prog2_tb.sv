@@ -32,7 +32,7 @@ bit  [15:0] score2, case2;
 
 // your device goes here
 // explicitly list ports if your names differ from test bench's
-top_level DUT(.clk, .reset(req), .done);	 // replace "top_level" with the name of your top level module
+top_level DUT(.clk(clk), .reset(req), .done(done));	 // replace "top_level" with the name of your top level module
 
 initial begin
 // generate parity from random 11-bit messages 
@@ -49,7 +49,7 @@ initial begin
     d2_bad1[i] = d2_good[i] ^ (1'b1<<flip[i]);
 // flip second bit about 25% of the time (flip2<16)		// 00_0010     1010
 // if flip2[5:4]!=0, flip2 will have no effect, and we'll have a one-bit flip
-    flip2[i] =$random;	   // 'b0;
+    flip2[i] = $random;	   // 'b0;
 	d2_bad[i] = d2_bad1[i] ^ (1'b1<<flip2[i]);
 // if flip2[5:4]==0 && flip2[3:0]==flip, then flip2 undoes flip, so no error
 	DUT.dm1.core[31+2*i] = {d2_bad[i][15:8]};
