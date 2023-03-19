@@ -1,0 +1,19 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src {C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/top_level.sv}
+vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src {C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/reg_file.sv}
+vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src {C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/PC_Controller.sv}
+vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src {C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/PC.sv}
+vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src {C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/MUX2x1.sv}
+vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src {C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/immediate_Controller.sv}
+vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src {C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/decoder.sv}
+vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src {C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/dat_mem.sv}
+vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src {C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/Control.sv}
+vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src {C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/alu.sv}
+vlog -sv -work work +incdir+C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src {C:/Users/Hurl3/Desktop/CSE141LTermProject/SystemVerilog/src/instr_ROM.sv}
+

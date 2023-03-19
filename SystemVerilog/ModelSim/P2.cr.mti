@@ -19,7 +19,7 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	decoderModule
 
-} {} {}} C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/Milestone3/prog3_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/Milestone3/prog3_tb.sv
+} {} {}} C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/testbench/Milestone3/prog3_tb.sv {1 {vlog -work work -sv -stats=none {C:\Users\Hurl3\Desktop\CSE141LTermProject\Verilog\testbench\Milestone3\prog3_tb.sv}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module prog3_tb
 
@@ -82,19 +82,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Control
 
-} {} {}} C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv {1 {vlog -work work -sv -stats=none C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module immediate_ctrl
-
-Top level modules:
-	immediate_ctrl
-
 } {} {}} C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/top_level.sv {1 {vlog -work work -sv -stats=none C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/top_level.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module top_level
 
 Top level modules:
 	top_level
+
+} {} {}} C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv {1 {vlog -work work -sv -stats=none C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/immediate_Controller.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module immediate_ctrl
+
+Top level modules:
+	immediate_ctrl
 
 } {} {}} C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/milestone2_quicktest_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/Hurl3/Desktop/CSE141LTermProject/Verilog/milestone2_quicktest_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016

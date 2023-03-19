@@ -7,7 +7,7 @@ Sim Mode              :  RTL
 Family                :  cycloneive
 Quartus root          :  c:/intelfpga_lite/21.1/quartus/bin64/
 Quartus sim root      :  c:/intelfpga_lite/21.1/quartus/eda/sim_lib
-Simulation Tool       :  modelsim
+Simulation Tool       :  questa intel fpga
 Simulation Language   :  verilog
 Simulation Mode       :  GUI
 Sim Output File       :  
@@ -16,8 +16,8 @@ Sim dir               :  simulation\modelsim
 
 =======================================================
 
-Info: Starting NativeLink simulation with ModelSim software
+Info: Starting NativeLink simulation with Questa Intel FPGA software
 Sourced NativeLink script c:/intelfpga_lite/21.1/quartus/common/tcl/internal/nativelink/modelsim.tcl
-Warning: File top_level_run_msim_rtl_verilog.do already exists - backing up current file as top_level_run_msim_rtl_verilog.do.bak1
-Info: Spawning ModelSim Simulation software 
+Warning: File top_level_run_msim_rtl_verilog.do already exists - backing up current file as top_level_run_msim_rtl_verilog.do.bak5
+Info: Spawning Questa Intel FPGA Simulation software 
 Info: NativeLink simulation flow was successful
