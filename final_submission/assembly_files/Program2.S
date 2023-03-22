@@ -7,6 +7,7 @@ STORE_TOP_BYTE R0 3 // double_error = 0
 MOVI R0 0 // Zero our R0
 MOVI R1 1
 STORE_TOP_BYTE R1 3 // single_error = 0
+MOVI R0 1
 SHIFT_LEFT_I R0 1 // left shift 'b11 by 2
 ADDI R0 2
 SHIFT_LEFT_I R0 0 // left shift 'b1111 by 1 to get 30
@@ -112,7 +113,7 @@ MOV R0 R2 // Copy MSW to R0
 SHIFT_RIGHT_I R0 3
 SHIFT_RIGHT_I R0 0 // Only save B9-B11
 MOV R3 R0 // Save this value in R3, the input message is no longer needed at this point
-MOVI R1 1 // Retrieve bit_to_correct from memory to R0 to check---------------------------- Dealing with 2 errors or no error below:
+MOVI R1 1 // Retrieve single_error from memory to R0 to check---------------------------- Dealing with 2 errors or no error below:
 LOAD_TOP_BYTE R1 3
 BEQ +1 // Report single error
 B +4 // Skip if no need to report single error
