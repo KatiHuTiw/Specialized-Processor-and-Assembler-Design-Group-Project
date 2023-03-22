@@ -5,7 +5,8 @@ STORE_TOP_BYTE R0 1 // bit_to_correct = 0
 MOVI R0 0
 STORE_TOP_BYTE R0 3 // double_error = 0
 MOVI R0 0 // Zero our R0
-MOVI R0 3
+MOVI R1 1
+STORE_TOP_BYTE R1 3 // single_error = 0
 SHIFT_LEFT_I R0 1 // left shift 'b11 by 2
 ADDI R0 2
 SHIFT_LEFT_I R0 0 // left shift 'b1111 by 1 to get 30
@@ -69,6 +70,7 @@ XOR_REG R0 R0
 MOVI R1 1
 BEQ +1 // Checked P0 above, and P0 matches, and R0 and R1 both have 0                    ---------Done checking P0 above.
 B_LOOKUP notOneError // go to notOneError: If P0 does not match, there is one error to fix----------------------------- Fixing 1 error
+STORE_TOP_BYTE R1 3 // single_error = 1 now
 LOAD_TOP_BYTE R1 0 // Retrieve bit_to_correct from memory to R0 to check
 MOVI R1 1
 SHIFT_LEFT R1 R0
@@ -110,9 +112,10 @@ MOV R0 R2 // Copy MSW to R0
 SHIFT_RIGHT_I R0 3
 SHIFT_RIGHT_I R0 0 // Only save B9-B11
 MOV R3 R0 // Save this value in R3, the input message is no longer needed at this point
-MOVI R1 0 // Retrieve bit_to_correct from memory to R0 to check---------------------------- Dealing with 2 errors or no error below:
-LOAD_TOP_BYTE R1 1
-BEQ +4 // No need to report single error
+MOVI R1 1 // Retrieve bit_to_correct from memory to R0 to check---------------------------- Dealing with 2 errors or no error below:
+LOAD_TOP_BYTE R1 3
+BEQ +1 // Report single error
+B +4 // Skip if no need to report single error
 MOVI R1 1
 SHIFT_LEFT_I R1 3
 SHIFT_LEFT_I R1 1 // Move the 1 bit left by 6 times to change F0 to 1

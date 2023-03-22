@@ -1,0 +1,6 @@
+MAIN_LOOP 0000
+EXIT 0001
+startOfLoopP3 1111
+notOneError 1110
+startOfLoopP2Alt 1101
+skipIncrementP3 1100
