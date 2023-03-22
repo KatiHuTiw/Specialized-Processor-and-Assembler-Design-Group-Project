@@ -93,9 +93,9 @@ int main(){
     init_maps();
     
     // open file to read
-    ifstream file_to_read("Program1.S"); 
+    ifstream file_to_read("../assembly_files/Program1.S"); 
     // open file to write
-    ofstream file_to_write("Program1_machine_code.txt");
+    ofstream file_to_write("machine_code.txt");
 
     string line;
     string word;
