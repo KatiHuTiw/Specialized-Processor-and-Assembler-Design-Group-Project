@@ -12,7 +12,7 @@ assign target = offset;
 		case(pc_ctrl_input)
 			// Send signed bits. ALL VALUES IN THE LUT ARE SIGNED!!!!
 				4'b0000: offset = 12'b111110011011;   // go back 105 spaces prog 1
-				4'b1101: offset = 12'b111101110110;        // Go to startOfLoopP2Alt, -133
+				4'b1101: offset = 12'b111101110100;        // Go to startOfLoopP2Alt, -135
 				4'b1100: offset = 12'b000000001001;   // Skip the increments in P3, +9
 				4'b1110: offset = 12'b000000001111;   // Go to notOneError for Program 2 Alt, +14
 				4'b1111: offset = 12'b111101111011;   // Go to startOfLoopP3 for Program 3, -133
